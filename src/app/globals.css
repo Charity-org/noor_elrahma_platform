@@ -3,6 +3,28 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@utility container {
+  width: 100%;
+  margin-inline: auto;
+
+  @media (width >= 40rem) {
+    max-width: 40rem;
+  }
+  @media (width >= 48rem) {
+    max-width: 48rem;
+  }
+  @media (width >= 64rem) {
+    max-width: 64rem;
+  }
+  @media (width >= 80rem) {
+    max-width: 80rem;
+  }
+  @media (width >= 96rem) {
+    max-width: 85%; /* Scale with screen size */
+    max-width: min(85vw, 140rem);
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
