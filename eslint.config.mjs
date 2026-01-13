@@ -15,6 +15,7 @@ const eslintConfig = defineConfig([
       "prettier/prettier": "error",
     },
   },
+  prettierConfig,
 ]);
 
-export default [...eslintConfig, prettierConfig];
+export default eslintConfig;
