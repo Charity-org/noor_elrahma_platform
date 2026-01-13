@@ -7,7 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint-staged": "lint-staged",
+    "check-format": "prettier --check .",
+    "check-lint": "eslint .",
+    "format": "prettier --write .",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",
