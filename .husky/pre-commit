@@ -1,13 +1,16 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo "🔍 Running lint-staged checks..."
-npm run lint-staged || (echo "❌ lint-staged failed. Please fix the issues and try again." && exit 1)
+echo "🔍 Step 1: Running lint-staged (Auto-formatting & Linting staged files)..."
+npm run lint:staged || (echo "❌ Step 1 failed. Please fix the staged issues and try again." && exit 1)
 
-echo "📝 Checking code format..."
-npm run check-format || (echo "❌ Code formatting issues found. Please run 'npm run format' and commit again." && exit 1)
+echo "🛡️  Step 2: Type-checking (Ensuring codebase is type-safe)..."
+npm run type-check || (echo "❌ Step 2 failed. Type errors found. Please fix them and commit again." && exit 1)
 
-echo "🔎 Running lint checks..."
-npm run check-lint || (echo "❌ ESLint issues found. Please run 'npm run lint' and to fix run 'npx eslint . --fix' and commit again." && exit 1)
+echo "📝 Step 3: Verifying code format (Prettier check)..."
+npm run format:check || (echo "❌ Step 3 failed. Formatting issues detected. Run 'npm run format' and commit again." && exit 1)
+
+echo "🔎 Step 4: Final lint check (ESLint)..."
+npm run lint || (echo "❌ Step 4 failed. Lint errors found. Run 'npx eslint . --fix' and commit again." && exit 1)
 
 echo "✅ All checks passed! 🚀✨ Preparing to commit... 🔐"
