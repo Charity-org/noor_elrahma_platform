@@ -4,8 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @utility container {
-  width: 100%;
-  margin-inline: auto;
+  @apply w-full mx-auto px-4;
 
   @media (width >= 40rem) {
     max-width: 40rem;
@@ -153,5 +152,15 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .navLink {
+    @apply relative text-[16px] font-bold font-inter after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:rounded-full after:bg-third after:transition-all hover:after:w-full;
+  }
+
+  .responsive-nav {
+    @apply fixed top-24 left-0 w-full pt-28 px-16 space-y-28 h-screen -z-10 md:hidden bg-primary transition-all duration-500 ease-in-out;
   }
 }

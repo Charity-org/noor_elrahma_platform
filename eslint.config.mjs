@@ -11,9 +11,7 @@ const eslintConfig = defineConfig([
     plugins: {
       prettier: prettierPlugin,
     },
-    rules: {
-      "prettier/prettier": "error",
-    },
+    rules: {},
   },
   prettierConfig,
 ]);
