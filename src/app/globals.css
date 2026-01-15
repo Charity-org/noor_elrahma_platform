@@ -163,4 +163,8 @@
   .responsive-nav {
     @apply fixed top-24 left-0 w-full pt-28 px-16 space-y-28 h-screen -z-10 md:hidden bg-primary transition-all duration-500 ease-in-out;
   }
+
+  .overlay {
+    @apply bg-linear-to-b from-black/0 to-black w-full h-full absolute top-0 left-0 z-10;
+  }
 }
