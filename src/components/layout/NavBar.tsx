@@ -8,8 +8,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import BurgerBtn from "@/components/layout/BurgerBtn";
 
-import { cn } from "@/lib/utils";
-
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathName = usePathname();
