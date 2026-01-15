@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${teachers.variable} antialiased`}>
         <NavBar />
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );

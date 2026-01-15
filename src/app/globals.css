@@ -151,7 +151,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground min-h-[5000px];
   }
 }
 
@@ -162,5 +162,21 @@
 
   .responsive-nav {
     @apply fixed top-24 left-0 w-full pt-28 px-16 space-y-28 h-screen -z-10 md:hidden bg-primary transition-all duration-500 ease-in-out;
+  }
+
+  .overlay {
+    @apply bg-linear-to-b from-black/0 to-black w-full h-full absolute top-0 left-0 z-10;
+  }
+
+  .hero_embla {
+    @apply overflow-hidden h-[calc(100vh-98px)];
+
+    .hero_embla__container {
+      @apply flex h-full;
+    }
+
+    .hero_embla__slide {
+      @apply flex-1 min-w-full h-full;
+    }
   }
 }
