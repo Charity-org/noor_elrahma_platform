@@ -73,4 +73,19 @@ const heroData = [
   },
 ];
 
-export { heroData };
+const howItWorksData = [
+  {
+    title: "Choose Project",
+  },
+  {
+    title: "Donate the amount you like",
+  },
+  {
+    title: "Register on our website",
+  },
+  {
+    title: "Stay tuned about cause",
+  },
+];
+
+export { heroData, howItWorksData };
