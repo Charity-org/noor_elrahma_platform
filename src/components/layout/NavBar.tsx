@@ -8,8 +8,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import BurgerBtn from "@/components/layout/BurgerBtn";
 
-import { cn } from "@/lib/utils";
-
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathName = usePathname();
@@ -42,7 +40,7 @@ const NavBar = () => {
     },
   ];
   return (
-    <header className="bg-primary relative z-50">
+    <header className="bg-primary z-50 sticky top-0 left-0 w-full">
       {/* main navbar */}
       <nav className="container flex justify-between items-center py-5">
         <Image src="/assets/logo.png" alt="Noor Elrahmat Logo" width={44} height={58} />
