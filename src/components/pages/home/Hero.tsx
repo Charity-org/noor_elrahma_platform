@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 5000, stopOnInteraction: false }),
+    Autoplay({ delay: 10000, stopOnInteraction: false }),
   ]);
   return (
     <div className="hero_embla" ref={emblaRef}>
@@ -43,11 +43,11 @@ const Hero = () => {
               <div className="flex items-center gap-10">
                 <Button
                   variant={"outline"}
-                  className="text-third px-4 md:px-6 py-6 md:w-[15ch] bg-transparent border-third cursor-pointer font-teachers text-lg md:text-2xl font-bold hover:bg-third/10 hover:text-third"
+                  className="text-third px-4 md:px-6 md:py-10 py-6 md:w-[15ch] bg-transparent border-third cursor-pointer font-teachers text-lg md:text-2xl font-bold hover:bg-third/10 hover:text-third"
                 >
                   View Project
                 </Button>
-                <Button className="bg-third md:px-6 px-4 py-6 md:w-[15ch] cursor-pointer hover:bg-third/80 md:text-2xl text-lg font-teachers">
+                <Button className="bg-third px-4 md:px-6 md:py-10 py-6 md:w-[15ch] cursor-pointer hover:bg-third/80 md:text-2xl text-lg font-teachers">
                   Donate Now
                 </Button>
               </div>
