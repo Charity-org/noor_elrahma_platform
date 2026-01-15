@@ -14,7 +14,7 @@ const HowItWorks = () => {
         />
       </div>
 
-      <div className="w-full lg:w-1/2 flex flex-col gap-8">
+      <div className="w-full lg:w-1/2 flex flex-col gap-8 justify-between">
         <h2 className="text-[clamp(2rem,4vw,4rem)] font-bold font-teachers text-primary leading-[1.1]">
           Transforming Good Intentions into Good Actions
         </h2>

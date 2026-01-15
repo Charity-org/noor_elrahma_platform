@@ -58,7 +58,7 @@ const NavBar = () => {
           ))}
         </ul>
 
-        <Button className="bg-third hover:bg-third/90 cursor-pointer capitalize hidden md:block">
+        <Button className="bg-third hover:bg-third/90 cursor-pointer rounded-[16px]! h-12 text-[20px] capitalize hidden md:block md:w-[15ch] font-teachers font-bold">
           donate now
         </Button>
 
