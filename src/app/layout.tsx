@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Inter, Teachers } from "next/font/google";
 
 import NavBar from "@/components/layout/NavBar";
-
 import "./globals.css";
 
 const inter = Inter({
