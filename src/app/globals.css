@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @utility container {
-  @apply w-full mx-auto px-4;
+  @apply w-full px-4 mx-auto;
 
   @media (width >= 40rem) {
     max-width: 40rem;
@@ -151,7 +151,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground min-h-[5000px];
+    @apply bg-background text-foreground min-h-[10000px];
   }
 }
 
@@ -161,11 +161,15 @@
   }
 
   .responsive-nav {
-    @apply fixed top-24 left-0 w-full pt-28 px-16 space-y-28 h-screen -z-10 md:hidden bg-primary transition-all duration-500 ease-in-out;
+    @apply fixed left-0 w-full h-screen px-16 transition-all duration-500 ease-in-out top-24 pt-28 space-y-28 -z-10 md:hidden bg-primary;
   }
 
   .overlay {
-    @apply bg-linear-to-b from-black/0 to-black w-full h-full absolute top-0 left-0 z-10;
+    @apply absolute top-0 left-0 z-10 w-full h-full bg-linear-to-b from-black/0 to-black;
+  }
+
+  .main_title {
+    @apply font-bold font-teachers text-[clamp(1.8rem,4vw,3.15rem)];
   }
 
   .hero_embla {
@@ -176,7 +180,7 @@
     }
 
     .hero_embla__slide {
-      @apply flex-1 min-w-full h-full;
+      @apply flex-1 h-full min-w-full;
     }
   }
 
