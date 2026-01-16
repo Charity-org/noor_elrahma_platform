@@ -252,4 +252,149 @@ const recentProjects = [
   },
 ];
 
-export { heroData, howItWorksData, recentProjects };
+const completedProjects = [
+  {
+    id: "1",
+    imageSrc: "/assets/water_well_project.png",
+    title: "Water Well Project",
+    startDate: "18/2/2026",
+    country: "Gambia",
+    description:
+      "Providing clean and safe water to families in need by building sustainable water wells in underserved communities.",
+    progress: 100,
+    goal: 12000,
+    raised: 8000,
+    donations: 20,
+    actions: {
+      viewProject: {
+        title: "View Project",
+        link: "",
+      },
+    },
+  },
+  {
+    id: "2",
+    imageSrc: "/assets/quran_project.png",
+    title: "Quran Distribution Project",
+    startDate: "18/2/2026",
+    country: "Gambia",
+    description:
+      "Distributing Qurans to individuals and communities to support education, faith, and daily spiritual life.",
+    progress: 100,
+    goal: 12000,
+    raised: 8000,
+    donations: 20,
+    actions: {
+      viewProject: {
+        title: "View Project",
+        link: "",
+      },
+    },
+  },
+  {
+    id: "3",
+    imageSrc: "/assets/ramdan_project.png",
+    title: "Ramadan Food Package Project",
+    startDate: "18/2/2026",
+    country: "Gambia",
+    description:
+      "Providing essential food supplies to families in need during the holy month of Ramadan to support their fasting and daily needs.",
+    progress: 100,
+    goal: 12000,
+    raised: 8000,
+    donations: 20,
+    actions: {
+      viewProject: {
+        title: "View Project",
+        link: "",
+      },
+    },
+  },
+  {
+    id: "4",
+    imageSrc: "/assets/water_well_project.png",
+    title: "Winter Clothing Drive",
+    startDate: "18/2/2026",
+    country: "Gambia",
+    description:
+      "Distributing warm clothing and blankets to vulnerable individuals and families to protect them from the cold weather.",
+    progress: 100,
+    goal: 12000,
+    raised: 8000,
+    donations: 20,
+    actions: {
+      viewProject: {
+        title: "View Project",
+        link: "",
+      },
+    },
+  },
+  {
+    id: "5",
+    imageSrc: "/assets/quran_project.png",
+    title: "Educational Materials Donation",
+    startDate: "18/2/2026",
+    country: "Gambia",
+    description:
+      "Donating educational materials such as textbooks, notebooks, and stationery to schools and educational institutions to support learning and education.",
+    progress: 100,
+    goal: 12000,
+    raised: 8000,
+    donations: 20,
+    actions: {
+      viewProject: {
+        title: "View Project",
+        link: "",
+      },
+    },
+  },
+  {
+    id: "6",
+    imageSrc: "/assets/ramdan_project.png",
+    title: "Eid Clothing Drive",
+    startDate: "18/2/2026",
+    country: "Gambia",
+    description:
+      "Providing new clothes and shoes to children and families in need for the Eid celebration.",
+    progress: 100,
+    goal: 12000,
+    raised: 8000,
+    donations: 20,
+    actions: {
+      viewProject: {
+        title: "View Project",
+        link: "",
+      },
+    },
+  },
+  {
+    id: "7",
+    imageSrc: "/assets/water_well_project.png",
+    title: "Water Well Project",
+    startDate: "18/2/2026",
+    country: "Gambia",
+    description:
+      "Providing clean and safe water to families in need by building sustainable water wells in underserved communities.",
+    progress: 100,
+    goal: 12000,
+    raised: 8000,
+    donations: 20,
+    actions: {
+      viewProject: {
+        title: "View Project",
+        link: "",
+      },
+    },
+  },
+];
+
+const someRealProjectsData = [
+  "/assets/howitworks.png",
+  "/assets/real-pr-1.png",
+  "/assets/real-pr-2.png",
+  "/assets/real-pr-3.png",
+  "/assets/real-pr-4.png",
+  "/assets/real-pr-5.png",
+];
+
+export { heroData, howItWorksData, recentProjects, completedProjects, someRealProjectsData };

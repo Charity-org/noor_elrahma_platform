@@ -2,6 +2,7 @@
 
 import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
+
 import { DotButton, useDotButton } from "@/components/ui/EmblaCarouselDotButton";
 import {
   NextButton,
@@ -9,6 +10,7 @@ import {
   usePrevNextButtons,
 } from "@/components/ui/EmblaCarouselArrowButtons";
 import ProjectCard from "./ProjectCard";
+
 import { Project } from "@/types/layoutTypes";
 
 import "../../styles/emblaCarouselSlidesPerView.css";

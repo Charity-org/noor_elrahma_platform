@@ -4,17 +4,17 @@ import { howItWorksData } from "@/constants/layoutData";
 
 const HowItWorks = () => {
   return (
-    <section className="container flex gap-16 mt-32 flex-col lg:flex-row">
+    <section className="container flex flex-col gap-16 lg:flex-row">
       <div className="relative w-full lg:w-1/2 h-[clamp(20rem,80vw,32.4rem)] rounded-4xl overflow-hidden">
         <Image
           src="/assets/howitworks.png"
           alt="how-it-works"
-          className="absolute top-0 w-full h-full object-cover"
+          className="absolute top-0 object-cover w-full h-full"
           fill
         />
       </div>
 
-      <div className="w-full lg:w-1/2 flex flex-col gap-8 justify-between">
+      <div className="flex flex-col justify-between w-full gap-8 lg:w-1/2">
         <h2 className="text-[clamp(2rem,4vw,4rem)] font-bold font-teachers text-primary leading-[1.1]">
           Transforming Good Intentions into Good Actions
         </h2>
@@ -24,16 +24,16 @@ const HowItWorks = () => {
           action, supported by clear reporting and real results on the ground.
         </p>
 
-        <div className="flex gap-7 md:gap-10 md:items-center md:flex-row flex-col">
+        <div className="flex flex-col gap-7 md:gap-10 md:items-center md:flex-row">
           <div className="flex flex-col gap-7">
             {howItWorksData.map(
               (item, index) =>
                 index < 2 && (
                   <h4 key={`${item.title}-${index}`} className="flex items-center gap-4">
-                    <span className="rounded-full w-8 h-8 flex items-center justify-center bg-primary text-white font-teachers font-bold">
+                    <span className="flex items-center justify-center w-8 h-8 font-bold text-white rounded-full bg-primary font-teachers">
                       {index + 1}
                     </span>
-                    <span className="font-teachers font-semibold">{item.title}</span>
+                    <span className="font-semibold font-teachers">{item.title}</span>
                   </h4>
                 ),
             )}
@@ -44,10 +44,10 @@ const HowItWorks = () => {
               (item, index) =>
                 index >= 2 && (
                   <h4 key={`${item.title}-${index}`} className="flex items-center gap-4">
-                    <span className="rounded-full w-8 h-8 flex items-center justify-center bg-primary text-white font-teachers font-bold">
+                    <span className="flex items-center justify-center w-8 h-8 font-bold text-white rounded-full bg-primary font-teachers">
                       {index + 1}
                     </span>
-                    <span className="font-teachers font-semibold">{item.title}</span>
+                    <span className="font-semibold font-teachers">{item.title}</span>
                   </h4>
                 ),
             )}
