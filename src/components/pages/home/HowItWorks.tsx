@@ -4,7 +4,7 @@ import { howItWorksData } from "@/constants/layoutData";
 
 const HowItWorks = () => {
   return (
-    <section className="container flex gap-16 mt-24 flex-col lg:flex-row">
+    <section className="container flex gap-16 mt-32 flex-col lg:flex-row">
       <div className="relative w-full lg:w-1/2 h-[clamp(20rem,80vw,32.4rem)] rounded-4xl overflow-hidden">
         <Image
           src="/assets/howitworks.png"
