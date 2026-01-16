@@ -24,7 +24,7 @@ interface Project {
       title: string;
       link: string;
     };
-    donateNow: {
+    donateNow?: {
       title: string;
       link: string;
     };

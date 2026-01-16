@@ -17,23 +17,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           alt="Project Image"
           width={1024}
           height={1024}
-          className="w-full h-64 object-cover group-hover:scale-105 transition-all duration-300 ease-in-out"
+          className="object-cover w-full h-64 transition-all duration-300 ease-in-out group-hover:scale-105"
         />
       </CardHeader>
 
-      <CardContent className="grow space-y-6 px-6 py-4">
-        <div className="font-inter space-y-3">
+      <CardContent className="px-6 py-4 space-y-6 grow">
+        <div className="space-y-3 font-inter">
           <h2 className="font-bold font-teachers text-[28px]">{project.title.slice(0, 18)}...</h2>
           <p className="font-medium text-[12px] text-gray-600">Started: {project.startDate}</p>
           <p className="text-gray-600 font-medium text-[12px]">
-            Country: <span className="font-inter font-bold text-third">{project.country}</span>
+            Country: <span className="font-bold font-inter text-third">{project.country}</span>
           </p>
           <p className="text-[16px] text-black/60">{project.description.slice(0, 60)}...</p>
         </div>
 
         <ProgressBar className="w-full h-3" value={project.progress} />
 
-        <div className="font-inter flex flex-col gap-2">
+        <div className="flex flex-col gap-2 font-inter">
           <h4 className="font-bold text-[16px] flex items-center gap-2 justify-between">
             <span>Goal: ${project.goal}</span>
             <span>{project.donations}</span>
@@ -47,9 +47,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       </CardContent>
 
       <CardFooter className="flex flex-col gap-6 px-6 pb-6 shrink-0">
-        <Button className="w-full h-15 text-[16px] font-bold font-teachers rounded-2xl! cursor-pointer">
-          Donate Now
-        </Button>
+        {project.actions.donateNow && (
+          <Button className="w-full h-15 text-[16px] font-bold font-teachers rounded-2xl! cursor-pointer">
+            Donate Now
+          </Button>
+        )}
         <Button
           variant={"outline"}
           className="w-full h-15 text-[16px] border-primary text-primary font-bold font-teachers rounded-2xl! hover:bg-secondary-hover cursor-pointer"

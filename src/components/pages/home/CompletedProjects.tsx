@@ -1,10 +1,10 @@
 import CarouselProjects from "@/components/custom/CarouselProjects";
 import { Button } from "@/components/ui/button";
-import { recentProjects } from "@/constants/layoutData";
+import { completedProjects } from "@/constants/layoutData";
 
 const CompletedProjects = () => {
   return (
-    <section className="container mt-32">
+    <section className="container">
       <div className="flex items-center justify-between gap-5 mb-16">
         <h2 className="font-bold font-teachers text-[clamp(1.8rem,4vw,3.15rem)]">
           Completed Projects
@@ -17,7 +17,7 @@ const CompletedProjects = () => {
         </Button>
       </div>
 
-      <CarouselProjects projects={recentProjects} />
+      <CarouselProjects projects={completedProjects} />
     </section>
   );
 };
