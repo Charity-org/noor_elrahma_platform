@@ -2,14 +2,14 @@ import Image from "next/image";
 
 function About() {
   return (
-    <section className="container flex mt-12 md:mt-24 mb-16 flex-col md:flex-row gap-10">
+    <section className="container flex flex-col md:flex-row gap-10">
       <div className="relative w-full md:w-1/2 h-[clamp(35rem,40vw,30rem)]">
         <Image
           src="/assets/about.jpg"
           alt="About-project"
-          fill
+          width={480}
+          height={480}
           className="rounded-4xl object-cover h-full w-full"
-          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
 
