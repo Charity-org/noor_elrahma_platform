@@ -179,4 +179,47 @@
       @apply flex-1 min-w-full h-full;
     }
   }
+
+  .real-project-embla {
+    --slide-height: 19rem;
+    --slide-spacing: 1rem;
+    --slide-size: 100%;
+
+    @media (width >= 40rem) {
+      --slide-size: 50%;
+    }
+
+    @media (width >= 64rem) {
+      --slide-size: 25%;
+    }
+
+    @apply w-full mx-auto overflow-hidden;
+
+    .real-project-embla__container {
+      @apply flex touch-pan-y;
+      backface-visibility: hidden;
+      margin-left: calc(var(--slide-spacing) * -1);
+    }
+
+    .real-project-embla__slide {
+      @apply relative min-w-0;
+      flex: 0 0 var(--slide-size);
+      padding-left: var(--slide-spacing);
+      transform: translate3d(0, 0, 0);
+    }
+
+    .real-project-embla__parallax {
+      @apply overflow-hidden rounded-2xl flex justify-center items-center;
+      height: var(--slide-height);
+    }
+
+    .real-project-embla__parallax__layer {
+      @apply relative h-full max-w-none;
+      flex: 0 0 calc(180% + (var(--slide-spacing) * 2));
+    }
+
+    .real-project-embla__parallax__img {
+      @apply object-cover;
+    }
+  }
 }
