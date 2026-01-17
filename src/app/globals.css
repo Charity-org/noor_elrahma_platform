@@ -151,7 +151,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground min-h-[10000px];
+    @apply bg-background text-foreground min-h-2500;
   }
 }
 
@@ -170,17 +170,5 @@
 
   .main_title {
     @apply font-bold font-teachers text-[clamp(1.8rem,4vw,3.15rem)];
-  }
-
-  .hero_embla {
-    @apply overflow-hidden h-[calc(100vh-98px)];
-
-    .hero_embla__container {
-      @apply flex h-full;
-    }
-
-    .hero_embla__slide {
-      @apply flex-1 h-full min-w-full;
-    }
   }
 }

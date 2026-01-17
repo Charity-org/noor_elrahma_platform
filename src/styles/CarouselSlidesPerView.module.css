@@ -6,9 +6,9 @@
   --slide-spacing-sm: 1.6rem;
   --slide-size-sm: 50%;
   --slide-spacing-md: 1rem;
-  --slide-size-md: calc(100% / 2);
+  --slide-size-md: 50%;
   --slide-spacing-lg: 1rem;
-  --slide-size-lg: calc(100% / 3);
+  --slide-size-lg: 33.333333333333336%;
   --slide-spacing-xl: 1.5rem;
   --slide-size-xl: calc(100% / 5);
 }
@@ -121,11 +121,11 @@
     color 0.3s ease;
 }
 
-.embla__button--prev {
+.embla__button__prev {
   @apply border text-(--color-primary)/20 border-(--color-primary)/20;
 }
 
-.embla__button--next {
+.embla__button__next {
   @apply border text-(--color-primary)/20 border-(--color-primary)/20;
 }
 
@@ -133,17 +133,17 @@
   background-color: #e6f0ec;
 }
 
-.embla__button--active {
+.embla__button__active {
   background-color: var(--color-primary);
   color: var(--color-background);
   @apply border-(--color-primary);
 }
 
-.embla__button--active:hover {
+.embla__button__active:hover {
   background-color: #145a43;
 }
 
-.embla__button:disabled {
+.embla__button__disabled {
   color: var(--detail-high-contrast);
 }
 .embla__button__svg {
@@ -186,6 +186,6 @@
   border-radius: 50%;
   transition: background-color 0.3s ease;
 }
-.embla__dot--selected {
+.embla__dot__selected {
   background-color: #145a43;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { EmblaOptionsType } from "embla-carousel";
+import { EmblaOptionsType, EmblaPluginType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 
 import { DotButton, useDotButton } from "@/components/ui/EmblaCarouselDotButton";
@@ -10,20 +10,21 @@ import {
   usePrevNextButtons,
 } from "@/components/ui/EmblaCarouselArrowButtons";
 import ProjectCard from "./ProjectCard";
+import { cn } from "@/lib/utils";
 
 import { Project } from "@/types/layoutTypes";
 
-import "../../styles/emblaCarouselSlidesPerView.css";
+import styles from "../../styles/CarouselSlidesPerView.module.css";
 
 type PropType = {
   projects: Project[];
   options?: EmblaOptionsType;
+  plugins?: EmblaPluginType[];
 };
-
 const CarouselProjects: React.FC<PropType> = (props) => {
-  const { projects, options } = props;
+  const { projects, options, plugins = [] } = props;
   const defaultOptions: EmblaOptionsType = { loop: true, ...options };
-  const [emblaRef, emblaApi] = useEmblaCarousel(defaultOptions);
+  const [emblaRef, emblaApi] = useEmblaCarousel(defaultOptions, plugins);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 
@@ -31,30 +32,51 @@ const CarouselProjects: React.FC<PropType> = (props) => {
     usePrevNextButtons(emblaApi);
 
   return (
-    <div className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
+    <div className={styles.embla}>
+      <div className={styles.embla__viewport} ref={emblaRef}>
+        <div className={styles.embla__container}>
           {projects.map((project) => (
-            <div className="embla__slide" key={project.id}>
+            <div className={styles.embla__slide} key={project.id}>
               <ProjectCard project={project} />
             </div>
           ))}
         </div>
       </div>
 
-      <div className="embla__controls">
-        <div className="embla__buttons">
-          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} isActive={atEnd} />
-          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} isActive={!atEnd} />
+      <div className={styles.embla__controls}>
+        <div className={styles.embla__buttons}>
+          <PrevButton
+            onClick={onPrevButtonClick}
+            disabled={prevBtnDisabled}
+            isActive={atEnd}
+            className={cn(
+              styles.embla__button,
+              styles.embla__button__prev,
+              atEnd && styles.embla__button__active,
+            )}
+            svgClassName={styles.embla__button__svg}
+          />
+          <NextButton
+            onClick={onNextButtonClick}
+            disabled={nextBtnDisabled}
+            isActive={!atEnd}
+            className={cn(
+              styles.embla__button,
+              styles.embla__button__next,
+              !atEnd && styles.embla__button__active,
+            )}
+            svgClassName={styles.embla__button__svg}
+          />
         </div>
 
-        <div className="embla__dots">
+        <div className={styles.embla__dots}>
           {scrollSnaps.map((_, index) => (
             <DotButton
               key={index}
               onClick={() => onDotButtonClick(index)}
-              className={"embla__dot".concat(
-                index === selectedIndex ? " embla__dot--selected" : "",
+              className={cn(
+                styles.embla__dot,
+                index === selectedIndex && styles.embla__dot__selected,
               )}
             />
           ))}
