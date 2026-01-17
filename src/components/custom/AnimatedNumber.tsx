@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useMotionValue, useTransform, animate, useInView } from "motion/react";
 import { useEffect, useRef } from "react";
+import { motion, useMotionValue, useTransform, animate, useInView } from "motion/react";
 
 const AnimatedNumber = ({ value }: { value: string }) => {
   const count = useMotionValue(0);

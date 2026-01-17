@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Teachers } from "next/font/google";
 
 import NavBar from "@/components/layout/NavBar";
+import Footer from "@/components/layout/Footer";
 
 import "./globals.css";
 
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${teachers.variable} antialiased`}>
         <NavBar />
         {children}
+        <Footer />
       </body>
     </html>
   );
