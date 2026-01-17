@@ -1,3 +1,26 @@
+const navLinksData = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Projects",
+    link: "/projects",
+  },
+  {
+    name: "News",
+    link: "/news",
+  },
+  {
+    name: "About Us",
+    link: "/about-us",
+  },
+  {
+    name: "Contact Us",
+    link: "/contact-us",
+  },
+];
+
 const heroData = [
   {
     image: "/assets/hero-1.jpg",
@@ -472,11 +495,28 @@ const whoWeAreData = {
   ],
 };
 
+const footerContactsData = [
+  {
+    title: "Phone",
+    value: "+1 234 567 890",
+  },
+  {
+    title: "Email",
+    value: "[EMAIL_ADDRESS]",
+  },
+  {
+    title: "Address",
+    value: "123 Main St, Anytown, USA",
+  },
+];
+
 export {
+  navLinksData,
   heroData,
   howItWorksData,
   recentProjects,
   completedProjects,
   someRealProjectsData,
   whoWeAreData,
+  footerContactsData,
 };
