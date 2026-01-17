@@ -389,12 +389,30 @@ const completedProjects = [
 ];
 
 const someRealProjectsData = [
-  "/assets/howitworks.png",
-  "/assets/real-pr-1.png",
-  "/assets/real-pr-2.png",
-  "/assets/real-pr-3.png",
-  "/assets/real-pr-4.png",
-  "/assets/real-pr-5.png",
+  {
+    title: "School Projects",
+    src: "/assets/howitworks.png",
+  },
+  {
+    title: "Water Projects",
+    src: "/assets/real-pr-1.png",
+  },
+  {
+    title: "Education Projects",
+    src: "/assets/real-pr-2.png",
+  },
+  {
+    title: "Ramadan Projects",
+    src: "/assets/real-pr-3.png",
+  },
+  {
+    title: "Winter Projects",
+    src: "/assets/real-pr-4.png",
+  },
+  {
+    title: "Eid Projects",
+    src: "/assets/real-pr-5.png",
+  },
 ];
 
 export { heroData, howItWorksData, recentProjects, completedProjects, someRealProjectsData };
