@@ -31,4 +31,9 @@ interface Project {
   };
 }
 
-export type { BurgerBtnProps, ProgressBarProps, Project };
+interface FocusCardsType {
+  title: string;
+  src: string;
+}
+
+export type { BurgerBtnProps, ProgressBarProps, Project, FocusCardsType };

@@ -389,12 +389,94 @@ const completedProjects = [
 ];
 
 const someRealProjectsData = [
-  "/assets/howitworks.png",
-  "/assets/real-pr-1.png",
-  "/assets/real-pr-2.png",
-  "/assets/real-pr-3.png",
-  "/assets/real-pr-4.png",
-  "/assets/real-pr-5.png",
+  {
+    title: "School Projects",
+    src: "/assets/howitworks.png",
+  },
+  {
+    title: "Water Projects",
+    src: "/assets/real-pr-1.png",
+  },
+  {
+    title: "Education Projects",
+    src: "/assets/real-pr-2.png",
+  },
+  {
+    title: "Ramadan Projects",
+    src: "/assets/real-pr-3.png",
+  },
+  {
+    title: "Winter Projects",
+    src: "/assets/real-pr-4.png",
+  },
+  {
+    title: "Eid Projects",
+    src: "/assets/real-pr-5.png",
+  },
 ];
 
-export { heroData, howItWorksData, recentProjects, completedProjects, someRealProjectsData };
+const whoWeAreData = {
+  images: [
+    {
+      src: "/assets/who-1.jpg",
+    },
+    {
+      src: "/assets/who-2.jpg",
+    },
+    {
+      src: "/assets/who-3.jpg",
+    },
+    {
+      src: "/assets/who-4.jpg",
+    },
+    {
+      src: "/assets/who-5.jpg",
+    },
+  ],
+  personData: [
+    {
+      quote: "Together, we can change lives for the better",
+      wisdome:
+        "Your kindness today can improve someone’s life tomorrow. A single donation can provide clean water, food for a family, or care for someone who is struggling. Together, these small acts of generosity grow into lasting impact. By standing together and giving with compassion, we can help build a better, more caring future for everyone.",
+      name: "Mohamed Mahmoud",
+      position: "CEO & Founder",
+    },
+    {
+      quote: "Small actions create big impact",
+      wisdome:
+        "We believe that even the smallest contribution can make a real difference. When people come together with a shared purpose, lives are transformed. Our mission is to ensure every donation reaches those who need it most and creates long-term change.",
+      name: "Sarah Johnson",
+      position: "Operations Manager",
+    },
+    {
+      quote: "Hope begins with helping hands",
+      wisdome:
+        "Every person deserves dignity, care, and opportunity. Through transparent work and community-driven programs, we aim to bring hope where it is needed most. Helping others is not just a responsibility, it is a privilege.",
+      name: "Ahmed El-Sayed",
+      position: "Community Outreach Lead",
+    },
+    {
+      quote: "Giving is the strongest form of humanity",
+      wisdome:
+        "True change happens when compassion leads the way. By supporting education, healthcare, and basic needs, we empower communities to stand on their own and build a brighter future for generations to come.",
+      name: "Emily Carter",
+      position: "Programs Director",
+    },
+    {
+      quote: "Transparency builds trust, trust builds impact",
+      wisdome:
+        "Our commitment is to ensure that every donation is handled with honesty and care. We work tirelessly to maintain transparency, measure impact, and show our supporters exactly how their generosity is changing lives.",
+      name: "David Wilson",
+      position: "Finance & Compliance Manager",
+    },
+  ],
+};
+
+export {
+  heroData,
+  howItWorksData,
+  recentProjects,
+  completedProjects,
+  someRealProjectsData,
+  whoWeAreData,
+};

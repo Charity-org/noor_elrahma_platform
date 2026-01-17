@@ -1,3 +1,7 @@
+"use client";
+
+import Autoplay from "embla-carousel-autoplay";
+
 import CarouselProjects from "@/components/custom/CarouselProjects";
 import { Button } from "@/components/ui/button";
 import { completedProjects } from "@/constants/layoutData";
@@ -17,7 +21,10 @@ const CompletedProjects = () => {
         </Button>
       </div>
 
-      <CarouselProjects projects={completedProjects} />
+      <CarouselProjects
+        projects={completedProjects}
+        plugins={[Autoplay({ delay: 7000, stopOnInteraction: false })]}
+      />
     </section>
   );
 };
