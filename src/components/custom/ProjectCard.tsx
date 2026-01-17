@@ -54,7 +54,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         )}
         <Button
           variant={"outline"}
-          className="w-full h-15 text-[16px] border-primary text-primary font-bold font-teachers rounded-2xl! hover:bg-secondary-hover cursor-pointer"
+          className="w-full h-15 text-[16px] border-primary text-primary bg-white font-bold font-teachers rounded-2xl! hover:bg-secondary-hover cursor-pointer"
         >
           View Project
         </Button>
