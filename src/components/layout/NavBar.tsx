@@ -7,7 +7,9 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import BurgerBtn from "@/components/layout/BurgerBtn";
+import UserMenu from "@/components/layout/UserMenu";
 
+import { fakeUser } from "@/constants/fakeUser";
 import { navLinksData } from "@/constants/layoutData";
 
 const NavBar = () => {
@@ -24,7 +26,11 @@ const NavBar = () => {
           {navLinksData.map(({ link, name }) => (
             <li key={name}>
               <Link
-                className={`navLink after:w-0 ${pathName === link ? "text-third after:w-full" : "text-white"}`}
+                className={`navLink after:w-0 ${
+                  pathName === link || pathName.startsWith(`${link}/`)
+                    ? "text-third after:w-full"
+                    : "text-white"
+                }`}
                 href={link}
               >
                 {name}
@@ -33,9 +39,15 @@ const NavBar = () => {
           ))}
         </ul>
 
-        <Button className="bg-third hover:bg-third/90 cursor-pointer rounded-3xl! h-12 text-[20px] capitalize hidden md:block md:w-[13ch] font-teachers font-bold">
-          donate now
-        </Button>
+        {fakeUser.isAuthenticated ? (
+          <div className="hidden md:block">
+            <UserMenu />
+          </div>
+        ) : (
+          <Button className="bg-third hover:bg-third/90 cursor-pointer rounded-3xl! h-12 text-[20px] capitalize hidden md:block md:w-[13ch] font-teachers font-bold">
+            donate now
+          </Button>
+        )}
 
         <BurgerBtn setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
       </nav>
@@ -46,7 +58,15 @@ const NavBar = () => {
           {navLinksData.map(({ name, link }) => (
             <li key={name} onClick={() => setIsMenuOpen(false)}>
               <Link
-                className={`navLink after:w-0 ${pathName === link ? "text-third after:w-full" : "text-white"}`}
+                className={`navLink after:w-0 ${
+                  (
+                    link === "/"
+                      ? pathName === link
+                      : pathName === link || pathName.startsWith(`${link}/`)
+                  )
+                    ? "text-third after:w-full"
+                    : "text-white"
+                }`}
                 href={link}
               >
                 {name}
