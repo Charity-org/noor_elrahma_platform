@@ -1,17 +1,18 @@
-import Image from "next/image";
+import SkeletonImage from "@/components/global/SkeletonImage";
 
 import { howItWorksData } from "@/constants/layoutData";
 
 const HowItWorks = () => {
   return (
-    <section className="container flex flex-col gap-16 lg:flex-row">
+    <section className="container flex flex-col gap-16 lg:flex-row group">
       <div className="relative w-full lg:w-1/2 h-[clamp(20rem,80vw,32.4rem)] rounded-4xl overflow-hidden">
-        <Image
-          src="/assets/howitworks.png"
-          alt="how-it-works"
-          className="absolute top-0 object-cover w-full h-full"
-          fill
+        <SkeletonImage
+          src={"/assets/howitworks.png"}
+          alt="how-it-works image"
+          containerClassName="w-full h-full"
+          className="object-cover absolute top-0 bg-primary-hover w-full h-full transition-all duration-300 ease-in-out group-hover:scale-105"
           sizes="100vw"
+          fill
         />
       </div>
 

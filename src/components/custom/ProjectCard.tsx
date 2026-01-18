@@ -1,5 +1,5 @@
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import Image from "next/image";
+import SkeletonImage from "@/components/global/SkeletonImage";
 import { Button } from "@/components/ui/button";
 import { ProgressBar } from "./ProgressBar";
 import { Project } from "@/types/layoutTypes";
@@ -12,12 +12,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <Card className="w-full md:max-w-96 min-h-187.5 overflow-hidden pt-0 rounded-[24px] group border-4 border-primary flex flex-col">
       <CardHeader className="px-0 shrink-0">
-        <Image
+        <SkeletonImage
           src={project.imageSrc}
           alt="Project Image"
           width={1024}
           height={1024}
-          className="object-cover w-full h-64 transition-all duration-300 ease-in-out group-hover:scale-105"
+          containerClassName="w-full h-64"
+          className="object-cover bg-primary-hover w-full h-64 transition-all duration-300 ease-in-out group-hover:scale-105"
         />
       </CardHeader>
 

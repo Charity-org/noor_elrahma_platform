@@ -151,9 +151,7 @@
   * {
     @apply border-border outline-ring/50;
   }
-  html {
-    @apply scroll-smooth;
-  }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -165,7 +163,7 @@
   }
 
   .responsive-nav {
-    @apply fixed left-0 w-full h-screen px-16 transition-all duration-500 ease-in-out top-24 pt-28 space-y-28 -z-10 md:hidden bg-primary;
+    @apply fixed left-0 w-full h-screen px-16 top-24 pt-28 space-y-28 -z-10 md:hidden bg-primary;
   }
 
   .overlay {
