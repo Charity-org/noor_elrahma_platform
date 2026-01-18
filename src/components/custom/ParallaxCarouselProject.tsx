@@ -89,9 +89,9 @@ function ParallaxCarouselProject({ projects }: PropType) {
         </div>
       </div>
 
-      <div className="flex justify-between items-center max-w-6xl mx-auto mt-8 px-4">
+      <div className={styles.embla__controls}>
         {/* Navigation Buttons */}
-        <div className="flex gap-4">
+        <div className={styles.embla__buttons}>
           <PrevButton
             onClick={onPrevButtonClick}
             disabled={prevBtnDisabled}
@@ -117,7 +117,7 @@ function ParallaxCarouselProject({ projects }: PropType) {
         </div>
 
         {/* Dots */}
-        <div className="flex gap-2">
+        <div className={styles.embla__dots}>
           {scrollSnaps.map((_, index) => (
             <DotButton
               key={index}

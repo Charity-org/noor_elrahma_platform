@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const SubPagesHero = ({ children, bgImage }: { children: React.ReactNode; bgImage: string }) => {
   return (
-    <section className={cn("relative w-full h-[50vh]")}>
+    <div className={cn("relative w-full h-[50vh]")} role="hero">
       <Image
         src={bgImage}
         alt="Hero background"
@@ -14,7 +14,7 @@ const SubPagesHero = ({ children, bgImage }: { children: React.ReactNode; bgImag
       <div className="container relative z-20 h-full flex flex-col items-center justify-center text-center">
         {children}
       </div>
-    </section>
+    </div>
   );
 };
 
