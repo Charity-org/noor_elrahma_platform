@@ -22,7 +22,14 @@ const Hero = () => {
               key={`${slide.title}-${index}`}
               className={`${styles.embla__slide} h-full w-full relative`}
             >
-              <Image src={slide.image} alt={slide.title} fill className="object-cover absolute" />
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                className="object-cover absolute"
+                sizes="100vw"
+                priority={index === 0}
+              />
               <div className="overlay"></div>
               <div className="relative z-10 h-full flex flex-col gap-10 md:gap-16 justify-center items-center text-center px-6">
                 <h1 className="text-white font-bold w-full capitalize md:w-[80%] font-teachers text-[clamp(2.5rem,8vw,9rem)] leading-[1.1] drop-shadow-2xl max-w-[20ch] md:max-w-none">

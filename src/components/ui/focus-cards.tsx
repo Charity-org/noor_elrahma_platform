@@ -25,7 +25,13 @@ export const Card = React.memo(
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]",
       )}
     >
-      <Image src={card.src} alt="" className="object-cover blur-2xl opacity-50 scale-110" fill />
+      <Image
+        src={card.src}
+        alt=""
+        className="object-cover blur-2xl opacity-50 scale-110"
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      />
       <Image
         src={card.src}
         alt={card.title}

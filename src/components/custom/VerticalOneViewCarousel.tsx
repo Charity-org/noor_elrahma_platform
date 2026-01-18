@@ -63,6 +63,7 @@ const VerticalOneViewCarousel: React.FC<PropType> = (props) => {
                   alt={`Whoweare Slide ${index + 1}`}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
             </div>

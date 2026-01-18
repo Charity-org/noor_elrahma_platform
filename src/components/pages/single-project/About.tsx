@@ -10,6 +10,7 @@ function About() {
           width={480}
           height={480}
           className="rounded-4xl object-cover h-full w-full"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
 

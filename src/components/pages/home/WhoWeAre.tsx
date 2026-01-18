@@ -49,7 +49,7 @@ const WhoWeAre = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="font-teachers min-h-[25dvh] md:min-h-[23dvh] xl:min-h-[10dvh] font-medium text-lg md:text-xl text-black/60 max-w-2xl"
+                  className="font-teachers min-h-[15dvh] xl:min-h-[14dvh] font-medium text-lg md:text-xl text-black/60 max-w-2xl"
                 >
                   {currentPerson.wisdome}
                 </motion.p>
