@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 
 import "./globals.css";
 import UpButton from "@/components/custom/UpButton";
+import SmoothScroll from "@/components/common/SmoothScroll";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -36,10 +37,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${teachers.variable} ${cairo.variable} antialiased`}>
-        <NavBar />
-        {children}
-        <Footer />
-        <UpButton />
+        <SmoothScroll root>
+          <NavBar />
+          {children}
+          <Footer />
+          <UpButton />
+        </SmoothScroll>
       </body>
     </html>
   );
