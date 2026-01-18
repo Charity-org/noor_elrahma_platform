@@ -4,7 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import UserAvatar from "@/components/layout/UserAvatar";
 import { Button } from "@/components/ui/button";
 
-import { mobileItemVariants, mobileMenuVariants } from "@/lib/animations/NavBarAnimationOptions";
+import {
+  mobileItemVariants,
+  mobileMenuVariants,
+} from "@/lib/animations/home/NavBarAnimationOptions";
 
 import { fakeUser } from "@/constants/fakeUser";
 import { navLinksData } from "@/constants/layoutData";
