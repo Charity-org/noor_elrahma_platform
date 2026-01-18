@@ -1,7 +1,21 @@
-import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 
-const SubPagesHero = ({ children }: { children: ReactNode }) => {
-  return <div>{children}</div>;
+const SubPagesHero = ({ children, bgImage }: { children: React.ReactNode; bgImage: string }) => {
+  return (
+    <section className={cn("relative w-full h-[50vh]")}>
+      <Image
+        src={bgImage}
+        alt="Hero background"
+        fill
+        className="object-cover object-center -z-10"
+      />
+      <div className="overlay"></div>
+      <div className="container relative z-20 h-full flex flex-col items-center justify-center text-center">
+        {children}
+      </div>
+    </section>
+  );
 };
 
 export default SubPagesHero;
