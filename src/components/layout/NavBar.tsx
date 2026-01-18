@@ -26,7 +26,11 @@ const NavBar = () => {
           {navLinksData.map(({ link, name }) => (
             <li key={name}>
               <Link
-                className={`navLink after:w-0 ${pathName === link ? "text-third after:w-full" : "text-white"}`}
+                className={`navLink after:w-0 ${
+                  pathName === link || pathName.startsWith(`${link}/`)
+                    ? "text-third after:w-full"
+                    : "text-white"
+                }`}
                 href={link}
               >
                 {name}
@@ -54,7 +58,15 @@ const NavBar = () => {
           {navLinksData.map(({ name, link }) => (
             <li key={name} onClick={() => setIsMenuOpen(false)}>
               <Link
-                className={`navLink after:w-0 ${pathName === link ? "text-third after:w-full" : "text-white"}`}
+                className={`navLink after:w-0 ${
+                  (
+                    link === "/"
+                      ? pathName === link
+                      : pathName === link || pathName.startsWith(`${link}/`)
+                  )
+                    ? "text-third after:w-full"
+                    : "text-white"
+                }`}
                 href={link}
               >
                 {name}
