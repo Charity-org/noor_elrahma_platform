@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useCallback } from "react";
-import Image from "next/image";
 
 import { EmblaOptionsType, EmblaPluginType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
@@ -74,7 +73,7 @@ const VerticalOneViewCarousel: React.FC<PropType> = (props) => {
       </div>
 
       <div className={styles.embla__controls}>
-        <div className={styles.embla__buttons}>
+        <div className={cn(styles.embla__buttons, "hidden! sm:flex!")}>
           <PrevButton
             isActive={!prevBtnDisabled}
             onClick={onPrevButtonClick}

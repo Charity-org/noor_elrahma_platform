@@ -43,8 +43,8 @@ export function OneViewCarousel({ cards }: { cards: Card[] }) {
         </div>
       </div>
 
-      <div className={cn(styles.embla__controls, "flex justify-center items-center")}>
-        <div className={styles.embla__dots}>
+      <div className={cn(styles.embla__controls)}>
+        <div className={cn(styles.embla__dots)}>
           {scrollSnaps.map((_, index) => (
             <DotButton
               key={index}

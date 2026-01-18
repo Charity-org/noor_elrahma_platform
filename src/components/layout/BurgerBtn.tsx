@@ -2,7 +2,7 @@ import { BurgerBtnProps } from "@/types/layoutTypes";
 
 const BurgerBtn = ({ setIsMenuOpen, isMenuOpen }: BurgerBtnProps) => {
   return (
-    <label className="flex flex-col gap-2 w-8 md:hidden">
+    <label className="flex flex-col gap-2 w-8">
       <input
         className="peer hidden"
         type="checkbox"
