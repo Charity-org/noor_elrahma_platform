@@ -9,8 +9,8 @@ import { heroData } from "@/constants/layoutData";
 import { Button } from "@/components/ui/button";
 import SkeletonImage from "@/components/global/SkeletonImage";
 
-import { containerVariants } from "@/lib/animations/HeroAnimationOptions";
-import { itemVariants, titleVariants } from "@/lib/animations/HeroAnimationOptions";
+import { containerVariants } from "@/lib/animations/home/HeroAnimationOptions";
+import { itemVariants, titleVariants } from "@/lib/animations/home/HeroAnimationOptions";
 
 import styles from "@/styles/CarouselSingleView.module.css";
 

@@ -18,7 +18,7 @@ import {
   containerVariants,
   itemVariants,
   logoVariants,
-} from "@/lib/animations/NavBarAnimationOptions";
+} from "@/lib/animations/home/NavBarAnimationOptions";
 
 import { Languages } from "lucide-react";
 

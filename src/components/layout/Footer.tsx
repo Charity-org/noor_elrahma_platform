@@ -14,7 +14,7 @@ import {
   logoSectionVariants,
   quickLinksVariants,
   socialVariants,
-} from "@/lib/animations/FooterAnimationOptions";
+} from "@/lib/animations/home/FooterAnimationOptions";
 
 import SociealBoxIcons from "@/components/custom/SociealBoxIcons";
 

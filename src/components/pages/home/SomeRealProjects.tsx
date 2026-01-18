@@ -1,20 +1,32 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { someRealProjectsData } from "@/constants/layoutData";
 import { FocusCards } from "@/components/ui/focus-cards";
 import { OneViewCarousel } from "@/components/custom/OneViewCarousel";
+import { cards, container, title } from "@/lib/animations/home/RealProjectsAnimationOptions";
 
 const SomeRealProjects = () => {
   return (
-    <section className="container">
-      <h2 className="text-center main_title">Witness the Impact of Our Real Projects</h2>
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={container}
+      className="container"
+    >
+      <motion.h2 variants={title} className="text-center main_title">
+        Witness the Impact of Our Real Projects
+      </motion.h2>
 
-      <div className="mt-16 md:block hidden">
+      <motion.div variants={cards} className="mt-16 md:block hidden">
         <FocusCards cards={someRealProjectsData} />
-      </div>
+      </motion.div>
 
-      <div className="block md:hidden mt-16">
+      <motion.div variants={cards} className="block md:hidden mt-16">
         <OneViewCarousel cards={someRealProjectsData} />
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 
