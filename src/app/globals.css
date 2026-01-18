@@ -28,6 +28,7 @@
   /* fonts */
   --font-teachers: var(--font-teachers);
   --font-inter: var(--font-inter);
+  --font-cairo: var(--font-cairo);
 
   /* Custom Color Variables */
   --color-primary-hover: #145a43;
@@ -149,6 +150,9 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+  html {
+    @apply scroll-smooth;
   }
   body {
     @apply bg-background text-foreground;
