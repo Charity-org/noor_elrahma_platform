@@ -73,7 +73,7 @@ const VerticalOneViewCarousel: React.FC<PropType> = (props) => {
       </div>
 
       <div className={styles.embla__controls}>
-        <div className={styles.embla__buttons}>
+        <div className={cn(styles.embla__buttons, "hidden! sm:flex!")}>
           <PrevButton
             isActive={!prevBtnDisabled}
             onClick={onPrevButtonClick}

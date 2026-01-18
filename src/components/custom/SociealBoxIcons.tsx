@@ -44,7 +44,7 @@ const SocialBoxIcons = () => {
       {sociealData.map((item, index) => (
         <Link
           key={`socieal-${index}`}
-          className="w-11.5 h-11.5 rounded-full bg-linear-to-br from-yellow-600 to-amber-700 shadow-lg hover:shadow-2xl hover:shadow-amber-500/30 hover:scale-110 hover:rotate-3 active:scale-95 active:rotate-0 transition-all duration-300 ease-out cursor-pointer group relative overflow-hidden flex items-center justify-center"
+          className="w-11.5 h-11.5 rounded-full bg-third shadow-lg hover:shadow-2xl hover:shadow-amber-500/30 hover:scale-110 hover:rotate-3 active:scale-95 active:rotate-0 transition-all duration-300 ease-out cursor-pointer group relative overflow-hidden flex items-center justify-center"
           href={item.link}
           target="_blank"
         >

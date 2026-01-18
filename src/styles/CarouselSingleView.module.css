@@ -15,9 +15,10 @@
 }
 
 .embla__controls {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
   gap: 1.2rem;
   margin-top: 1.8rem;
 }
