@@ -10,7 +10,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <Card className="w-full md:max-w-96 overflow-hidden pt-0 rounded-[24px] group border-4 border-primary flex flex-col">
+    <Card className="w-full md:max-w-96 min-h-187.5 overflow-hidden pt-0 rounded-[24px] group border-4 border-primary flex flex-col">
       <CardHeader className="px-0 shrink-0">
         <Image
           src={project.imageSrc}
@@ -21,14 +21,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         />
       </CardHeader>
 
-      <CardContent className="px-6 py-4 space-y-6 grow">
+      <CardContent className="px-6 py-4 space-y-6 flex-1 flex flex-col justify-between">
         <div className="space-y-3 font-inter">
-          <h2 className="font-bold font-teachers text-[28px]">{project.title.slice(0, 18)}...</h2>
+          <h2 className="font-bold font-teachers text-[28px] line-clamp-1">{project.title}</h2>
           <p className="font-medium text-[12px] text-gray-600">Started: {project.startDate}</p>
           <p className="text-gray-600 font-medium text-[12px]">
             Country: <span className="font-bold font-inter text-third">{project.country}</span>
           </p>
-          <p className="text-[16px] text-black/60">{project.description.slice(0, 60)}...</p>
+          <p className="text-[16px] text-black/60 line-clamp-2">{project.description}</p>
         </div>
 
         <ProgressBar className="w-full h-3" value={project.progress} />

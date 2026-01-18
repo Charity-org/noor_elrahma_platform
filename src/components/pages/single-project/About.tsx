@@ -9,6 +9,7 @@ function About() {
           alt="About-project"
           fill
           className="rounded-4xl object-cover h-full w-full"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
 

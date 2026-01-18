@@ -13,6 +13,7 @@ function Overview() {
           alt="project-video"
           fill
           className="rounded-4xl object-cover h-full w-full"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
         />
       </div>
     </section>

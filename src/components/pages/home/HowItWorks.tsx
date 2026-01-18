@@ -11,6 +11,7 @@ const HowItWorks = () => {
           alt="how-it-works"
           className="absolute top-0 object-cover w-full h-full"
           fill
+          sizes="100vw"
         />
       </div>
 
