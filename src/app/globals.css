@@ -160,7 +160,7 @@
 
 @layer utilities {
   .navLink {
-    @apply relative text-[18px] font-bold font-inter after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:rounded-full after:bg-third after:transition-all hover:after:w-full;
+    @apply relative text-[16px] font-inter after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:rounded-full after:bg-third after:transition-all hover:after:w-full;
   }
 
   .responsive-nav {

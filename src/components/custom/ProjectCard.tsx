@@ -25,10 +25,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <CardContent className="px-6 py-4 space-y-6 flex-1 flex flex-col justify-between">
         <div className="space-y-3 font-inter">
           <h2 className="font-bold font-teachers text-[28px] line-clamp-1">{project.title}</h2>
-          <p className="font-medium text-[12px] text-gray-600">Started: {project.startDate}</p>
-          <p className="text-gray-600 font-medium text-[12px]">
-            Country: <span className="font-bold font-inter text-third">{project.country}</span>
-          </p>
+          <div className="space-y-1.5">
+            <p className="font-medium text-[12px] text-gray-600">Started: {project.startDate}</p>
+            <p className="text-gray-600 font-medium text-[12px]">
+              Country: <span className="font-bold font-inter text-third">{project.country}</span>
+            </p>
+          </div>
           <p className="text-[16px] text-black/60 line-clamp-2">{project.description}</p>
         </div>
 

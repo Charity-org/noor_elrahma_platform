@@ -4,5 +4,5 @@ export const fakeUser = {
   email: "nourelrahma@gmail.com",
   password: "password123",
   role: "user",
-  isAuthenticated: false,
+  isAuthenticated: true,
 };

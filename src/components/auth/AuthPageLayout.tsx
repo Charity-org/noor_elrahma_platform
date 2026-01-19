@@ -24,9 +24,9 @@ export function AuthPageLayout({
               <Image
                 src="/assets/logo.png"
                 alt="Noor Elrahmat Logo"
-                width={18}
-                height={18}
-                style={{ width: "auto", height: "auto" }}
+                width={10}
+                height={10}
+                style={{ width: "25px", height: "30px" }}
               />
             </div>
             Noor Elrahma

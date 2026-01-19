@@ -91,7 +91,7 @@ const ResponsiveNavbar = ({
 
           {/* Bottom Section: Settings & Actions */}
           <div className="flex flex-col gap-6 w-full">
-            <motion.div variants={mobileItemVariants} className="w-full space-y-4">
+            <motion.div variants={mobileItemVariants} className="w-full space-y-6">
               <Button
                 className="bg-third hover:bg-third/90 cursor-pointer capitalize w-full py-6 text-xl font-bold rounded-2xl shadow-lg shadow-third/20"
                 onClick={() => setIsMenuOpen(false)}
@@ -100,12 +100,11 @@ const ResponsiveNavbar = ({
               </Button>
 
               {fakeUser.isAuthenticated && (
-                <Button
-                  variant={"outline"}
-                  className="w-full py-2 bg-transparent text-red-400 border-destructive! text-sm rounded-2xl font-medium hover:bg-destructive/10 cursor-pointer hover:text-destructive transition-colors"
-                >
-                  Log Out
-                </Button>
+                <div className="flex items-center justify-center">
+                  <button className="text-white text-sm border-b font-medium cursor-pointer transition-colors">
+                    Log Out
+                  </button>
+                </div>
               )}
             </motion.div>
           </div>
