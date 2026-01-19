@@ -68,7 +68,7 @@ const Hero = () => {
                 >
                   <motion.h1
                     variants={titleVariants}
-                    className="text-white font-bold w-full capitalize md:w-[80%] font-teachers text-[clamp(2.5rem,8vw,9rem)] leading-[1.1] drop-shadow-2xl max-w-[20ch] md:max-w-none"
+                    className="text-white font-bold w-full capitalize md:w-[80%] font-teachers text-[clamp(2.5rem,5vw,6rem)] leading-[1.1] drop-shadow-2xl max-w-[20ch] md:max-w-none"
                   >
                     {slide.title}
                   </motion.h1>
@@ -100,7 +100,7 @@ const Hero = () => {
                   <motion.div variants={itemVariants} className="flex items-center gap-10">
                     <Button
                       variant={"outline"}
-                      className="text-third px-4 md:px-6 md:py-10 py-6 md:w-[15ch] bg-transparent border-third cursor-pointer font-teachers text-lg md:text-2xl font-bold hover:bg-third/10 hover:text-third"
+                      className="text-third px-4 md:px-6 md:py-10 py-6 md:w-[15ch] bg-transparent border-third cursor-pointer font-teachers text-lg md:text-2xl hover:bg-third/10 hover:text-third"
                     >
                       View Project
                     </Button>

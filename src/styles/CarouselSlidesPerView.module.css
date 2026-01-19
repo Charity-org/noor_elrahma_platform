@@ -10,7 +10,9 @@
   --slide-spacing-lg: 1rem;
   --slide-size-lg: 33.333333333333336%;
   --slide-spacing-xl: 1.5rem;
-  --slide-size-xl: calc(100% / 5);
+  --slide-size-xl: calc(100% / 3);
+  --slide-spacing-2xl: 1.5rem;
+  --slide-size-2xl: calc(100% / 5);
 }
 .embla__viewport {
   overflow: hidden;
@@ -69,6 +71,12 @@
   .embla__slide {
     flex: 0 0 var(--slide-size-xl);
     padding-left: var(--slide-spacing-xl);
+  }
+}
+@media (min-width: 1920px) {
+  .embla__slide {
+    flex: 0 0 var(--slide-size-2xl);
+    padding-left: var(--slide-spacing-2xl);
   }
 }
 .embla__slide__number {
