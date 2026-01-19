@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -5,12 +6,14 @@ interface AuthPageLayoutProps {
   children: React.ReactNode;
   backgroundImage: string;
   backgroundAlt?: string;
+  style?: string;
 }
 
 export function AuthPageLayout({
   children,
   backgroundImage,
   backgroundAlt = "Auth background",
+  style,
 }: AuthPageLayoutProps) {
   return (
     <div className="grid min-h-svh lg:grid-cols-2 pg-background">
@@ -30,7 +33,7 @@ export function AuthPageLayout({
           </Link>
         </div>
         <div className="flex flex-1 items-center justify-center">
-          <div className="w-full max-w-xs">{children}</div>
+          <div className={cn("w-full max-w-xs", style)}>{children}</div>
         </div>
       </div>
       <div className="bg-background relative hidden lg:block">
