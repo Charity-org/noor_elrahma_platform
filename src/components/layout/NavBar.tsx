@@ -66,7 +66,7 @@ const NavBar = () => {
           className="hidden lg:flex items-center justify-center gap-6"
         >
           {!fakeUser.isAuthenticated && <Languages className="text-white cursor-pointer" />}
-          <Button className="bg-third hover:bg-third/90 cursor-pointer rounded-[16px]! h-12 text-[20px] capitalize md:w-[13ch] font-teachers font-semibold">
+          <Button className="bg-third hover:bg-third/90 cursor-pointer rounded-[16px]! h-12 text-[20px] capitalize md:w-[13ch] font-teachers">
             donate now
           </Button>
 
