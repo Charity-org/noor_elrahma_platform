@@ -1,0 +1,2 @@
+npx --no -- commitlint --edit "$1" || (echo "❌ Commit message check failed. Please use conventional commit format." && exit 1)
+echo "✅ Commit message valid! 🚀✨ Preparing to commit... 🔐"

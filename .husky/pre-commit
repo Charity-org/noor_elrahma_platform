@@ -1,0 +1,14 @@
+echo "🔍 Step 1: Running lint-staged (Auto-formatting & Linting staged files)..."
+npm run lint:staged || (echo "❌ Step 1 failed. Please fix the staged issues and try again." && exit 1)
+
+echo "🛡️  Step 2: Type-checking (Ensuring codebase is type-safe)..."
+npm run type-check || (echo "❌ Step 2 failed. Type errors found. Please fix them and commit again." && exit 1)
+
+echo "📝 Step 3: Verifying code format (Prettier check)..."
+npm run format:check || (echo "❌ Step 3 failed. Formatting issues detected. Run 'npm run format' and commit again." && exit 1)
+
+echo "🔎 Step 4: Final lint check (ESLint)..."
+npm run lint || (echo "❌ Step 4 failed. Lint errors found. Run 'npx eslint . --fix' and commit again." && exit 1)
+
+echo "✅ Code quality checks passed! Checking commit message... 🔍"
+

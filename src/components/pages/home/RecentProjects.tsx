@@ -1,0 +1,40 @@
+"use client";
+
+import Autoplay from "embla-carousel-autoplay";
+import { motion } from "framer-motion";
+
+import CarouselProjects from "@/components/custom/CarouselProjects";
+import { Button } from "@/components/ui/button";
+import { recentProjects } from "@/constants/layoutData";
+import { carousel, header, container } from "@/lib/animations/home/RecentProjectsAnimationOptions";
+
+const RecentProjects = () => {
+  return (
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={container}
+      className="container"
+    >
+      <motion.div variants={header} className="flex items-center justify-between gap-5 mb-16">
+        <h2 className="main_title">Recent Projects</h2>
+        <Button
+          variant={"outline"}
+          className="text-third bg-transparent border-third cursor-pointer md:w-44 md:h-16 font-teachers md:text-lg md:rounded-2xl! font-bold hover:bg-third/10 hover:text-third"
+        >
+          See all Projects
+        </Button>
+      </motion.div>
+
+      <motion.div variants={carousel}>
+        <CarouselProjects
+          projects={recentProjects}
+          plugins={[Autoplay({ delay: 5000, stopOnInteraction: false })]}
+        />
+      </motion.div>
+    </motion.section>
+  );
+};
+
+export default RecentProjects;

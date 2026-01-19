@@ -1,0 +1,121 @@
+.embla {
+  max-width: 100%;
+  width: 100%;
+  --slide-spacing: 2rem;
+  --slide-size: 100%;
+}
+.embla__viewport {
+  overflow: hidden;
+  border-radius: 2.5rem;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  box-shadow:
+    0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 10px 10px -5px rgb(0 0 0 / 0.04);
+}
+.embla__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  touch-action: pan-x pinch-zoom;
+}
+.embla__slide {
+  flex: 0 0 var(--slide-size);
+  min-height: 0;
+  height: 100%;
+  width: 100%;
+  transform: translate3d(0, 0, 0);
+}
+.embla__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+.embla__buttons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+.embla__button {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid oklch(0.145 0 0 / 0.1);
+  padding: 0;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  z-index: 1;
+  border-radius: 50%;
+  color: var(--color-primary);
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.embla__button:hover:not(:disabled) {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+.embla__button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.embla__button__svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.embla__dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.embla__dot {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.embla__dot:after {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  border: 2px solid oklch(0.145 0 0 / 0.2);
+  display: flex;
+  align-items: center;
+  content: "";
+  transition: all 0.3s ease;
+}
+.embla__dot__selected:after {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: scale(1.2);
+}
+
+@media (max-width: 1024px) {
+  .embla__controls {
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
