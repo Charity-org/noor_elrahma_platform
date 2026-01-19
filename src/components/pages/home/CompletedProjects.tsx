@@ -27,7 +27,7 @@ const CompletedProjects = () => {
         </h2>
         <Button
           variant={"outline"}
-          className="text-third bg-transparent border-third cursor-pointer md:w-44 md:h-16 font-teachers md:text-lg md:rounded-2xl! font-bold hover:bg-third/10 hover:text-third"
+          className="text-third bg-transparent border-third cursor-pointer md:w-44 md:h-16 font-teachers md:text-lg md:rounded-2xl! hover:bg-third/10 hover:text-third"
         >
           See all Projects
         </Button>
