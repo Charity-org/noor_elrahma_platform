@@ -36,4 +36,12 @@ interface FocusCardsType {
   src: string;
 }
 
-export type { BurgerBtnProps, ProgressBarProps, Project, FocusCardsType };
+interface NewsType {
+  author: string;
+  date: string;
+  description: string;
+  image: string;
+  title: string;
+}
+
+export type { BurgerBtnProps, ProgressBarProps, Project, FocusCardsType, NewsType };
