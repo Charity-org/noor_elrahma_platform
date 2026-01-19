@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Teachers, Cairo } from "next/font/google";
 import SmoothScroll from "@/components/common/SmoothScroll";
+
+import { Toaster } from "@/components/ui/sonner";
+
 import "../globals.css";
 
 const inter = Inter({
@@ -32,6 +35,7 @@ export default function AuthLayout({
     <html lang="en">
       <body className={`${inter.variable} ${teachers.variable} ${cairo.variable} antialiased`}>
         <SmoothScroll root>{children}</SmoothScroll>
+        <Toaster />
       </body>
     </html>
   );

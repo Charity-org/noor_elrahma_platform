@@ -18,7 +18,13 @@ export function AuthPageLayout({
         <div className="flex justify-center gap-2 md:justify-start">
           <Link href="/" className="flex items-center gap-2 font-medium">
             <div className="bg-primary text-primary-foreground flex size-8 items-center justify-center rounded-md">
-              <Image src="/assets/logo.png" alt="Noor Elrahmat Logo" width={18} height={18} />
+              <Image
+                src="/assets/logo.png"
+                alt="Noor Elrahmat Logo"
+                width={18}
+                height={18}
+                style={{ width: "auto", height: "auto" }}
+              />
             </div>
             Noor Elrahma
           </Link>
@@ -33,7 +39,7 @@ export function AuthPageLayout({
           alt={backgroundAlt}
           className="absolute inset-0 h-full w-full object-cover"
           fill
-          sizes="100vw"
+          sizes="50vw"
         />
       </div>
     </div>
