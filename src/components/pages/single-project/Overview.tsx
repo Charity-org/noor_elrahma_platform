@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function Overview() {
   return (
-    <section className="container">
+    <section className="container mb-10">
       <h3 className="font-bold font-teachers text-5xl mb-15 max-w-3xl">
         About the happiness of children with the clean water
       </h3>
