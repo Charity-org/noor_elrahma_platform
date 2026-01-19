@@ -113,7 +113,7 @@ export const Tabs = ({
       const inactiveStyle = "bg-white text-primary border border-primary hover:text-primary";
       return cn(
         base,
-        "px-10 py-6 rounded-full flex-1",
+        "px-10 py-6 rounded-[24px] flex-1",
         isActive ? activeStyle : inactiveStyle,
         tabClassName,
       );
