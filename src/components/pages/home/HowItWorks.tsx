@@ -19,7 +19,7 @@ const HowItWorks = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionContainerVariants}
-      className="container flex flex-col gap-16 lg:flex-row group"
+      className="container flex flex-col gap-16 lg:flex-row group overflow-hidden"
     >
       <motion.div
         variants={image}
