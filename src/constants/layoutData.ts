@@ -1,3 +1,5 @@
+import { BellDot, CalendarHeart, CircleUser, Languages, LogOut, ReceiptText } from "lucide-react";
+
 const navLinksData = [
   {
     name: "Home",
@@ -140,7 +142,7 @@ const recentProjects = [
     imageSrc: "/assets/quran_project.png",
     title: "Quran Distribution Project",
     startDate: "18/2/2026",
-    country: "Gambia",
+    country: "Singal",
     description:
       "Distributing Qurans to individuals and communities to support education, faith, and daily spiritual life.",
     progress: 80,
@@ -186,7 +188,7 @@ const recentProjects = [
     imageSrc: "/assets/water_well_project.png",
     title: "Winter Clothing Drive",
     startDate: "18/2/2026",
-    country: "senegal",
+    country: "Senegal",
     description:
       "Distributing warm clothing and blankets to vulnerable individuals and families to protect them from the cold weather.",
     progress: 50,
@@ -232,7 +234,7 @@ const recentProjects = [
     imageSrc: "/assets/ramdan_project.png",
     title: "Eid Clothing Drive",
     startDate: "18/2/2026",
-    country: "Gambia",
+    country: "Singal",
     description:
       "Providing new clothes and shoes to children and families in need for the Eid celebration.",
     progress: 50,
@@ -300,7 +302,7 @@ const completedProjects = [
     imageSrc: "/assets/quran_project.png",
     title: "Quran Distribution Project",
     startDate: "18/2/2026",
-    country: "senegal",
+    country: "Senegal",
     description:
       "Distributing Qurans to individuals and communities to support education, faith, and daily spiritual life.",
     progress: 100,
@@ -338,7 +340,7 @@ const completedProjects = [
     imageSrc: "/assets/water_well_project.png",
     title: "Winter Clothing Drive",
     startDate: "18/2/2026",
-    country: "Gambia",
+    country: "Singal",
     description:
       "Distributing warm clothing and blankets to vulnerable individuals and families to protect them from the cold weather.",
     progress: 100,
@@ -376,7 +378,7 @@ const completedProjects = [
     imageSrc: "/assets/ramdan_project.png",
     title: "Eid Clothing Drive",
     startDate: "18/2/2026",
-    country: "Gambia",
+    country: "Singal",
     description:
       "Providing new clothes and shoes to children and families in need for the Eid celebration.",
     progress: 100,
@@ -510,6 +512,15 @@ const footerContactsData = [
   },
 ];
 
+const userMenuOptions = [
+  { name: "Profile", link: "/profile", icon: CircleUser },
+  { name: "Language", icon: Languages },
+  { name: "Favorites", link: "/favorites", icon: CalendarHeart },
+  { name: "Notifications", link: "/notifications", icon: BellDot },
+  { name: "Terms and privacy", link: "/terms", icon: ReceiptText },
+  { name: "Sign out", icon: LogOut },
+];
+
 export {
   navLinksData,
   heroData,
@@ -519,4 +530,5 @@ export {
   someRealProjectsData,
   whoWeAreData,
   footerContactsData,
+  userMenuOptions,
 };

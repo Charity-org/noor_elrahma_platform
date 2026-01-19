@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import { FocusCardsType } from "@/types/layoutTypes";
+import SkeletonImage from "../global/SkeletonImage";
 
 export const Card = React.memo(
   ({
@@ -25,18 +25,12 @@ export const Card = React.memo(
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]",
       )}
     >
-      <Image
-        src={card.src}
-        alt=""
-        className="object-cover blur-2xl opacity-50 scale-110"
-        fill
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-      />
-      <Image
+      <SkeletonImage
         src={card.src}
         alt={card.title}
-        className="object-cover relative z-10"
+        className="object-cover bg-primary-hover transition-all duration-300 ease-in-out relative z-10"
         fill
+        containerClassName="absolute inset-0"
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
       <div

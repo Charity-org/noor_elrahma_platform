@@ -28,9 +28,11 @@
   /* fonts */
   --font-teachers: var(--font-teachers);
   --font-inter: var(--font-inter);
+  --font-cairo: var(--font-cairo);
 
   /* Custom Color Variables */
   --color-primary-hover: #145a43;
+  --color-sub-primary: #1e7f5c;
   --color-primary-pressed: #0a2a20;
   --color-secondary-hover: #e6f0ec;
   --color-secondary-pressed: #cfe3db;
@@ -150,6 +152,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -161,7 +164,7 @@
   }
 
   .responsive-nav {
-    @apply fixed left-0 w-full h-screen px-16 transition-all duration-500 ease-in-out top-24 pt-28 space-y-28 -z-10 md:hidden bg-primary;
+    @apply fixed left-0 w-full h-screen px-12 top-24 pt-5 -z-10 md:hidden bg-primary;
   }
 
   .overlay {
@@ -170,5 +173,14 @@
 
   .main_title {
     @apply font-bold font-teachers text-[clamp(1.8rem,4vw,3.15rem)];
+  }
+
+  /* Hide scrollbar for Clean UI */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

@@ -14,7 +14,7 @@ import {
   logoSectionVariants,
   quickLinksVariants,
   socialVariants,
-} from "@/lib/animations/FooterAnimationOptions";
+} from "@/lib/animations/home/FooterAnimationOptions";
 
 import SociealBoxIcons from "@/components/custom/SociealBoxIcons";
 
@@ -28,7 +28,7 @@ const Footer = () => {
   return (
     <motion.footer
       ref={footerRef}
-      className="bg-primary py-16"
+      className="bg-primary py-16 overflow-hidden"
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
@@ -36,7 +36,7 @@ const Footer = () => {
       <div className="container space-y-16">
         <div className="flex justify-between flex-wrap gap-10">
           {/* Logo Section */}
-          <motion.div className="flex gap-5" variants={logoSectionVariants}>
+          <motion.div className="flex gap-1 sm:gap-5" variants={logoSectionVariants}>
             <Image
               src="/assets/footer-logo.png"
               alt="Noor Elrahma charity organization logo"

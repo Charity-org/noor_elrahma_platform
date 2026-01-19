@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 
-import { Inter, Teachers } from "next/font/google";
+import { Inter, Teachers, Cairo } from "next/font/google";
 
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 
-import "./globals.css";
+import UpButton from "@/components/custom/UpButton";
+import SmoothScroll from "@/components/common/SmoothScroll";
+
+import "../globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -15,6 +18,11 @@ const inter = Inter({
 const teachers = Teachers({
   variable: "--font-teachers",
   subsets: ["latin"],
+});
+
+const cairo = Cairo({
+  variable: "--font-cairo",
+  subsets: ["arabic"],
 });
 
 export const metadata: Metadata = {
@@ -29,10 +37,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${teachers.variable} antialiased`}>
-        <NavBar />
-        {children}
-        <Footer />
+      <body className={`${inter.variable} ${teachers.variable} ${cairo.variable} antialiased`}>
+        <SmoothScroll root>
+          <NavBar />
+          {children}
+          <Footer />
+          <UpButton />
+        </SmoothScroll>
       </body>
     </html>
   );

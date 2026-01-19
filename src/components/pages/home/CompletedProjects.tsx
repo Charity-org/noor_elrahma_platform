@@ -1,15 +1,27 @@
 "use client";
 
 import Autoplay from "embla-carousel-autoplay";
+import { motion } from "framer-motion";
 
 import CarouselProjects from "@/components/custom/CarouselProjects";
 import { Button } from "@/components/ui/button";
 import { completedProjects } from "@/constants/layoutData";
+import {
+  carousel,
+  container,
+  title,
+} from "@/lib/animations/home/CompletedProjectsAnimationOptions";
 
 const CompletedProjects = () => {
   return (
-    <section className="container">
-      <div className="flex items-center justify-between gap-5 mb-16">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={container}
+      className="container"
+    >
+      <motion.div variants={title} className="flex items-center justify-between gap-5 mb-16">
         <h2 className="font-bold font-teachers text-[clamp(1.8rem,4vw,3.15rem)]">
           Completed Projects
         </h2>
@@ -19,13 +31,15 @@ const CompletedProjects = () => {
         >
           See all Projects
         </Button>
-      </div>
+      </motion.div>
 
-      <CarouselProjects
-        projects={completedProjects}
-        plugins={[Autoplay({ delay: 7000, stopOnInteraction: false })]}
-      />
-    </section>
+      <motion.div variants={carousel}>
+        <CarouselProjects
+          projects={completedProjects}
+          plugins={[Autoplay({ delay: 7000, stopOnInteraction: false })]}
+        />
+      </motion.div>
+    </motion.section>
   );
 };
 

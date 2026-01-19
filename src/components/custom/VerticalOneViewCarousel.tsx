@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useCallback } from "react";
-import Image from "next/image";
 
 import { EmblaOptionsType, EmblaPluginType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
@@ -16,6 +15,7 @@ import { DotButton, useDotButton } from "@/components/ui/EmblaCarouselDotButton"
 import { cn } from "@/lib/utils";
 
 import styles from "@/styles/CarouselVerticalView.module.css";
+import SkeletonImage from "../global/SkeletonImage";
 
 type PropType = {
   slides: { src: string }[];
@@ -58,11 +58,12 @@ const VerticalOneViewCarousel: React.FC<PropType> = (props) => {
           {slides.map((slide, index) => (
             <div className={styles.embla__slide} key={index}>
               <div className="relative w-full h-full">
-                <Image
+                <SkeletonImage
                   src={slide.src}
                   alt={`Whoweare Slide ${index + 1}`}
                   fill
-                  className="object-cover"
+                  containerClassName="w-full h-full"
+                  className="object-cover bg-primary-hover w-full h-full"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
@@ -72,7 +73,7 @@ const VerticalOneViewCarousel: React.FC<PropType> = (props) => {
       </div>
 
       <div className={styles.embla__controls}>
-        <div className={styles.embla__buttons}>
+        <div className={cn(styles.embla__buttons, "hidden! sm:flex!")}>
           <PrevButton
             isActive={!prevBtnDisabled}
             onClick={onPrevButtonClick}
