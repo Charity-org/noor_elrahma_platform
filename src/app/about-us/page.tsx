@@ -1,4 +1,3 @@
-import Hero from "../../components/pages/about-us/Hero";
 import SubPagesHero from "../../components/custom/SubPagesHero";
 import AnalysisBar from "../../components/custom/AnalysisBar";
 import OurOrganization from "../../components/pages/about-us/OurOrganization";
@@ -6,7 +5,7 @@ import AbouOrganization from "../../components/pages/about-us/AboutOrganization"
 import WhyDonateUS from "../../components/pages/about-us/WhyDonateUS";
 import DonateCTA from "../../components/pages/about-us/DonateCTA";
 import ProjectsByRegion from "../../components/pages/about-us/ProjectsByRegion";
-import Map from "../../components/custom/WorldMapDoted";
+import WorldMapDoted from "../../components/custom/WorldMapDoted";
 export default function AboutUsPage() {
   return (
     <>
@@ -20,16 +19,14 @@ export default function AboutUsPage() {
           </p>
         </div>
       </SubPagesHero>
-      <main>
+      <main className="space-y-10">
         <AnalysisBar />
         <OurOrganization />
-
         <AbouOrganization />
-
         <WhyDonateUS />
         <DonateCTA />
         <ProjectsByRegion />
-        <Map />
+        <WorldMapDoted />
       </main>
     </>
   );
