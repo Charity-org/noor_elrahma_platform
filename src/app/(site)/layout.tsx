@@ -5,9 +5,10 @@ import { Inter, Teachers, Cairo } from "next/font/google";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 
-import "./globals.css";
 import UpButton from "@/components/custom/UpButton";
 import SmoothScroll from "@/components/common/SmoothScroll";
+
+import "../globals.css";
 
 const inter = Inter({
   variable: "--font-inter",

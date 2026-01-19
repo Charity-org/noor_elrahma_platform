@@ -7,7 +7,7 @@ const containerVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.5,
-      delay: 1,
+      delay: 0.8,
       ease: "easeOut",
       staggerChildren: 0.1,
       delayChildren: 1.2,
