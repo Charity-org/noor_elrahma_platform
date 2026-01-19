@@ -1,7 +1,5 @@
 import MainLoader from "@/components/global/MainLoader";
 
-const loading = () => {
-  return <MainLoader />;
-};
+const loading = () => <MainLoader />;
 
 export default loading;

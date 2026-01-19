@@ -7,9 +7,10 @@ const containerVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.5,
+      delay: 1,
       ease: "easeOut",
       staggerChildren: 0.1,
-      delayChildren: 0.2, // Delay until after header slides in
+      delayChildren: 1.2,
     },
   },
 };
@@ -42,7 +43,7 @@ const mobileMenuVariants: Variants = {
   hidden: {
     y: "-100%",
     transition: {
-      duration: 0.5,
+      duration: 0.2,
       ease: [0.33, 1, 0.68, 1],
       when: "afterChildren",
       staggerChildren: 0.05,

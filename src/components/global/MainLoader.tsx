@@ -3,14 +3,41 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const MainLoader = () => {
+const MainLoader = ({ mode = "loading" }: { mode?: "loading" | "transition" }) => {
+  const isTransition = mode === "transition";
+
   return (
-    <div className="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-primary">
+    <div
+      className={`fixed inset-0 z-9999 flex items-center justify-center ${
+        isTransition ? "pointer-events-none" : ""
+      }`}
+    >
+      {/* Secondary Layer (Gold) - Slides up last */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="relative flex flex-col items-center gap-6"
+        initial={isTransition ? { y: "0%" } : { y: "0%" }}
+        animate={isTransition ? { y: "-100%" } : { y: "0%" }}
+        transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
+        className="absolute inset-0 bg-third z-10"
+      />
+
+      {/* Primary Layer (Green) - Slides up first */}
+      <motion.div
+        initial={isTransition ? { y: "0%" } : { y: "0%" }}
+        animate={isTransition ? { y: "-100%" } : { y: "0%" }}
+        transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.1 }}
+        className="absolute inset-0 bg-primary z-20"
+      />
+
+      {/* Content Container */}
+      <motion.div
+        initial={isTransition ? { opacity: 1, y: 0 } : { opacity: 0, scale: 0.5 }}
+        animate={isTransition ? { opacity: 0, y: -100 } : { opacity: 1, scale: 1 }}
+        transition={
+          isTransition
+            ? { duration: 0.5, ease: "easeInOut" } // Exit
+            : { duration: 0.5, ease: "easeOut" } // Entrance
+        }
+        className="relative flex flex-col items-center gap-6 z-30"
       >
         {/* Logo Container with Glow */}
         <div className="relative">
@@ -43,16 +70,16 @@ const MainLoader = () => {
         {/* Text */}
         <div className="text-center space-y-2">
           <motion.h1
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            initial={isTransition ? { opacity: 1 } : { y: 20, opacity: 0 }}
+            animate={isTransition ? { opacity: 1 } : { y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
             className="text-3xl font-bold text-white font-cairo"
           >
             نور الرحمة
           </motion.h1>
           <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            initial={isTransition ? { opacity: 1 } : { y: 20, opacity: 0 }}
+            animate={isTransition ? { opacity: 1 } : { y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
             className="text-third font-teachers text-lg tracking-[0.2em] uppercase"
           >
