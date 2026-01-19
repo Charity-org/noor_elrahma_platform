@@ -117,7 +117,7 @@ const recentProjects = [
     imageSrc: "/assets/water_well_project.png",
     title: "Water Well Project",
     startDate: "18/2/2026",
-    country: "Gambia",
+    country: "senegal",
     description:
       "Providing clean and safe water to families in need by building sustainable water wells in underserved communities.",
     progress: 50,
@@ -166,7 +166,7 @@ const recentProjects = [
     country: "Gambia",
     description:
       "Providing essential food supplies to families in need during the holy month of Ramadan to support their fasting and daily needs.",
-    progress: 100,
+    progress: 70,
     goal: 12000,
     raised: 8000,
     donations: 20,
@@ -186,7 +186,7 @@ const recentProjects = [
     imageSrc: "/assets/water_well_project.png",
     title: "Winter Clothing Drive",
     startDate: "18/2/2026",
-    country: "Gambia",
+    country: "senegal",
     description:
       "Distributing warm clothing and blankets to vulnerable individuals and families to protect them from the cold weather.",
     progress: 50,
@@ -281,7 +281,7 @@ const completedProjects = [
     imageSrc: "/assets/water_well_project.png",
     title: "Water Well Project",
     startDate: "18/2/2026",
-    country: "Gambia",
+    country: "senegal",
     description:
       "Providing clean and safe water to families in need by building sustainable water wells in underserved communities.",
     progress: 100,
@@ -300,7 +300,7 @@ const completedProjects = [
     imageSrc: "/assets/quran_project.png",
     title: "Quran Distribution Project",
     startDate: "18/2/2026",
-    country: "Gambia",
+    country: "senegal",
     description:
       "Distributing Qurans to individuals and communities to support education, faith, and daily spiritual life.",
     progress: 100,

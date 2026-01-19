@@ -9,14 +9,15 @@ function ProjectDetailsPage() {
   return (
     <>
       <SubPagesHero bgImage="/assets/hero.jpg">
-        <h1 className="font-bold text-[clamp(3rem,5vw,6rem)] text-white font-teachers">
+        <h1 className="text-white font-bold w-full capitalize md:w-[80%] font-teachers text-[clamp(2.5rem,4vw,6rem)] leading-[1.1] drop-shadow-2xl max-w-[20ch] md:max-w-none">
           Water Well Project
         </h1>
-        <p className="text-white text-[clamp(1.4rem,2vw,2.25rem)] pb-5 font-inter">
+        <p className="font-inter text-white/80 text-[clamp(1rem,2vw,1.5rem)] max-w-[40ch] md:max-w-[60ch] drop-shadow-md mb-10">
           we aspire to a society full of goodness
         </p>
-        <Button className="py-6 px-12 uppercase font-bold text-white rounded-xl bg-third hover:bg-third/80">
-          DONATE NOW
+
+        <Button className="bg-third px-4 md:px-6 md:py-10 py-6 md:w-[15ch] cursor-pointer hover:bg-third/80 md:text-2xl text-lg font-teachers">
+          Donate Now
         </Button>
       </SubPagesHero>
 
