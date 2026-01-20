@@ -6,13 +6,15 @@ import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 
 import { heroData } from "@/constants/layoutData";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import SkeletonImage from "@/components/global/SkeletonImage";
 
 import { containerVariants } from "@/lib/animations/home/HeroAnimationOptions";
 import { itemVariants, titleVariants } from "@/lib/animations/home/HeroAnimationOptions";
 
 import styles from "@/styles/CarouselSingleView.module.css";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const Hero = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
@@ -98,12 +100,15 @@ const Hero = () => {
                   </motion.div>
 
                   <motion.div variants={itemVariants} className="flex items-center gap-10">
-                    <Button
-                      variant={"outline"}
-                      className="text-third px-4 md:px-6 md:py-10 py-6 md:w-[15ch] bg-transparent border-third cursor-pointer font-teachers text-lg md:text-2xl hover:bg-third/10 hover:text-third"
+                    <Link
+                      href={`/projects/${slide.id}`}
+                      className={cn(
+                        buttonVariants({ variant: "outline" }),
+                        "text-third px-4 md:px-6 md:py-10 py-6 md:w-[15ch] bg-transparent border-third cursor-pointer font-teachers text-lg md:text-2xl hover:bg-third/10 hover:text-third",
+                      )}
                     >
                       View Project
-                    </Button>
+                    </Link>
                     <Button className="bg-third px-4 md:px-6 md:py-10 py-6 md:w-[15ch] cursor-pointer hover:bg-third/80 md:text-2xl text-lg font-teachers">
                       Donate Now
                     </Button>

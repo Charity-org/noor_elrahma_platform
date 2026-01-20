@@ -1,15 +1,17 @@
 import { AuthPageLayout } from "@/components/auth/AuthPageLayout";
-import { fakeUser } from "@/constants/fakeUser";
+import { getUser } from "@/app/actions";
 import Link from "next/link";
 
-const verifyPage = () => {
+const verifyPage = async () => {
+  const session = await getUser();
+  const user = session?.user;
   return (
     <AuthPageLayout backgroundImage="/assets/verfiy-page.png" style={"max-w-3xl"}>
       <div className="space-y-6 text-center">
         <h1 className="text-[clamp(1.5rem,4vw,2rem)] font-bold leading-tight">
           Mail sent to
           <br />
-          <span className="text-foreground">{fakeUser.email}</span>
+          <span className="text-foreground">{user?.email || "your email"}</span>
         </h1>
 
         <div className="space-y-3">

@@ -14,10 +14,15 @@ import {
   DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
 import UserAvatar from "@/components/layout/UserAvatar";
-import { fakeUser } from "@/constants/fakeUser";
+import { authClient } from "@/lib/auth-client";
+import handelSignOut from "@/utils/handelSignOut";
 import { userMenuOptions } from "@/constants/layoutData";
+import { redirect } from "next/navigation";
 
 const UserMenu = () => {
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="outline-none">
@@ -28,8 +33,8 @@ const UserMenu = () => {
           <div className="flex items-center gap-2">
             <UserAvatar style="w-8 h-8" />
             <div className="flex flex-col font-inter">
-              <span className="font-bold text-primary">{fakeUser.name}</span>
-              <span className="text-[12px] text-third">{fakeUser.email}</span>
+              <span className="font-bold text-primary">{user?.name}</span>
+              <span className="text-[12px] text-third">{user?.email}</span>
             </div>
           </div>
         </DropdownMenuLabel>
@@ -61,7 +66,18 @@ const UserMenu = () => {
               </DropdownMenuItem>
             </Link>
           ) : (
-            <DropdownMenuItem key={name} className="flex gap-2 items-center cursor-pointer">
+            <DropdownMenuItem
+              key={name}
+              className="flex gap-2 items-center cursor-pointer"
+              onClick={
+                name === "Sign out"
+                  ? async () => {
+                      await handelSignOut();
+                      redirect("/");
+                    }
+                  : undefined
+              }
+            >
               <Icon className="w-4 h-4" />
               <span>{name}</span>
             </DropdownMenuItem>
