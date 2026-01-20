@@ -1,4 +1,12 @@
-import { BellDot, CalendarHeart, CircleUser, Languages, LogOut, ReceiptText } from "lucide-react";
+import {
+  BellDot,
+  CalendarHeart,
+  CircleUser,
+  HandHeart,
+  Languages,
+  LogOut,
+  ReceiptText,
+} from "lucide-react";
 
 const navLinksData = [
   {
@@ -25,6 +33,7 @@ const navLinksData = [
 
 const heroData = [
   {
+    id: 1,
     image: "/assets/hero-1.jpg",
     title: "Education for children in singal",
     description:
@@ -43,6 +52,7 @@ const heroData = [
     },
   },
   {
+    id: 2,
     image: "/assets/hero-2.jpg",
     title: "Education for children in ghambia",
     description:
@@ -61,6 +71,7 @@ const heroData = [
     },
   },
   {
+    id: 3,
     image: "/assets/hero-3.jpg",
     title: "Food for children in singal",
     description:
@@ -79,6 +90,7 @@ const heroData = [
     },
   },
   {
+    id: 4,
     image: "/assets/hero-4.jpg",
     title: "Education for children in ghambia",
     description:
@@ -514,6 +526,7 @@ const footerContactsData = [
 
 const userMenuOptions = [
   { name: "Profile", link: "/profile", icon: CircleUser },
+  { name: "My Donations", link: "/donations", icon: HandHeart },
   { name: "Language", icon: Languages },
   { name: "Favorites", link: "/favorites", icon: CalendarHeart },
   { name: "Notifications", link: "/notifications", icon: BellDot },

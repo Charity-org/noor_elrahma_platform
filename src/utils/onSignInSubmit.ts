@@ -1,10 +1,25 @@
-import { SignInFormData } from "@/lib/validations/signInSchema";
+import { authClient } from "@/lib/auth-client";
 import { ToastMessage } from "@/components/global/ToastMessage";
+import { z } from "zod";
+import signInSchema from "@/lib/validations/signInSchema";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
-const onSignInSubmit = async (formData: SignInFormData) => {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  console.log(formData);
-  ToastMessage("Welcome back! You've successfully signed in.", "success");
-};
+export const onSignInSubmit =
+  (router: AppRouterInstance) => async (formData: z.infer<typeof signInSchema>) => {
+    const { email, password } = formData;
 
-export default onSignInSubmit;
+    const { error } = await authClient.signIn.email({
+      email,
+      password,
+      callbackURL: "/",
+    });
+
+    if (error) {
+      ToastMessage(error.message || "Invalid credentials", "error");
+      return;
+    }
+
+    ToastMessage("Signed in successfully!", "success");
+    router.push("/");
+    router.refresh();
+  };

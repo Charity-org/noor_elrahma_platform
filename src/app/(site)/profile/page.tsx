@@ -1,9 +1,14 @@
-import { ProfileForm } from "@/components/auth/ProfileForm";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { fakeUser } from "@/constants/fakeUser";
 import Image from "next/image";
 
-const Profile = () => {
+import { ProfileForm } from "@/components/auth/ProfileForm";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { getUser } from "@/app/actions";
+
+const Profile = async () => {
+  const session = await getUser();
+
+  const user = session?.user;
+
   return (
     <div className="min-h-[calc(100vh-33.4rem)] container py-6 sm:py-10 md:py-14 px-4 sm:px-6">
       <Card className="pt-0 rounded-2xl sm:rounded-3xl overflow-hidden w-full sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[60%] mx-auto shadow-lg">
@@ -24,10 +29,10 @@ const Profile = () => {
             />
             <div className="space-y-1 sm:space-y-1.5 text-center sm:text-left">
               <p className="font-bold font-teachers text-[clamp(1.2rem,4vw,1.8rem)]">
-                {fakeUser.name}
+                {user?.name}
               </p>
               <p className="text-[clamp(0.8rem,2vw,1rem)] text-muted-foreground break-all sm:break-normal">
-                {fakeUser.email}
+                {user?.email}
               </p>
             </div>
           </div>

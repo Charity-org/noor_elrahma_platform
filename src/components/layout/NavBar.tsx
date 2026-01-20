@@ -7,11 +7,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 import ResponsiveNavbar from "@/components/layout/ResponsiveNavbar";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import BurgerBtn from "@/components/layout/BurgerBtn";
 import UserMenu from "@/components/layout/UserMenu";
 
-import { fakeUser } from "@/constants/fakeUser";
 import { navLinksData } from "@/constants/layoutData";
 
 import {
@@ -21,10 +20,14 @@ import {
 } from "@/lib/animations/home/NavBarAnimationOptions";
 
 import { Languages } from "lucide-react";
+import { authClient } from "@/lib/auth-client";
+import { cn } from "@/lib/utils";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathName = usePathname();
+
+  const { data: session } = authClient.useSession();
 
   return (
     <motion.header
@@ -61,16 +64,23 @@ const NavBar = () => {
           ))}
         </ul>
 
+        {/* donate now and user menu */}
         <motion.div
           variants={itemVariants}
           className="hidden lg:flex items-center justify-center gap-6"
         >
-          {!fakeUser.isAuthenticated && <Languages className="text-white cursor-pointer" />}
-          <Button className="bg-third hover:bg-third/90 cursor-pointer rounded-[16px]! h-12 text-[20px] capitalize md:w-[13ch] font-teachers">
+          {session?.user && <Languages className="text-white cursor-pointer" />}
+          <Link
+            href="/sign-in"
+            className={cn(
+              buttonVariants({ variant: "default" }),
+              "bg-third hover:bg-third/90 cursor-pointer rounded-[16px]! h-12 text-[20px] capitalize md:w-[13ch] font-teachers",
+            )}
+          >
             donate now
-          </Button>
+          </Link>
 
-          {fakeUser.isAuthenticated && <UserMenu />}
+          {session?.user && <UserMenu />}
         </motion.div>
 
         <motion.div variants={itemVariants} className="lg:hidden">
