@@ -5,7 +5,7 @@ import { worldMapLocations } from "@/constants/worldMapLocations";
 
 function WorldMapDoted() {
   return (
-    <div className="py-20 md:py-40 dark:bg-black bg-white w-full relative overflow-hidden">
+    <div className="py-20 mb-12 dark:bg-black bg-white w-full relative overflow-hidden">
       <WorldMap dots={worldMapLocations} lineColor="#145a43" />
 
       {/* Decorative gradient overlay */}
