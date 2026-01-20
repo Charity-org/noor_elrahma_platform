@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import useSignUpForm from "@/hooks/useSignUpForm";
-import onSignUpSubmit from "@/utils/onSignUpSubmit";
+import { onSignUpSubmit } from "@/utils/onSignUpSubmit";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -17,20 +18,25 @@ import {
 import { Input } from "@/components/ui/input";
 
 import SociealProviders from "./SociealProviders";
+import CountrySelect from "../custom/CountrySelect";
 
 import { Loader2 } from "lucide-react";
 
 export function SignUpForm({ className, ...props }: React.ComponentProps<"form">) {
+  const router = useRouter();
   const {
     formState: { errors, isSubmitting },
     register,
     handleSubmit,
+    control,
   } = useSignUpForm();
+
+  const onSubmit = onSignUpSubmit(router);
 
   return (
     <form
       className={cn("flex flex-col gap-6", className)}
-      onSubmit={handleSubmit(onSignUpSubmit)}
+      onSubmit={handleSubmit(onSubmit)}
       {...props}
     >
       <FieldGroup>
@@ -69,6 +75,13 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"form">
           </FieldDescription>
           {errors.email && <p className="text-destructive">{errors.email.message}</p>}
         </Field>
+
+        <CountrySelect
+          control={control}
+          name="country"
+          error={errors.country?.message}
+          className="w-full"
+        />
 
         <Field>
           <FieldLabel htmlFor="password">Password</FieldLabel>

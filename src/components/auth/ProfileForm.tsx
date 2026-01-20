@@ -7,19 +7,24 @@ import { Input } from "@/components/ui/input";
 
 import { Loader2 } from "lucide-react";
 import useProfileForm from "@/hooks/useProfileForm";
-import onProfileSubmit from "@/utils/onProfileSubmit";
+import { onProfileSubmit } from "@/utils/onProfileSubmit";
+import { useRouter } from "next/navigation";
+import CountrySelect from "../custom/CountrySelect";
 
 export function ProfileForm({ className, ...props }: React.ComponentProps<"form">) {
   const {
     formState: { errors, isSubmitting },
     register,
     handleSubmit,
+    control,
   } = useProfileForm();
+  const router = useRouter();
+  const onSubmit = onProfileSubmit(router);
 
   return (
     <form
       className={cn("flex flex-col gap-6", className)}
-      onSubmit={handleSubmit(onProfileSubmit)}
+      onSubmit={handleSubmit(onSubmit)}
       {...props}
     >
       <FieldGroup className="gap-0">
@@ -52,18 +57,12 @@ export function ProfileForm({ className, ...props }: React.ComponentProps<"form"
         </div>
 
         <div className="flex mt-10 gap-10">
-          <Field className="basis-1/2">
-            <FieldLabel htmlFor="nickname">Nickname</FieldLabel>
-            <Input
-              id="nickname"
-              type="text"
-              placeholder="John Doe"
-              className="border-primary focus:ring-primary/30!"
-              autoComplete="email"
-              {...register("nickname")}
-            />
-            {errors.nickname && <p className="text-destructive">{errors.nickname.message}</p>}
-          </Field>
+          <CountrySelect
+            control={control}
+            name="country"
+            error={errors.country?.message}
+            className="basis-1/2"
+          />
 
           <Field className="basis-1/2">
             <FieldLabel htmlFor="password">Password</FieldLabel>

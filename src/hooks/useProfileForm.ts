@@ -10,6 +10,7 @@ const useProfileForm = () => {
       fullName: "",
       email: "",
       password: "",
+      country: "",
     },
   });
 

@@ -11,6 +11,7 @@ const useSignUpForm = () => {
       email: "",
       password: "",
       confirmPassword: "",
+      country: "",
     },
   });
 

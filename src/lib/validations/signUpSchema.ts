@@ -24,6 +24,7 @@ const signUpSchema = z
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/,
         "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character (@$!%*?&)",
       ),
+    country: z.string().min(1, "Please select a country"),
 
     confirmPassword: z.string().min(1, "Please confirm your password"),
   })

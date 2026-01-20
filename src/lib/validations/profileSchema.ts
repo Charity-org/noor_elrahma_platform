@@ -12,14 +12,6 @@ const profileSchema = z.object({
     )
     .trim(),
 
-  nickname: z
-    .string()
-    .min(1, "Nickname is required")
-    .min(2, "Nickname must be at least 2 characters long")
-    .max(100, "Nickname must not exceed 100 characters")
-    .regex(/^[a-zA-Z\s'-]+$/, "Nickname can only contain letters, spaces, hyphens, and apostrophes")
-    .trim(),
-
   email: z
     .email("Please enter a valid email address")
     .min(1, "Email is required")
@@ -36,6 +28,8 @@ const profileSchema = z.object({
     .regex(/[a-z]/, "Password must contain at least one lowercase letter")
     .regex(/[0-9]/, "Password must contain at least one number")
     .regex(/[^A-Za-z0-9]/, "Password must contain at least one special character"),
+
+  country: z.string().min(1, "Please select a country"),
 });
 
 export type ProfileFormData = z.infer<typeof profileSchema>;
