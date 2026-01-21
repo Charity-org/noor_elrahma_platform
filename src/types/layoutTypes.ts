@@ -44,4 +44,15 @@ interface NewsType {
   title: string;
 }
 
-export type { BurgerBtnProps, ProgressBarProps, Project, FocusCardsType, NewsType };
+interface Invoice {
+  invoice: string;
+  method: "Credit Card" | "PayPal" | "Bank Transfer";
+  project: {
+    name: string;
+    id: number;
+  };
+  date: string;
+  amount: number;
+}
+
+export type { BurgerBtnProps, ProgressBarProps, Project, FocusCardsType, NewsType, Invoice };

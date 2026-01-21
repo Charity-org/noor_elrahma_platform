@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import ContactSubjectDropdown from "./ContactSubjectDropdown";
 
 function ContactForm() {
   return (
@@ -15,9 +16,8 @@ function ContactForm() {
           <Input placeholder="Phone Number" />
         </div>
 
-        <div>
-          <Input placeholder="Subject" className="mb-6" />
-        </div>
+        {/* Subject Dropdown */}
+        <ContactSubjectDropdown />
 
         <div>
           <textarea
@@ -27,7 +27,7 @@ function ContactForm() {
         </div>
 
         <div className="flex justify-center lg:justify-start">
-          <Button className="uppercase px-10 py-6 rounded-[16px]!">Send message</Button>
+          <Button className="uppercase px-10 py-6 rounded-3xl">Send message</Button>
         </div>
       </form>
     </div>
