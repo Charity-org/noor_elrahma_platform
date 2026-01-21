@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 
 import UpButton from "@/components/custom/UpButton";
 import SmoothScroll from "@/components/common/SmoothScroll";
+import { Toaster } from "sonner";
 
 import "../globals.css";
 
@@ -43,6 +44,7 @@ export default function RootLayout({
           {children}
           <Footer />
           <UpButton />
+          <Toaster richColors position="top-right" />
         </SmoothScroll>
       </body>
     </html>

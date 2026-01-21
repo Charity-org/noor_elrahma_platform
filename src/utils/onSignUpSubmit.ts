@@ -1,28 +1,16 @@
-import { authClient } from "@/lib/auth-client";
+import { signUpAction } from "@/app/actions";
 import { ToastMessage } from "@/components/global/ToastMessage";
-import { z } from "zod";
-import signUpSchema from "@/lib/validations/signUpSchema";
+import { SignUpFormData } from "@/lib/validations/signUpSchema";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
-export const onSignUpSubmit =
-  (router: AppRouterInstance) => async (formData: z.infer<typeof signUpSchema>) => {
-    const { email, password, name, country } = formData;
+export const onSignUpSubmit = (router: AppRouterInstance) => async (formData: SignUpFormData) => {
+  const response = await signUpAction(formData);
 
-    const { error } = await authClient.signUp.email({
-      email,
-      password,
-      name,
-      //@ts-expect-error - country is an additional field
-      country,
-      callbackURL: "/",
-    });
+  if (!response.success) {
+    ToastMessage(response.message, "error");
+    return;
+  }
 
-    if (error) {
-      ToastMessage(error.message || "Failed to create account", "error");
-      return;
-    }
-
-    ToastMessage("Account created successfully!", "success");
-    router.push("/verify");
-    router.refresh();
-  };
+  ToastMessage(response.message, "success");
+  router.push(`/verify?mail=${formData.email}`);
+};

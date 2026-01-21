@@ -1,29 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
-import { headers } from "next/headers";
-import { auth } from "@/lib/auth";
 
 export async function proxy(request: NextRequest) {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
-
   const { pathname } = request.nextUrl;
+  const hasSession = (request.headers.get("cookie") || "").includes("better-auth.session_token");
 
-  // Define public routes (login/signup pages)
-  const isPublicRoute = pathname === "/sign-in" || pathname === "/sign-up";
+  // Authentication Gates
+  const isAuthPage = pathname === "/sign-in" || pathname === "/sign-up";
+  const isProtectedRoute = pathname.startsWith("/profile");
+  const isResetFlow =
+    pathname.startsWith("/reset-password") && !request.nextUrl.searchParams.has("token");
 
-  // Define protected routes
-  const isProtectedRoute = ["/profile", "/donations", "/favorites", "/notifications"].some(
-    (route) => pathname.startsWith(route),
-  );
-
-  // If user is logged in and tries to access public routes, redirect to dashboard
-  if (session && isPublicRoute) {
+  if (hasSession && isAuthPage) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
-  // If user is not logged in and tries to access protected routes, redirect to sign-in
-  if (!session && isProtectedRoute) {
+  if (!hasSession && (isProtectedRoute || isResetFlow)) {
     return NextResponse.redirect(new URL("/sign-in", request.url));
   }
 
@@ -38,5 +29,7 @@ export const config = {
     "/notifications/:path*",
     "/sign-in",
     "/sign-up",
+    "/forgot-password",
+    "/reset-password/:token*",
   ],
 };

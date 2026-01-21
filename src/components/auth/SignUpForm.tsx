@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 
-import SociealProviders from "./SociealProviders";
+import SocialProviders from "./SocialProviders";
 import CountrySelect from "../custom/CountrySelect";
 
 import { Loader2 } from "lucide-react";
@@ -124,7 +124,7 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"form">
 
         <FieldSeparator className="text-primary">Or continue with</FieldSeparator>
         <Field>
-          <SociealProviders btnText="Sign up with Google" />
+          <SocialProviders btnText="Sign up with Google" />
           <FieldDescription className="px-6 text-center">
             Already have an account? <Link href="/sign-in">Sign in</Link>
           </FieldDescription>

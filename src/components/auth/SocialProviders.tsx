@@ -1,11 +1,20 @@
+import { authClient } from "@/lib/auth-client";
 import { Button } from "../ui/button";
 
-const SociealProviders = ({ btnText }: { btnText: string }) => {
+const SocialProviders = ({ btnText }: { btnText: string }) => {
+  const handleGoogleSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
+  };
+
   return (
     <Button
       variant="outline"
       type="button"
-      className="rounded-md! text-primary hover:bg-primary/5 border-primary"
+      onClick={handleGoogleSignIn}
+      className="rounded-md! text-primary hover:bg-primary/5 border-primary w-full"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 533.5 544.3">
         <path
@@ -30,4 +39,4 @@ const SociealProviders = ({ btnText }: { btnText: string }) => {
   );
 };
 
-export default SociealProviders;
+export default SocialProviders;

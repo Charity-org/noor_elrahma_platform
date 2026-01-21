@@ -1,10 +1,9 @@
-import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import signUpSchema from "@/lib/validations/signUpSchema";
+import signUpSchema, { SignUpFormData } from "@/lib/validations/signUpSchema";
 
 const useSignUpForm = () => {
-  const form = useForm<z.infer<typeof signUpSchema>>({
+  const form = useForm<SignUpFormData>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
       name: "",
