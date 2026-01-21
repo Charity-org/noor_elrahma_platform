@@ -15,4 +15,31 @@ const contactInfoData = [
   },
 ];
 
-export { contactInfoData };
+const contactSubjectData = [
+  {
+    title: "General Inquiry",
+    value: "general-inquiry",
+  },
+  {
+    title: "Donation Support (Payment / Confirmation issues)",
+    value: "donation-support",
+  },
+  {
+    title: "Project Information (Questions about a specific project)",
+    value: "project-information",
+  },
+  {
+    title: "Technical Issue (Website or account problems)",
+    value: "technical-issue",
+  },
+  {
+    title: "Feedback / Suggestions",
+    value: "feedback-suggestions",
+  },
+  {
+    title: "Other",
+    value: "other",
+  },
+];
+
+export { contactInfoData, contactSubjectData };
