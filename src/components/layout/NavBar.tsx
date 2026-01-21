@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import ResponsiveNavbar from "@/components/layout/ResponsiveNavbar";
 import { buttonVariants } from "@/components/ui/button";
@@ -62,6 +62,28 @@ const NavBar = () => {
               </Link>
             </motion.li>
           ))}
+          <AnimatePresence mode="wait">
+            {session && (
+              <motion.li
+                key="profile-link"
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+              >
+                <Link
+                  className={`navLink after:w-0 ${
+                    pathName === "/profile" || pathName.startsWith("/profile")
+                      ? "text-third after:w-full font-bold"
+                      : "text-white"
+                  }`}
+                  href="/profile"
+                >
+                  profile
+                </Link>
+              </motion.li>
+            )}
+          </AnimatePresence>
         </ul>
 
         {/* donate now and user menu */}
@@ -69,7 +91,7 @@ const NavBar = () => {
           variants={itemVariants}
           className="hidden lg:flex items-center justify-center gap-6"
         >
-          {session?.user && <Languages className="text-white cursor-pointer" />}
+          {!session?.user && <Languages className="text-white cursor-pointer" />}
           <Link
             href="/sign-in"
             className={cn(

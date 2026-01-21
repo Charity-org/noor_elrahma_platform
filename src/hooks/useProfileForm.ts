@@ -1,16 +1,13 @@
-import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import profileSchema from "@/lib/validations/profileSchema";
+import profileSchema, { ProfileFormData } from "@/lib/validations/profileSchema";
 
-const useProfileForm = () => {
-  const form = useForm<z.infer<typeof profileSchema>>({
+const useProfileForm = (initialData?: Partial<ProfileFormData>) => {
+  const form = useForm<ProfileFormData>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
-      fullName: "",
-      email: "",
-      password: "",
-      country: "",
+      fullName: initialData?.fullName || "",
+      country: initialData?.country || "",
     },
   });
 

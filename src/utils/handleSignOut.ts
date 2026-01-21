@@ -1,7 +1,7 @@
 import { authClient } from "@/lib/auth-client";
 import { ToastMessage } from "@/components/global/ToastMessage";
 
-const handelSignOut = async () => {
+const handleSignOut = async () => {
   await authClient.signOut({
     fetchOptions: {
       onSuccess: () => {
@@ -14,4 +14,4 @@ const handelSignOut = async () => {
   });
 };
 
-export default handelSignOut;
+export default handleSignOut;

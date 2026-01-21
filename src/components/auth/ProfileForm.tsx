@@ -11,13 +11,24 @@ import { onProfileSubmit } from "@/utils/onProfileSubmit";
 import { useRouter } from "next/navigation";
 import CountrySelect from "../custom/CountrySelect";
 
-export function ProfileForm({ className, ...props }: React.ComponentProps<"form">) {
+interface ProfileFormProps extends React.ComponentProps<"form"> {
+  initialData?: {
+    name?: string;
+    country?: string;
+  };
+}
+
+export function ProfileForm({ className, initialData, ...props }: ProfileFormProps) {
   const {
     formState: { errors, isSubmitting },
     register,
     handleSubmit,
     control,
-  } = useProfileForm();
+  } = useProfileForm({
+    fullName: initialData?.name,
+    country: initialData?.country,
+  });
+
   const router = useRouter();
   const onSubmit = onProfileSubmit(router);
 
@@ -42,40 +53,12 @@ export function ProfileForm({ className, ...props }: React.ComponentProps<"form"
             {errors.fullName && <p className="text-destructive">{errors.fullName.message}</p>}
           </Field>
 
-          <Field className="basis-1/2">
-            <FieldLabel htmlFor="email">Email</FieldLabel>
-            <Input
-              id="email"
-              type="email"
-              placeholder="john.doe@example.com"
-              className="border-primary focus:ring-primary/30!"
-              autoComplete="email"
-              {...register("email")}
-            />
-            {errors.email && <p className="text-destructive">{errors.email.message}</p>}
-          </Field>
-        </div>
-
-        <div className="flex mt-10 gap-10">
           <CountrySelect
             control={control}
             name="country"
             error={errors.country?.message}
             className="basis-1/2"
           />
-
-          <Field className="basis-1/2">
-            <FieldLabel htmlFor="password">Password</FieldLabel>
-            <Input
-              id="password"
-              type="password"
-              placeholder="********"
-              className="border-primary focus:ring-primary/30!"
-              autoComplete="email"
-              {...register("password")}
-            />
-            {errors.password && <p className="text-destructive">{errors.password.message}</p>}
-          </Field>
         </div>
 
         <Field className="mt-10">
