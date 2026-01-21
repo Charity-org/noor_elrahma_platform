@@ -4,8 +4,9 @@ import { AuthPageLayout } from "@/components/auth/AuthPageLayout";
 import VerifyMailOptions from "@/components/auth/VerifyButtonAction";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-const VerifyPage = () => {
+const VerifyContent = () => {
   const searchParams = useSearchParams();
   const mail = searchParams.get("mail");
 
@@ -36,6 +37,14 @@ const VerifyPage = () => {
         </div>
       </div>
     </AuthPageLayout>
+  );
+};
+
+const VerifyPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <VerifyContent />
+    </Suspense>
   );
 };
 
