@@ -1,5 +1,3 @@
-"use client";
-
 import SubPagesHero from "@/components/custom/SubPagesHero";
 import AnalysisBar from "@/components/custom/AnalysisBar";
 import OurOrganization from "@/components/pages/about-us/OurOrganization";

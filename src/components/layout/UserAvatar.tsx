@@ -1,10 +1,9 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { authClient } from "@/lib/auth-client";
+import { useAuth } from "@/providers/auth-provider";
 import { cn } from "@/lib/utils";
 
 const UserAvatar = ({ style }: { style?: string }) => {
-  const { data: session } = authClient.useSession();
-  const user = session?.user;
+  const { user } = useAuth();
 
   return (
     <Avatar className={cn("w-10 h-10 cursor-pointer", style)}>

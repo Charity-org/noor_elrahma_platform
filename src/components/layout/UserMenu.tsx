@@ -14,15 +14,14 @@ import {
   DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
 import UserAvatar from "@/components/layout/UserAvatar";
-import { authClient } from "@/lib/auth-client";
+import { useAuth } from "@/providers/auth-provider";
 import handleSignOut from "@/utils/handleSignOut";
 import { userMenuOptions } from "@/constants/layoutData";
 import { useRouter } from "next/navigation";
 
 const UserMenu = () => {
   const router = useRouter();
-  const { data: session } = authClient.useSession();
-  const user = session?.user;
+  const { user } = useAuth();
 
   return (
     <DropdownMenu>

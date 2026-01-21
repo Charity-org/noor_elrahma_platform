@@ -1,12 +1,4 @@
-import {
-  BellDot,
-  CalendarHeart,
-  CircleUser,
-  HandHeart,
-  Languages,
-  LogOut,
-  ReceiptText,
-} from "lucide-react";
+import { BellDot, CalendarHeart, CircleUser, HandHeart, Languages, LogOut } from "lucide-react";
 
 const navLinksData = [
   {
@@ -528,9 +520,9 @@ const userMenuOptions = [
   { name: "Profile", link: "/profile", icon: CircleUser },
   { name: "My Donations", link: "/donations", icon: HandHeart },
   { name: "Language", icon: Languages },
-  { name: "Favorites", link: "/favorites", icon: CalendarHeart },
+  { name: "Favourites", link: "/favourites", icon: CalendarHeart },
   { name: "Notifications", link: "/notifications", icon: BellDot },
-  { name: "Terms and privacy", link: "/terms", icon: ReceiptText },
+  // { name: "Terms and privacy", link: "/terms", icon: ReceiptText },
   { name: "Sign out", icon: LogOut },
 ];
 
