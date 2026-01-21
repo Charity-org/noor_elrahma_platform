@@ -1,5 +1,3 @@
-"use client";
-
 import AnimatedNumber from "@/components/custom/AnimatedNumber";
 import { Earth, HandHeart, HouseHeart, Rocket } from "lucide-react";
 

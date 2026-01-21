@@ -12,7 +12,7 @@ import {
   mobileMenuVariants,
 } from "@/lib/animations/home/NavBarAnimationOptions";
 
-import { authClient } from "@/lib/auth-client";
+import { useAuth } from "@/providers/auth-provider";
 import { navLinksData } from "@/constants/layoutData";
 import handleSignOut from "@/utils/handleSignOut";
 import { useRouter } from "next/navigation";
@@ -30,8 +30,7 @@ export default function ResponsiveNavbar({
   pathName,
 }: ResponsiveNavbarProps) {
   const router = useRouter();
-  const { data: session } = authClient.useSession();
-  const isLoggedIn = !!session?.user;
+  const { session, isAuthenticated: isLoggedIn } = useAuth();
 
   const handleClose = useCallback(() => {
     setIsMenuOpen(false);

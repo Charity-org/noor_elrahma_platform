@@ -8,6 +8,7 @@ import Footer from "@/components/layout/Footer";
 import UpButton from "@/components/custom/UpButton";
 import SmoothScroll from "@/components/common/SmoothScroll";
 import { Toaster } from "sonner";
+import { AuthProvider } from "@/providers/auth-provider";
 
 import "../globals.css";
 
@@ -39,13 +40,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${teachers.variable} ${cairo.variable} antialiased`}>
-        <SmoothScroll root>
-          <NavBar />
-          {children}
-          <Footer />
-          <UpButton />
-          <Toaster richColors position="top-right" />
-        </SmoothScroll>
+        <AuthProvider>
+          <SmoothScroll root>
+            <NavBar />
+            {children}
+            <Footer />
+            <UpButton />
+            <Toaster richColors position="top-right" />
+          </SmoothScroll>
+        </AuthProvider>
       </body>
     </html>
   );

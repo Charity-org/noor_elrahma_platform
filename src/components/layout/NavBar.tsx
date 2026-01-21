@@ -20,14 +20,14 @@ import {
 } from "@/lib/animations/home/NavBarAnimationOptions";
 
 import { Languages } from "lucide-react";
-import { authClient } from "@/lib/auth-client";
+import { useAuth } from "@/providers/auth-provider";
 import { cn } from "@/lib/utils";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathName = usePathname();
 
-  const { data: session } = authClient.useSession();
+  const { session } = useAuth();
 
   return (
     <motion.header

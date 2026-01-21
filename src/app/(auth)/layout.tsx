@@ -3,6 +3,7 @@ import { Inter, Teachers, Cairo } from "next/font/google";
 import SmoothScroll from "@/components/common/SmoothScroll";
 
 import { Toaster } from "@/components/ui/sonner";
+import { AuthProvider } from "@/providers/auth-provider";
 
 import "../globals.css";
 
@@ -34,8 +35,10 @@ export default function AuthLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${teachers.variable} ${cairo.variable} antialiased`}>
-        <SmoothScroll root>{children}</SmoothScroll>
-        <Toaster />
+        <AuthProvider>
+          <SmoothScroll root>{children}</SmoothScroll>
+          <Toaster />
+        </AuthProvider>
       </body>
     </html>
   );
