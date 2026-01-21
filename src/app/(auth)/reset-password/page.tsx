@@ -5,7 +5,7 @@ import { Suspense } from "react";
 
 export default function ResetPasswordPage() {
   return (
-    <AuthPageLayout backgroundImage="/assets/login-form.png">
+    <AuthPageLayout backgroundImage="/assets/login-form-bg.png">
       <Suspense
         fallback={
           <div className="flex items-center justify-center h-screen">
