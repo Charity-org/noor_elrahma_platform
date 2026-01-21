@@ -15,7 +15,7 @@ import {
   FieldSeparator,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import SociealProviders from "./SociealProviders";
+import SocialProviders from "./SocialProviders";
 
 import { Loader2 } from "lucide-react";
 
@@ -88,7 +88,7 @@ export function SignInForm({ className, ...props }: React.ComponentProps<"form">
 
         <FieldSeparator className="text-primary">Or continue with</FieldSeparator>
         <Field>
-          <SociealProviders btnText="Sign in with Google" />
+          <SocialProviders btnText="Sign up with Google" />
           <FieldDescription className="px-6 text-center">
             Don&apos;t have an account? <Link href="/sign-up">Sign up</Link>
           </FieldDescription>

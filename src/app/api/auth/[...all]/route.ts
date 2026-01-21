@@ -16,14 +16,9 @@ async function proxyAuthRequest(req: NextRequest) {
     }
   });
 
-  // Set the host to the backend's host
-  forwardedHeaders["host"] = new URL(BETTER_AUTH_URL).host;
-
-  // Ensure Origin header is correctly set to the backend URL if it's missing or null
-  // Better Auth often requires the Origin to match BETTER_AUTH_URL or be trusted
-  if (!forwardedHeaders["origin"] || forwardedHeaders["origin"] === "null") {
-    forwardedHeaders["origin"] = new URL(BETTER_AUTH_URL).origin;
-  }
+  // Pass through client info
+  forwardedHeaders["x-forwarded-host"] = url.host;
+  forwardedHeaders["x-forwarded-proto"] = url.protocol.replace(":", "");
 
   try {
     const body =
@@ -46,7 +41,21 @@ async function proxyAuthRequest(req: NextRequest) {
     // Copy response headers back
     Object.entries(response.headers).forEach(([key, value]) => {
       if (value) {
-        res.headers.set(key, Array.isArray(value) ? value.join(", ") : (value as string));
+        if (key.toLowerCase() === "set-cookie") {
+          // IMPORTANT: Better Auth on Vercel might send a cookie with Domain=.vercel.app
+          // This will fail on localhost. We must strip the Domain or rewrite it.
+          const cookies = Array.isArray(value) ? value : [value as string];
+          const fixedCookies = cookies.map((cookie) => {
+            // Remove Domain attribute to allow localhost to save it
+            return cookie.replace(/Domain=[^;]+;?\s*/gi, "");
+          });
+
+          fixedCookies.forEach((cookie) => {
+            res.headers.append("Set-Cookie", cookie);
+          });
+        } else {
+          res.headers.set(key, Array.isArray(value) ? value.join(", ") : (value as string));
+        }
       }
     });
 

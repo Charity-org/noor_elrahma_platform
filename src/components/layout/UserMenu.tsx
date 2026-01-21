@@ -15,11 +15,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import UserAvatar from "@/components/layout/UserAvatar";
 import { authClient } from "@/lib/auth-client";
-import handelSignOut from "@/utils/handelSignOut";
+import handleSignOut from "@/utils/handleSignOut";
 import { userMenuOptions } from "@/constants/layoutData";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const UserMenu = () => {
+  const router = useRouter();
   const { data: session } = authClient.useSession();
   const user = session?.user;
 
@@ -72,8 +73,8 @@ const UserMenu = () => {
               onClick={
                 name === "Sign out"
                   ? async () => {
-                      await handelSignOut();
-                      redirect("/");
+                      await handleSignOut();
+                      router.push("/");
                     }
                   : undefined
               }
