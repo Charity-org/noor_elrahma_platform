@@ -175,6 +175,10 @@
     @apply font-bold font-teachers text-[clamp(1.8rem,4vw,3.15rem)];
   }
 
+  .tooltip {
+    @apply w-10 h-10 bg-white rounded-full flex items-center justify-center absolute top-3 hover:bg-primary transition-all duration-300 cursor-pointer;
+  }
+
   /* Hide scrollbar for Clean UI */
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
