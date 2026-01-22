@@ -3,7 +3,7 @@ import { ForgotPasswordForm } from "@/components/auth/ForgotPasswordForm";
 
 const ForgotPasswordPage = () => {
   return (
-    <AuthPageLayout backgroundImage="/assets/login-form.png">
+    <AuthPageLayout backgroundImage="/assets/login-form-bg.png">
       <ForgotPasswordForm />
     </AuthPageLayout>
   );
