@@ -63,6 +63,15 @@ export async function resendVerificationAction(email: string): Promise<ActionRes
   }
 }
 
+export async function verfiyToken(token: string): Promise<ActionResponse> {
+  try {
+    await api.get(`api/users/verify-token/${token}`);
+    return { success: true, message: "token verfiyed successfully!" };
+  } catch (error) {
+    return handleActionError(error, "Failed to verfiy token");
+  }
+}
+
 export async function updateProfileAction(formData: ProfileFormData): Promise<ActionResponse> {
   try {
     const session = await getUser();
