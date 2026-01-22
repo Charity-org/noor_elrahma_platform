@@ -5,7 +5,7 @@ import axios from "axios";
 import { z } from "zod";
 import profileSchema, { ProfileFormData } from "@/lib/validations/profileSchema";
 
-import signUpSchema from "@/lib/validations/signUpSchema";
+import signUpSchema, { SignUpFormData } from "@/lib/validations/signUpSchema";
 import { headers } from "next/headers";
 
 type ActionResponse<T = void> = {
@@ -39,9 +39,7 @@ export const getUser = async () => {
   }
 };
 
-export async function signUpAction(
-  formData: z.infer<typeof signUpSchema>,
-): Promise<ActionResponse> {
+export async function signUpAction(formData: SignUpFormData): Promise<ActionResponse> {
   try {
     const { email, password, name, country } = signUpSchema.parse(formData);
     await api.post("/api/users/signup", { email, password, name, country });
