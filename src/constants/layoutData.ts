@@ -1,4 +1,4 @@
-import { Invoice } from "@/types/layoutTypes";
+import { Invoice, NotificationsData } from "@/types/layoutTypes";
 import { BellDot, CalendarHeart, CircleUser, HandHeart, Languages, LogOut } from "lucide-react";
 
 const navLinksData = [
@@ -730,6 +730,27 @@ const invoicesData: Invoice[] = [
   },
 ];
 
+const notificationsData: NotificationsData[] = [
+  {
+    id: "1",
+    image: "/assets/water_well_project.png",
+    notificationTitle: "Water well project",
+    notificationMessage: "Thanks for your generosity ",
+  },
+  {
+    id: "2",
+    image: "",
+    notificationTitle: "Ramdan project",
+    notificationMessage: "Thanks for your generosity ",
+  },
+  {
+    id: "3",
+    image: "/assets/water_well_project.png",
+    notificationTitle: "Water well project",
+    notificationMessage: "Thanks for your generosity ",
+  },
+];
+
 export {
   navLinksData,
   heroData,
@@ -741,4 +762,5 @@ export {
   footerContactsData,
   userMenuOptions,
   invoicesData,
+  notificationsData,
 };
