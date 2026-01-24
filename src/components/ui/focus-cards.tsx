@@ -26,12 +26,13 @@ export const Card = React.memo(
       )}
     >
       <SkeletonImage
-        src={card.src}
+        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${card.src}`}
         alt={card.title}
         className="object-cover bg-primary-hover transition-all duration-300 ease-in-out relative z-10"
         fill
         containerClassName="absolute inset-0"
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        loading="eager"
       />
       <div
         className={cn(

@@ -12,12 +12,12 @@ import {
 import ProjectCard from "./ProjectCard";
 import { cn } from "@/lib/utils";
 
-import { Project } from "@/types/layoutTypes";
+import { ProjectCardData } from "@/types/hometypes";
 
 import styles from "../../styles/CarouselSlidesPerView.module.css";
 
 type PropType = {
-  projects: Project[];
+  projects: ProjectCardData[];
   options?: EmblaOptionsType;
   plugins?: EmblaPluginType[];
 };
@@ -36,7 +36,7 @@ const CarouselProjects: React.FC<PropType> = (props) => {
       <div className={styles.embla__viewport} ref={emblaRef}>
         <div className={styles.embla__container}>
           {projects.map((project) => (
-            <div className={styles.embla__slide} key={project.id}>
+            <div className={styles.embla__slide} key={project.projectId}>
               <ProjectCard project={project} />
             </div>
           ))}

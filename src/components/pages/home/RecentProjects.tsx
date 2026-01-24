@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 import CarouselProjects from "@/components/custom/CarouselProjects";
 import { Button } from "@/components/ui/button";
-import { recentProjects } from "@/constants/layoutData";
 import { carousel, header, container } from "@/lib/animations/home/RecentProjectsAnimationOptions";
+import { ProjectCardData } from "@/types/hometypes";
 
-const RecentProjects = () => {
+const RecentProjects = ({ recentProjectsData }: { recentProjectsData: ProjectCardData[] }) => {
   return (
     <motion.section
       initial="hidden"
@@ -29,7 +29,7 @@ const RecentProjects = () => {
 
       <motion.div variants={carousel}>
         <CarouselProjects
-          projects={recentProjects}
+          projects={recentProjectsData}
           plugins={[Autoplay({ delay: 5000, stopOnInteraction: false })]}
         />
       </motion.div>

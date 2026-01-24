@@ -5,8 +5,15 @@ import AbouOrganization from "@/components/pages/about-us/AboutOrganization";
 import WhyDonateUS from "@/components/pages/about-us/WhyDonateUS";
 import ProjectsByRegion from "@/components/pages/about-us/ProjectsByRegion";
 import WorldMapDoted from "@/components/custom/WorldMapDoted";
+import { getHomeDynamicData } from "@/utils/getAllDynamicPages";
+import { AboutPageType } from "@/types/hometypes";
+import ParallaxCarouselProject from "@/components/custom/ParallaxCarouselProject";
 
-export default function AboutUsPage() {
+export default async function AboutUsPage() {
+  const { about_us, some_real_projects }: AboutPageType = await getHomeDynamicData({
+    page: "ABOUT_US",
+  });
+
   return (
     <>
       <SubPagesHero bgImage="/assets/about-us-1.png">
@@ -22,9 +29,11 @@ export default function AboutUsPage() {
       <main className="container mt-32 space-y-32">
         <AnalysisBar />
 
-        <OurOrganization />
+        <OurOrganization aboutusdata={about_us} />
 
         <AbouOrganization />
+
+        <ParallaxCarouselProject projects={some_real_projects} />
 
         <WhyDonateUS />
 
