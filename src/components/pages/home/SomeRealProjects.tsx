@@ -1,12 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { someRealProjectsData } from "@/constants/layoutData";
 import { FocusCards } from "@/components/ui/focus-cards";
 import { OneViewCarousel } from "@/components/custom/OneViewCarousel";
 import { cards, container, title } from "@/lib/animations/home/RealProjectsAnimationOptions";
+import { SomeRealProjectsData } from "@/types/hometypes";
 
-const SomeRealProjects = () => {
+const SomeRealProjects = ({
+  someRealProjectsData,
+}: {
+  someRealProjectsData: SomeRealProjectsData[];
+}) => {
   return (
     <motion.section
       initial="hidden"

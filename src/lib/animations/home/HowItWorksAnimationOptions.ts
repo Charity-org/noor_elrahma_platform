@@ -25,7 +25,7 @@ const sectionItemVariants: Variants = {
   },
 };
 
-const image: Variants = {
+const imagevar: Variants = {
   hidden: { opacity: 0, x: -50 },
   visible: {
     opacity: 1,
@@ -48,4 +48,4 @@ const item: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-export { image, content, item, sectionContainerVariants, sectionItemVariants };
+export { imagevar, content, item, sectionContainerVariants, sectionItemVariants };

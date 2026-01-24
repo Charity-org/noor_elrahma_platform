@@ -9,6 +9,7 @@ const SubPagesHero = ({ children, bgImage }: { children: React.ReactNode; bgImag
         alt="Hero background"
         fill
         className="object-cover object-center -z-10"
+        loading="eager"
       />
       <div className="overlay"></div>
       <div className="container relative z-20 h-full flex flex-col items-center justify-center text-center">

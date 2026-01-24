@@ -5,14 +5,20 @@ import { motion } from "framer-motion";
 
 import CarouselProjects from "@/components/custom/CarouselProjects";
 import { Button } from "@/components/ui/button";
-import { completedProjects } from "@/constants/layoutData";
+
 import {
   carousel,
   container,
   title,
 } from "@/lib/animations/home/CompletedProjectsAnimationOptions";
 
-const CompletedProjects = () => {
+import { ProjectCardData } from "@/types/hometypes";
+
+const CompletedProjects = ({
+  completedProjectsData,
+}: {
+  completedProjectsData: ProjectCardData[];
+}) => {
   return (
     <motion.section
       initial="hidden"
@@ -35,7 +41,7 @@ const CompletedProjects = () => {
 
       <motion.div variants={carousel}>
         <CarouselProjects
-          projects={completedProjects}
+          projects={completedProjectsData}
           plugins={[Autoplay({ delay: 7000, stopOnInteraction: false })]}
         />
       </motion.div>
