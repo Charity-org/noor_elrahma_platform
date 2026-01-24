@@ -15,6 +15,13 @@ interface WhoWeAreDataType {
   wisdome: string;
 }
 
+interface ProjectImage {
+  id: number;
+  projectId: number;
+  image: string;
+  isMain: string;
+}
+
 interface ProjectCardData {
   projectId: number;
   image: string;
@@ -25,6 +32,7 @@ interface ProjectCardData {
   goal: number;
   raised: number;
   donations: number;
+  projectImages?: ProjectImage[];
 }
 
 interface SomeRealProjectsData {
@@ -84,4 +92,5 @@ export type {
   NewsType,
   AboutUsItem,
   AboutPageType,
+  ProjectImage,
 };

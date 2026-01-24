@@ -7,8 +7,8 @@ import { Tabs } from "@/components/ui/tabs";
 import ProjectCard from "@/components/custom/ProjectCard";
 import SearchInput from "./SearchInput";
 
-import { Project } from "@/types/layoutTypes";
 import { STATUS_TABS, COUNTRY_TABS } from "@/constants/projectFilters";
+import { ProjectCardData } from "@/types/hometypes";
 
 type filtersType = {
   status: string;
@@ -16,8 +16,8 @@ type filtersType = {
 };
 
 interface ProjectFiltersProps {
-  recentProjects: Project[];
-  completedProjects: Project[];
+  recentProjects: ProjectCardData[];
+  completedProjects: ProjectCardData[];
 }
 
 const ProjectFilters = ({ recentProjects, completedProjects }: ProjectFiltersProps) => {
@@ -64,20 +64,29 @@ const ProjectFilters = ({ recentProjects, completedProjects }: ProjectFiltersPro
         transition={{ duration: 0.2 }}
         className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 pb-10"
       >
-        {filteredProjects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.9,
-              delay: index * 0.05,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-          >
-            <ProjectCard project={project} />
-          </motion.div>
-        ))}
+        {filteredProjects.length === 0 ? (
+          <div className="col-span-full text-center py-20">
+            <p className="text-2xl text-gray-500 font-teachers">
+              No {filters.status} projects found in{" "}
+              {filters.country === "gambia" ? "any country" : filters.country}
+            </p>
+          </div>
+        ) : (
+          filteredProjects.map((project: ProjectCardData, index: number) => (
+            <motion.div
+              key={`${project}-${index}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.9,
+                delay: index * 0.05,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
+              <ProjectCard project={project} />
+            </motion.div>
+          ))
+        )}
       </motion.div>
     </div>
   );

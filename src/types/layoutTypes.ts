@@ -47,7 +47,6 @@ interface Invoice {
   amount: number;
 }
 
-export type { BurgerBtnProps, ProgressBarProps, Project, FocusCardsType, Invoice };
 interface NotificationsData {
   id: string;
   image?: string;
@@ -60,7 +59,6 @@ export type {
   ProgressBarProps,
   Project,
   FocusCardsType,
-  NewsType,
   Invoice,
   NotificationsData,
 };

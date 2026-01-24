@@ -10,16 +10,16 @@ import { DotButton, useDotButton } from "../ui/EmblaCarouselDotButton";
 import styles from "@/styles/CarouselParallaxPerView.module.css";
 import { NextButton, PrevButton, usePrevNextButtons } from "../ui/EmblaCarouselArrowButtons";
 
+import { ProjectData } from "@/types/projecttype";
+import { SomeRealProjectsData } from "@/types/hometypes";
 import { cn } from "@/lib/utils";
 
-type PropType = {
-  projects: {
-    title: string;
-    src: string;
-  }[];
-};
+interface ParallaxCarouselProjectProps {
+  project?: ProjectData;
+  projects?: ProjectData[] | SomeRealProjectsData[];
+}
 
-function ParallaxCarouselProject({ projects }: PropType) {
+function ParallaxCarouselProject({ project, projects }: ParallaxCarouselProjectProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     slidesToScroll: 1,
     dragFree: true,
@@ -69,21 +69,56 @@ function ParallaxCarouselProject({ projects }: PropType) {
     };
   }, [emblaApi, tweenParallax]);
 
+  // Helper to check if item is ProjectData
+  const isProjectData = (item: ProjectData | SomeRealProjectsData): item is ProjectData => {
+    return "projectId" in item;
+  };
+
+  // Normalize data for display
+  let slides: { id: number | string; image: string; alt: string }[] = [];
+
+  if (project) {
+    slides =
+      project.projectImages?.map((img) => ({
+        id: img.id,
+        image: img.image,
+        alt: project.projectName,
+      })) || [];
+  } else if (projects) {
+    slides = projects.map((p, index) => {
+      if (isProjectData(p)) {
+        return {
+          id: p.projectId,
+          image: p.image,
+          alt: p.projectName,
+        };
+      } else {
+        // It's SomeRealProjectsData
+        return {
+          id: index, // SomeRealProjectsData doesn't have an ID, use index
+          image: p.src,
+          alt: p.title,
+        };
+      }
+    });
+  }
+
   return (
     <div className={styles.embla}>
       <div className={styles.embla__viewport} ref={emblaRef}>
         <div className={styles.embla__container}>
-          {projects.map((project) => (
-            <div key={project.title} className={styles.embla__slide}>
+          {slides.map(({ image, id, alt }) => (
+            <div key={id} className={styles.embla__slide}>
               <div className={styles.embla__parallax}>
                 <div className={styles.embla__parallax__layer}>
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${project.src}`}
-                    alt={project.title}
+                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image}`}
+                    alt={alt}
                     width={310}
                     height={310}
                     className={`${styles.embla__parallax__img} ${styles.embla__slide__img}`}
                   />
+                  {/* Optional: Add project name overlay if needed */}
                 </div>
               </div>
             </div>

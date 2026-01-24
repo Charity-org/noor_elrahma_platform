@@ -13,7 +13,7 @@ function SearchInput() {
         placeholders={["Search...", "Find projects...", "Search by status..."]}
         onChange={(e) => console.log(e.target.value)}
         onSubmit={handleSearchSubmit}
-        className="h-12 bg-[#F3EAD6] rounded-xl"
+        className="h-12 bg-[#F3EAD6] rounded-full"
       />
     </div>
   );
