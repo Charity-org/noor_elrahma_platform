@@ -48,3 +48,19 @@ interface Invoice {
 }
 
 export type { BurgerBtnProps, ProgressBarProps, Project, FocusCardsType, Invoice };
+interface NotificationsData {
+  id: string;
+  image?: string;
+  notificationTitle: string;
+  notificationMessage: string;
+}
+
+export type {
+  BurgerBtnProps,
+  ProgressBarProps,
+  Project,
+  FocusCardsType,
+  NewsType,
+  Invoice,
+  NotificationsData,
+};
