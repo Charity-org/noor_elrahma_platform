@@ -12,18 +12,21 @@ import {
 import ProjectCard from "./ProjectCard";
 import { cn } from "@/lib/utils";
 
-import { ProjectCardData } from "@/types/hometypes";
+import { ProjectCardData, recent_completed_projects } from "@/types/hometypes";
+import { useLocale } from "next-intl";
 
 import styles from "../../styles/CarouselSlidesPerView.module.css";
 
 type PropType = {
-  projects: ProjectCardData[];
+  projects: (ProjectCardData | recent_completed_projects)[];
   options?: EmblaOptionsType;
   plugins?: EmblaPluginType[];
 };
 const CarouselProjects: React.FC<PropType> = (props) => {
+  const locale = useLocale();
+  const direction = locale === "ar" ? "rtl" : "ltr";
   const { projects, options, plugins = [] } = props;
-  const defaultOptions: EmblaOptionsType = { loop: true, ...options };
+  const defaultOptions: EmblaOptionsType = { loop: true, direction, ...options };
   const [emblaRef, emblaApi] = useEmblaCarousel(defaultOptions, plugins);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
@@ -35,11 +38,14 @@ const CarouselProjects: React.FC<PropType> = (props) => {
     <div className={styles.embla}>
       <div className={styles.embla__viewport} ref={emblaRef}>
         <div className={styles.embla__container}>
-          {projects.map((project, index) => (
-            <div className={styles.embla__slide} key={`${project.id}-${index}`}>
-              <ProjectCard project={project} />
-            </div>
-          ))}
+          {projects.map((project, index) => {
+            const id = "id" in project ? project.id : project.projectId;
+            return (
+              <div className={styles.embla__slide} key={`${id}-${index}`}>
+                <ProjectCard project={project} />
+              </div>
+            );
+          })}
         </div>
       </div>
 

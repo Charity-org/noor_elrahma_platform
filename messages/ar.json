@@ -1,0 +1,137 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "projects": "المشاريع",
+    "news": "الأخبار",
+    "about_us": "من نحن",
+    "contact_us": "اتصل بنا",
+    "profile": "الملف الشخصي",
+    "donate_now": "تبرع الآن"
+  },
+  "user_menu": {
+    "profile": "الملف الشخصي",
+    "my_donations": "تبرعاتي",
+    "favourites": "المفضلة",
+    "sign_out": "تسجيل الخروج"
+  },
+  "footer": {
+    "description": "نحن منظمة خيرية إنسانية تأسست حديثاً، ولدت من رحم العمل التطوعي الميداني والمشاركة المباشرة في مساعدة المحتاجين.",
+    "quick_links": "روابط سريعة",
+    "contacts": {
+      "phone": "الهاتف",
+      "email": "البريد الإلكتروني",
+      "address": "العنوان"
+    }
+  },
+  "hero": {
+    "donation": "تبرع",
+    "donators": "متبرع",
+    "view_project": "عرض المشروع",
+    "donate_now": "تبرع الآن"
+  },
+  "analysis": {
+    "completed_projects": "مشاريع مكتملة",
+    "monthly_donation": "تبرع شهري",
+    "partners": "شركاء حول العالم",
+    "donations_received": "تبرعات مستلمة"
+  },
+  "projects": {
+    "completed_title": "المشاريع المكتملة",
+    "recent_title": "المشاريع الحديثة",
+    "real_projects_title": "شاهد أثر مشاريعنا الحقيقية",
+    "see_all": "مشاهدة جميع المشاريع",
+    "started": "بدأ",
+    "country": "البلد",
+    "goal": "الهدف",
+    "raised": "تم جمع",
+    "donations": "تبرعات",
+    "view_project": "عرض المشروع",
+    "donate_now": "تبرع الآن",
+    "select_country": "اختر البلد",
+    "all_countries": "كل البلدان",
+    "select_type": "اختر النوع",
+    "all_projects": "كل المشاريع",
+    "recent": "حديثة",
+    "completed": "مكتملة",
+    "no_projects": "لم يتم العثور على مشاريع تطابق معاييرك.",
+    "search_placeholder": "بحث...",
+    "find_projects": "ابحث عن مشاريع...",
+    "search_status": "ابحث حسب الحالة..."
+  },
+  "how_it_works": {
+    "step1": "اختر مشروعاً",
+    "step2": "تبرع بالمبلغ الذي تريده",
+    "step3": "سجل في موقعنا",
+    "step4": "ابق على اطلاع بالقضية"
+  },
+  "about_us_page": {
+    "hero_title": "اصنع فرقاً، وادعم المحتاجين.",
+    "hero_description": "نطمح إلى مجتمع مليء بالخير"
+  },
+  "contact_us_page": {
+    "hero_title": "قصص وتقدم من عملنا الخيري",
+    "hero_description": "تحديثات وقصص حقيقية تظهر أثر تبرعاتكم..",
+    "share_love": "شارك الحب، وتبرع بالأمل.",
+    "description": "الأيدي المساعدة مطلوبة دائماً. انضم إلينا في جعل العالم مكاناً أفضل.",
+    "address": "8911 Tanglewood Ave. Capitol Heights, MD 20743"
+  },
+  "about_organization": {
+    "title": "عن منظمتنا"
+  },
+  "why_donate": {
+    "title": "لماذا تتبرع معنا؟",
+    "reason1": "لأننا نؤمن أن كل تبرع هو أمانة، وتلك الأمانة تبنى بالأفعال لا بالأقوال.",
+    "reason2": "نعدكم بأن كل مساهمة سيكون لها أثر واضح وموثق ومشارك بشفافية."
+  },
+  "contact_form": {
+    "first_name": "الاسم الأول",
+    "last_name": "اسم العائلة",
+    "email": "البريد الإلكتروني",
+    "phone": "رقم الهاتف",
+    "message": "الرسالة",
+    "sending": "جاري الإرسال...",
+    "send": "إرسال الرسالة",
+    "subject": "الموضوع"
+  },
+  "contact_subjects": {
+    "general_inquiry": "استفسار عام",
+    "donation_support": "دعم التبرعات (مشاكل الدفع / التأكيد)",
+    "project_information": "معلومات المشروع (أسئلة حول مشروع معين)",
+    "technical_issue": "مشكلة تقنية (مشاكل في الموقع أو الحساب)",
+    "feedback_suggestions": "ملاحظات / اقتراحات",
+    "other": "أخرى"
+  },
+  "projects_page": {
+    "hero_title": "تبرع اليوم وأنقذ حياة",
+    "hero_description": "شكراً لكونكم جزءاً من هذه المهمة. معاً، من خلال الرعاية والعطاء، يمكننا حقاً أن نصنع فرقاً."
+  },
+  "auth": {
+    "welcome_back": "مرحباً بعودتك",
+    "signin_subtitle": "سجل الدخول إلى حسابك للمتابعة",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirm_password": "تأكيد كلمة المرور",
+    "forgot_password": "هل نسيت كلمة المرور؟",
+    "signing_in": "جاري تسجيل الدخول...",
+    "signin": "تسجيل الدخول",
+    "or_continue": "أو المتابعة باستخدام",
+    "google_signin": "تسجيل الدخول بواسطة جوجل",
+    "google_signup": "إنشاء حساب بواسطة جوجل",
+    "no_account": "ليس لديك حساب؟",
+    "signup": "إنشاء حساب",
+    "create_account": "أنشئ حسابك",
+    "signup_subtitle": "املاً النموذج أدناه لإنشاء حسابك",
+    "full_name": "الاسم الكامل",
+    "signup_email_desc": "سنستخدم هذا للتواصل معك. لن نشارك بريدك الإلكتروني مع أي شخص آخر.",
+    "creating_account": "جاري إنشاء الحساب...",
+    "create_account_btn": "إنشاء الحساب",
+    "already_account": "لديك حساب بالفعل؟",
+    "noor_elrahma": "نور الرحمة"
+  },
+  "profile_page": {
+    "title": "الملف الشخصي",
+    "loading": "جاري تحميل بيانات الملف الشخصي...",
+    "edit_profile": "تعديل الملف الشخصي",
+    "editing": "جاري التعديل..."
+  }
+}

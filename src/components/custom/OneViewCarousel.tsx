@@ -9,13 +9,19 @@ import { cn } from "@/lib/utils";
 import styles from "@/styles/CarouselSingleView.module.css";
 import SkeletonImage from "../global/SkeletonImage";
 
+import { useLocale } from "next-intl";
+
 type Card = {
   title: string;
   src: string;
 };
 
 export function OneViewCarousel({ cards }: { cards: Card[] }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 4000 })]);
+  const locale = useLocale();
+  const direction = locale === "ar" ? "rtl" : "ltr";
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, direction }, [
+    Autoplay({ delay: 4000 }),
+  ]);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 

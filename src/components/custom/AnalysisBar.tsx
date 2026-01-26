@@ -1,25 +1,28 @@
 import AnimatedNumber from "@/components/custom/AnimatedNumber";
 import { Earth, HandHeart, HouseHeart, Rocket } from "lucide-react";
 
+import { useTranslations } from "next-intl";
+
 const AnalysisBar = () => {
+  const t = useTranslations("analysis");
   const analysisData = [
     {
-      title: "Projects completed",
+      title: t("completed_projects"),
       value: "11+",
       icon: <Rocket size={60} className="text-primary" />,
     },
     {
-      title: "Monthly Donate",
+      title: t("monthly_donation"),
       value: "100K",
       icon: <HandHeart size={60} className="text-primary" />,
     },
     {
-      title: "Partners Worldwide",
+      title: t("partners"),
       value: "2",
       icon: <Earth size={60} className="text-primary" />,
     },
     {
-      title: "donations received",
+      title: t("donations_received"),
       value: "1.45M",
       icon: <HouseHeart size={60} className="text-primary" />,
     },

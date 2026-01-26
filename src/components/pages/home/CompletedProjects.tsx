@@ -12,13 +12,15 @@ import {
   title,
 } from "@/lib/animations/home/CompletedProjectsAnimationOptions";
 
-import { ProjectCardData } from "@/types/hometypes";
+import { useTranslations } from "next-intl";
+import { recent_completed_projects } from "@/types/hometypes";
 
 const CompletedProjects = ({
   completedProjectsData,
 }: {
-  completedProjectsData: ProjectCardData[];
+  completedProjectsData: recent_completed_projects[];
 }) => {
+  const t = useTranslations("projects");
   return (
     <motion.section
       initial="hidden"
@@ -29,13 +31,13 @@ const CompletedProjects = ({
     >
       <motion.div variants={title} className="flex items-center justify-between gap-5 mb-16">
         <h2 className="font-bold font-teachers text-[clamp(1.8rem,4vw,3.15rem)]">
-          Completed Projects
+          {t("completed_title")}
         </h2>
         <Button
           variant={"outline"}
-          className="text-third bg-transparent border-third cursor-pointer md:w-44 md:h-16 font-teachers md:text-lg md:rounded-2xl! hover:bg-third/10 hover:text-third"
+          className="text-third bg-transparent border-third cursor-pointer md:w-60 md:h-16 font-teachers md:text-lg md:rounded-2xl! hover:bg-third/10 hover:text-third px-4"
         >
-          See all Projects
+          {t("see_all")}
         </Button>
       </motion.div>
 

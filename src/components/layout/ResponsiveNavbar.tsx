@@ -13,10 +13,10 @@ import {
 } from "@/lib/animations/home/NavBarAnimationOptions";
 
 import { useAuth } from "@/providers/auth-provider";
-import { navLinksData } from "@/constants/layoutData";
 import handleSignOut from "@/utils/handleSignOut";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 interface ResponsiveNavbarProps {
   isMenuOpen: boolean;
@@ -31,6 +31,8 @@ export default function ResponsiveNavbar({
 }: ResponsiveNavbarProps) {
   const router = useRouter();
   const { session, isAuthenticated: isLoggedIn } = useAuth();
+  const t = useTranslations("nav");
+  const a = useTranslations("user_menu");
 
   const handleClose = useCallback(() => {
     setIsMenuOpen(false);
@@ -41,6 +43,14 @@ export default function ResponsiveNavbar({
     setIsMenuOpen(false);
     router.push("/");
   }, [setIsMenuOpen, router]);
+
+  const translatedLinks = [
+    { name: t("home"), link: "/" },
+    { name: t("projects"), link: "/projects" },
+    { name: t("news"), link: "/news" },
+    { name: t("about_us"), link: "/about-us" },
+    { name: t("contact_us"), link: "/contact-us" },
+  ];
 
   return (
     <AnimatePresence mode="wait">
@@ -71,12 +81,12 @@ export default function ResponsiveNavbar({
 
           {/* Navigation Links */}
           <ul className="flex flex-col gap-6 w-full">
-            {navLinksData.map(({ name, link }) => {
+            {translatedLinks.map(({ name, link }) => {
               const isActive = pathName === link || pathName.startsWith(`${link}/`);
 
               return (
                 <motion.li
-                  key={name}
+                  key={link}
                   variants={mobileItemVariants}
                   className="border-b border-white/5 pb-4 last:border-0"
                 >
@@ -112,7 +122,7 @@ export default function ResponsiveNavbar({
                   href="/profile"
                   prefetch={true}
                 >
-                  profile
+                  {t("profile")}
                 </Link>
               </motion.li>
             )}
@@ -130,7 +140,7 @@ export default function ResponsiveNavbar({
               )}
               prefetch={true}
             >
-              {isLoggedIn ? "donate now" : "sign in"}
+              {isLoggedIn ? t("donate_now") : "sign in"}
             </Link>
 
             {/* Logout Button */}
@@ -141,7 +151,7 @@ export default function ResponsiveNavbar({
                   type="button"
                   className="text-white text-sm border-b font-medium hover:text-third hover:border-third transition-colors"
                 >
-                  Log Out
+                  {a("sign_out")}
                 </button>
               </div>
             )}

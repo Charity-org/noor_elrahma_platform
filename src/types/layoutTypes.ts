@@ -14,13 +14,16 @@ interface FocusCardsType {
 }
 
 interface Invoice {
-  invoice: string;
-  method: "Credit Card" | "PayPal" | "Bank Transfer";
+  currency: string;
+  country: string;
+  method: string;
+  projectId: number;
+  status: string;
   project: {
     name: string;
-    id: number;
+    nameAr: string;
   };
-  date: string;
+  createdAt: string;
   amount: number;
 }
 

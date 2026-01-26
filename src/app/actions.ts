@@ -108,6 +108,20 @@ export async function toggleFavAction(projectId: number): Promise<ActionResponse
   }
 }
 
+export async function getDonationsAction(): Promise<ActionResponse> {
+  try {
+    const res = await api.get(`/api/donations/me`, {
+      headers: {
+        cookie: (await cookies()).toString(),
+      },
+    });
+
+    return { success: true, message: "Donations fetched successfully!", data: res.data };
+  } catch (error) {
+    return handleActionError(error, "Failed to fetch donations");
+  }
+}
+
 export async function contactUsAction(formData: ContactFormData): Promise<ActionResponse> {
   try {
     const { email, firstName, lastName, message, phone, subject } = contactSchema.parse(formData);

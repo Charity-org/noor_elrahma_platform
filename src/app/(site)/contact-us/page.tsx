@@ -7,8 +7,10 @@ import { contactInfoData } from "@/constants/contactInfo";
 import ContactForm from "@/components/pages/contact-us/ContactForm";
 
 import { container, subTextBox } from "@/lib/animations/news/SubHeroAnimationOptions";
+import { useTranslations } from "next-intl";
 
 function ContactUsPage() {
+  const t = useTranslations("contact_us_page");
   return (
     <>
       <motion.div
@@ -23,10 +25,10 @@ function ContactUsPage() {
             className="h-full flex flex-col gap-4 justify-center items-center text-center text-white"
           >
             <h1 className="text-white font-bold w-full capitalize md:w-[80%] font-teachers text-[clamp(2.5rem,4vw,6rem)] leading-[1.1] drop-shadow-2xl max-w-[20ch] md:max-w-none">
-              Stories and progress from our charitable work
+              {t("hero_title")}
             </h1>
             <p className="font-inter text-white/80 text-[clamp(1rem,2vw,1.5rem)] max-w-[40ch] md:max-w-[60ch] drop-shadow-md">
-              Real updates and stories showing the impact of your donations..
+              {t("hero_description")}
             </p>
           </motion.div>
         </SubPagesHero>
@@ -36,16 +38,11 @@ function ContactUsPage() {
         {/* <ContactInfo /> */}
         <div className="bg-primary flex-1 px-10 py-10 rounded-l-md md:max-w-104">
           <h2 className="text-white font-teachers font-bold text-[40px] mb-6 leading-[1.2]">
-            Share love, donate hope.
+            {t("share_love")}
           </h2>
-          <p className="text-white font-inter mb-10 font-light">
-            Ut ac mattis senectus ac suspendisse vitae vel nulla eleifend. Est eros facilisi aenean
-            nisl..
-          </p>
+          <p className="text-white font-inter mb-10 font-light">{t("description")}</p>
 
-          <p className="text-white font-inter mb-5 font-medium max-w-sm">
-            8911 Tanglewood Ave. Capitol Heights, MD 20743
-          </p>
+          <p className="text-white font-inter mb-5 font-medium max-w-sm">{t("address")}</p>
 
           {contactInfoData.map(({ text, icon: Icon }) => (
             <div className="flex items-center mb-5" key={text}>
