@@ -36,12 +36,31 @@ interface FocusCardsType {
   src: string;
 }
 
-interface NewsType {
-  author: string;
+interface Invoice {
+  invoice: string;
+  method: "Credit Card" | "PayPal" | "Bank Transfer";
+  project: {
+    name: string;
+    id: number;
+  };
   date: string;
-  description: string;
-  image: string;
-  title: string;
+  amount: number;
 }
 
-export type { BurgerBtnProps, ProgressBarProps, Project, FocusCardsType, NewsType };
+export type { BurgerBtnProps, ProgressBarProps, Project, FocusCardsType, Invoice };
+interface NotificationsData {
+  id: string;
+  image?: string;
+  notificationTitle: string;
+  notificationMessage: string;
+}
+
+export type {
+  BurgerBtnProps,
+  ProgressBarProps,
+  Project,
+  FocusCardsType,
+  NewsType,
+  Invoice,
+  NotificationsData,
+};

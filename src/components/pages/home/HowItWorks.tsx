@@ -3,16 +3,23 @@
 import { motion } from "framer-motion";
 import SkeletonImage from "@/components/global/SkeletonImage";
 
-import { howItWorksData } from "@/constants/layoutData";
 import {
   content,
-  image,
+  imagevar,
   item,
   sectionContainerVariants,
   sectionItemVariants,
 } from "@/lib/animations/home/HowItWorksAnimationOptions";
 
-const HowItWorks = () => {
+import { HowItWorksStepsData } from "@/constants/layoutData";
+
+import { HowItWorksDatayType } from "@/types/hometypes";
+
+const HowItWorks = ({
+  howItWorksData: { title, image, discription },
+}: {
+  howItWorksData: HowItWorksDatayType;
+}) => {
   return (
     <motion.section
       initial="hidden"
@@ -22,11 +29,11 @@ const HowItWorks = () => {
       className="container flex flex-col gap-16 lg:flex-row group overflow-hidden"
     >
       <motion.div
-        variants={image}
+        variants={imagevar}
         className="relative w-full lg:w-1/2 h-[clamp(20rem,80vw,32.4rem)] rounded-4xl overflow-hidden"
       >
         <SkeletonImage
-          src={"/assets/howitworks.png"}
+          src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image}`}
           alt="how-it-works image"
           containerClassName="w-full h-full"
           className="object-cover absolute top-0 bg-primary-hover w-full h-full transition-all duration-300 ease-in-out group-hover:scale-105"
@@ -41,18 +48,16 @@ const HowItWorks = () => {
       >
         <motion.div variants={item}>
           <h2 className="text-[clamp(2rem,4vw,4rem)] font-bold font-teachers text-primary leading-[1.1]">
-            Transforming Good Intentions into Good Actions
+            {title}
           </h2>
           <p className="mt-4 text-[clamp(1rem,1.8vw,1.5rem)] font-inter font-semibold">
-            We make it simple to turn compassion into real impact. By connecting donors with
-            transparent, verified projects, we ensure that every act of kindness becomes meaningful
-            action, supported by clear reporting and real results on the ground.
+            {discription}
           </p>
         </motion.div>
 
         <div className="flex flex-col gap-7 md:gap-10 md:items-center md:flex-row">
           <div className="flex flex-col gap-7">
-            {howItWorksData.map(
+            {HowItWorksStepsData.map(
               (item, index) =>
                 index < 2 && (
                   <motion.h4
@@ -70,7 +75,7 @@ const HowItWorks = () => {
           </div>
 
           <div className="flex flex-col gap-7">
-            {howItWorksData.map(
+            {HowItWorksStepsData.map(
               (item, index) =>
                 index >= 2 && (
                   <motion.h4

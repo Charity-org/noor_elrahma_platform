@@ -1,3 +1,5 @@
+"use client";
+
 import { useCallback, useEffect } from "react";
 import Image from "next/image";
 
@@ -76,7 +78,7 @@ function ParallaxCarouselProject({ projects }: PropType) {
               <div className={styles.embla__parallax}>
                 <div className={styles.embla__parallax__layer}>
                   <Image
-                    src={project.src}
+                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${project.src}`}
                     alt={project.title}
                     width={310}
                     height={310}

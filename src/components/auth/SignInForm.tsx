@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import useSignInForm from "@/hooks/useSignInForm";
 import { onSignInSubmit } from "@/utils/onSignInSubmit";
 import Link from "next/link";
@@ -20,19 +19,16 @@ import SocialProviders from "./SocialProviders";
 import { Loader2 } from "lucide-react";
 
 export function SignInForm({ className, ...props }: React.ComponentProps<"form">) {
-  const router = useRouter();
   const {
     formState: { errors, isSubmitting },
     register,
     handleSubmit,
   } = useSignInForm();
 
-  const onSubmit = onSignInSubmit(router);
-
   return (
     <form
       className={cn("flex flex-col gap-6", className)}
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSignInSubmit)}
       {...props}
     >
       <FieldGroup>

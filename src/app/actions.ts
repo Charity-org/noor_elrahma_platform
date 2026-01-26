@@ -39,9 +39,7 @@ export const getUser = async () => {
   }
 };
 
-export async function signUpAction(
-  formData: z.infer<typeof signUpSchema>,
-): Promise<ActionResponse> {
+export async function signUpAction(formData: SignUpFormData): Promise<ActionResponse> {
   try {
     const { email, password, name, country } = signUpSchema.parse(formData);
     await api.post("/api/users/signup", { email, password, name, country });
@@ -60,6 +58,15 @@ export async function resendVerificationAction(email: string): Promise<ActionRes
     return { success: true, message: "Verification email sent!" };
   } catch (error) {
     return handleActionError(error, "Failed to send verification");
+  }
+}
+
+export async function verfiyToken(token: string): Promise<ActionResponse> {
+  try {
+    await api.get(`api/users/verify-token/${token}`);
+    return { success: true, message: "token verfiyed successfully!" };
+  } catch (error) {
+    return handleActionError(error, "Failed to verfiy token");
   }
 }
 
@@ -97,6 +104,22 @@ export async function toggleFavAction(projectId: string): Promise<ActionResponse
     return { success: true, message: "Project added to favourites!" };
   } catch (error) {
     return handleActionError(error, "Failed to add project to favourites");
+export async function contactUsAction(formData: ContactFormData): Promise<ActionResponse> {
+  try {
+    const { email, firstName, lastName, message, phone, subject } = contactSchema.parse(formData);
+
+    await api.post("/api/contact-us", {
+      email,
+      firstName,
+      lastName,
+      message,
+      phone,
+      subject,
+    });
+
+    return { success: true, message: "Message sent successfully!" };
+  } catch (error) {
+    return handleActionError(error, "Failed to send message");
   }
 }
 

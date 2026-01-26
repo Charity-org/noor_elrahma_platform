@@ -1,6 +1,12 @@
-const CudlyCrabButton = () => {
+import Link from "next/link";
+
+const CudlyCrabButton = ({ href }: { href: string }) => {
   return (
-    <button className="group relative w-fit cursor-pointer overflow-hidden rounded-full border border-gray-200 bg-white px-5 py-2 text-center font-medium text-primary shadow-sm transition-all duration-300 hover:shadow-md">
+    <Link
+      href={href}
+      target="_blank"
+      className="group relative w-fit cursor-pointer overflow-hidden rounded-full border border-gray-200 bg-white px-5 py-2 text-center font-medium text-primary shadow-sm transition-all duration-300 hover:shadow-md"
+    >
       <div className="flex items-center gap-3">
         <div className="h-2 w-2 rounded-full bg-third transition-all duration-300 group-hover:scale-[100.8]" />
         <span className="inline-block transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
@@ -24,7 +30,7 @@ const CudlyCrabButton = () => {
           </svg>
         </div>
       </div>
-    </button>
+    </Link>
   );
 };
 
