@@ -5,9 +5,8 @@ import axios from "axios";
 import { z } from "zod";
 import profileSchema, { ProfileFormData } from "@/lib/validations/profileSchema";
 
-import signUpSchema, { SignUpFormData } from "@/lib/validations/signUpSchema";
-import { headers } from "next/headers";
-import contactSchema, { ContactFormData } from "@/lib/validations/contactSchema";
+import signUpSchema from "@/lib/validations/signUpSchema";
+import { cookies, headers } from "next/headers";
 
 type ActionResponse<T = void> = {
   success: boolean;
@@ -73,13 +72,16 @@ export async function verfiyToken(token: string): Promise<ActionResponse> {
 
 export async function updateProfileAction(formData: ProfileFormData): Promise<ActionResponse> {
   try {
-    const session = await getUser();
-    if (!session?.user?.id) {
-      return { success: false, message: "Authentication required" };
-    }
-
     const { fullName, country } = profileSchema.parse(formData);
-    await api.patch(`/api/users/${session.user.id}`, { name: fullName, country });
+    await api.patch(
+      `/api/users/`,
+      { name: fullName, country },
+      {
+        headers: {
+          cookie: (await cookies()).toString(),
+        },
+      },
+    );
 
     return { success: true, message: "Profile updated successfully!" };
   } catch (error) {
@@ -87,6 +89,21 @@ export async function updateProfileAction(formData: ProfileFormData): Promise<Ac
   }
 }
 
+export async function toggleFavAction(projectId: string): Promise<ActionResponse> {
+  try {
+    await api.post(
+      `/api/favorites`,
+      { projectId },
+      {
+        headers: {
+          cookie: (await cookies()).toString(),
+        },
+      },
+    );
+
+    return { success: true, message: "Project added to favourites!" };
+  } catch (error) {
+    return handleActionError(error, "Failed to add project to favourites");
 export async function contactUsAction(formData: ContactFormData): Promise<ActionResponse> {
   try {
     const { email, firstName, lastName, message, phone, subject } = contactSchema.parse(formData);

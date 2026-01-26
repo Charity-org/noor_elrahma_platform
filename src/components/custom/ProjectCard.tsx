@@ -83,7 +83,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, contaienrStyle }) =>
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
           loading="eager"
         />
-        {isAuthenticated && <ProjectFavBtn />}
+        {isAuthenticated && <ProjectFavBtn projectId={id} />}
 
         <ProjectShareBtn projectId={normalizedProject.projectId.toString()} />
       </CardHeader>

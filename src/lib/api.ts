@@ -4,6 +4,7 @@ const BETTER_AUTH_URL = process.env.BETTER_AUTH_URL || "";
 
 const api = axios.create({
   baseURL: BETTER_AUTH_URL,
+  withCredentials: true,
   headers: {
     "Content-Type": "application/json",
   },
