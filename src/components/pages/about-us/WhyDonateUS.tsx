@@ -3,8 +3,10 @@
 import Image from "next/image";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const WhyDonateUS = () => {
+  const t = useTranslations("why_donate");
   return (
     <section className="w-full flex justify-center">
       <motion.div
@@ -15,16 +17,14 @@ const WhyDonateUS = () => {
       >
         <div className="w-full text-center">
           {/* Title */}
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-teachers">Why Donate With Us?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-teachers">{t("title")}</h2>
 
           {/* Description */}
           <p className="text-[clamp(1rem,2vw,1.5rem)] font-semibold lg:font-medium mb-4 lg:mb-0 font-inter max-w-4xl text-center mx-auto leading-tight">
-            Because We Believe That Every Donation Is A Trust, And That Trust Is Built Through
-            Actions, Not Words.
+            {t("reason1")}
           </p>
           <p className="text-[clamp(1rem,2vw,1.5rem)] font-semibold lg:font-medium mb-4 lg:mb-0 font-inter max-w-4xl text-center mx-auto leading-tight">
-            We Promise That Every Contribution Will Have A Clear, Documented, And Transparently
-            Shared Impact.
+            {t("reason2")}
           </p>
 
           {/* Video Thumbnail */}

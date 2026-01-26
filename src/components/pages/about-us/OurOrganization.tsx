@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
+import { AboutUsItem } from "@/types/hometypes";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -28,7 +29,7 @@ const contentVariants = {
   },
 };
 
-export default function OurOrganization() {
+export default function OurOrganization({ aboutusdata }: { aboutusdata: AboutUsItem[] }) {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
@@ -42,7 +43,7 @@ export default function OurOrganization() {
       <motion.div className="container flex flex-col md:flex-row gap-10" variants={contentVariants}>
         <div className="relative w-full md:w-1/2 h-[clamp(35rem,40vw,30rem)]">
           <Image
-            src="/assets/about-us-2.png"
+            src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${aboutusdata[0]?.image}`}
             alt="Humanitarian work"
             width={480}
             height={480}
@@ -52,21 +53,12 @@ export default function OurOrganization() {
         </div>
 
         <div className="md:w-1/2 flex flex-col">
-          <h3 className="text-5xl font-bold font-teachers mb-6 md:mb-10">About The Project:</h3>
+          <h3 className="text-5xl font-bold font-teachers mb-6 md:mb-10">
+            {aboutusdata[0]?.title}
+          </h3>
           <ul className="list-disc space-y-8 font-semibold font-inter">
-            <li>
-              We are a newly established humanitarian charity organization, born from hands-on
-              volunteer work and direct involvement in helping people in need. Our goal is to
-              support the most vulnerable families and improve their lives through compassionate and
-              sustainable solutions.
-            </li>
-            <li>
-              Before officially founding the organization, our team actively participated in
-              supporting various charitable initiatives and local charities. This practical
-              experience on the ground helped us build real understanding and motivated us to
-              establish an independent organization based on organization, transparency, and
-              credibility in charitable work.
-            </li>
+            <li>{aboutusdata[0]?.description}</li>
+            <li>{aboutusdata[0]?.content}</li>
           </ul>
         </div>
       </motion.div>

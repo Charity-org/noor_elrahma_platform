@@ -10,8 +10,9 @@ import ResponsiveNavbar from "@/components/layout/ResponsiveNavbar";
 import { buttonVariants } from "@/components/ui/button";
 import BurgerBtn from "@/components/layout/BurgerBtn";
 import UserMenu from "@/components/layout/UserMenu";
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 
-import { navLinksData } from "@/constants/layoutData";
+import { useTranslations } from "next-intl";
 
 import {
   containerVariants,
@@ -19,15 +20,23 @@ import {
   logoVariants,
 } from "@/lib/animations/home/NavBarAnimationOptions";
 
-import { Languages } from "lucide-react";
 import { useAuth } from "@/providers/auth-provider";
 import { cn } from "@/lib/utils";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathName = usePathname();
+  const t = useTranslations("nav");
 
   const { session } = useAuth();
+
+  const translatedNavLinks = [
+    { name: t("home"), link: "/" },
+    { name: t("projects"), link: "/projects" },
+    { name: t("news"), link: "/news" },
+    { name: t("about_us"), link: "/about-us" },
+    { name: t("contact_us"), link: "/contact-us" },
+  ];
 
   return (
     <motion.header
@@ -47,9 +56,18 @@ const NavBar = () => {
           <Image src="/assets/logo.png" alt="Noor Elrahmat Logo" width={44} height={58} />
         </motion.div>
 
-        <ul className={"hidden lg:flex md:gap-8 lg:gap-16"}>
-          {navLinksData.map(({ link, name }) => (
-            <motion.li key={name} variants={itemVariants}>
+        <motion.ul
+          variants={{
+            visible: {
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+          className={"hidden lg:flex md:gap-8 lg:gap-16"}
+        >
+          {translatedNavLinks.map(({ link, name }) => (
+            <motion.li key={link} variants={itemVariants} initial="hidden" animate="visible">
               <Link
                 className={`navLink after:w-0 ${
                   pathName === link || pathName.startsWith(`${link}/`)
@@ -79,19 +97,25 @@ const NavBar = () => {
                   }`}
                   href="/profile"
                 >
-                  profile
+                  {t("profile")}
                 </Link>
               </motion.li>
             )}
           </AnimatePresence>
-        </ul>
+        </motion.ul>
 
         {/* donate now and user menu */}
         <motion.div
-          variants={itemVariants}
+          variants={{
+            visible: {
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
           className="hidden lg:flex items-center justify-center gap-6"
         >
-          {!session?.user && <Languages className="text-white cursor-pointer" />}
+          <LanguageSwitcher />
           <Link
             href="/sign-in"
             className={cn(
@@ -99,7 +123,7 @@ const NavBar = () => {
               "bg-third hover:bg-third/90 cursor-pointer rounded-[16px]! h-12 text-[20px] capitalize md:w-[13ch] font-teachers",
             )}
           >
-            donate now
+            {t("donate_now")}
           </Link>
 
           {session?.user && <UserMenu />}

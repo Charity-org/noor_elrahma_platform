@@ -1,0 +1,137 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "news": "News",
+    "about_us": "About Us",
+    "contact_us": "Contact Us",
+    "profile": "Profile",
+    "donate_now": "Donate Now"
+  },
+  "user_menu": {
+    "profile": "Profile",
+    "my_donations": "My Donations",
+    "favourites": "Favourites",
+    "sign_out": "Sign out"
+  },
+  "footer": {
+    "description": "We are a newly established humanitarian charity organization, born from hands-on volunteer work and direct involvement in helping people in need.",
+    "quick_links": "Quick Links",
+    "contacts": {
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address"
+    }
+  },
+  "hero": {
+    "donation": "Donation",
+    "donators": "Donators",
+    "view_project": "View Project",
+    "donate_now": "Donate Now"
+  },
+  "analysis": {
+    "completed_projects": "Projects completed",
+    "monthly_donation": "Monthly Donate",
+    "partners": "Partners Worldwide",
+    "donations_received": "Donations received"
+  },
+  "projects": {
+    "completed_title": "Completed Projects",
+    "recent_title": "Recent Projects",
+    "real_projects_title": "Witness the Impact of Our Real Projects",
+    "see_all": "See all Projects",
+    "started": "Started",
+    "country": "Country",
+    "goal": "Goal",
+    "raised": "Raised",
+    "donations": "Donations",
+    "view_project": "View Project",
+    "donate_now": "Donate Now",
+    "select_country": "Select Country",
+    "all_countries": "All Countries",
+    "select_type": "Select Type",
+    "all_projects": "All Projects",
+    "recent": "Recent",
+    "completed": "Completed",
+    "no_projects": "No projects found matching your criteria.",
+    "search_placeholder": "Search...",
+    "find_projects": "Find projects...",
+    "search_status": "Search by status..."
+  },
+  "how_it_works": {
+    "step1": "Choose Project",
+    "step2": "Donate the amount you like",
+    "step3": "Register on our website",
+    "step4": "Stay tuned about cause"
+  },
+  "about_us_page": {
+    "hero_title": "Make a Difference, Support Those in Need.",
+    "hero_description": "We aspire to a society full of goodness"
+  },
+  "contact_us_page": {
+    "hero_title": "Stories and progress from our charitable work",
+    "hero_description": "Real updates and stories showing the impact of your donations..",
+    "share_love": "Share love, donate hope.",
+    "description": "Helping hands are always needed. Join us in making the world a better place.",
+    "address": "8911 Tanglewood Ave. Capitol Heights, MD 20743"
+  },
+  "about_organization": {
+    "title": "About our Organization"
+  },
+  "why_donate": {
+    "title": "Why Donate With Us?",
+    "reason1": "Because We Believe That Every Donation Is A Trust, And That Trust Is Built Through Actions, Not Words.",
+    "reason2": "We Promise That Every Contribution Will Have A Clear, Documented, And Transparently Shared Impact."
+  },
+  "contact_form": {
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "message": "Message",
+    "sending": "Sending...",
+    "send": "Send message",
+    "subject": "Subject"
+  },
+  "contact_subjects": {
+    "general_inquiry": "General Inquiry",
+    "donation_support": "Donation Support (Payment / Confirmation issues)",
+    "project_information": "Project Information (Questions about a specific project)",
+    "technical_issue": "Technical Issue (Website or account problems)",
+    "feedback_suggestions": "Feedback / Suggestions",
+    "other": "Other"
+  },
+  "projects_page": {
+    "hero_title": "Donate Today Save a Life",
+    "hero_description": "Thank you for being part of this mission. Together, through care and generosity, we can truly make a difference."
+  },
+  "auth": {
+    "welcome_back": "Welcome back",
+    "signin_subtitle": "Sign in to your account to continue",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "forgot_password": "Forgot your password?",
+    "signing_in": "Signing In...",
+    "signin": "Sign In",
+    "or_continue": "Or continue with",
+    "google_signin": "Sign in with Google",
+    "google_signup": "Sign up with Google",
+    "no_account": "Don't have an account?",
+    "signup": "Sign up",
+    "create_account": "Create your account",
+    "signup_subtitle": "Fill in the form below to create your account",
+    "full_name": "Full Name",
+    "signup_email_desc": "We'll use this to contact you. We will not share your email with anyone else.",
+    "creating_account": "Creating Account...",
+    "create_account_btn": "Create Account",
+    "already_account": "Already have an account?",
+    "noor_elrahma": "Noor Elrahma"
+  },
+  "profile_page": {
+    "title": "Profile",
+    "loading": "Loading profile data...",
+    "edit_profile": "Edit Profile",
+    "editing": "Editing..."
+  }
+}

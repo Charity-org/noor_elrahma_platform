@@ -8,51 +8,30 @@ interface ProgressBarProps {
   value: number;
 }
 
-interface Project {
-  id: string;
-  imageSrc: string;
-  title: string;
-  startDate: string;
-  country: string;
-  description: string;
-  progress: number;
-  goal: number;
-  raised: number;
-  donations: number;
-  actions: {
-    viewProject: {
-      title: string;
-      link: string;
-    };
-    donateNow?: {
-      title: string;
-      link: string;
-    };
-  };
-}
-
 interface FocusCardsType {
   title: string;
   src: string;
 }
 
-interface NewsType {
-  author: string;
-  date: string;
-  description: string;
-  image: string;
-  title: string;
-}
-
 interface Invoice {
-  invoice: string;
-  method: "Credit Card" | "PayPal" | "Bank Transfer";
+  currency: string;
+  country: string;
+  method: string;
+  projectId: number;
+  status: string;
   project: {
     name: string;
-    id: number;
+    nameAr: string;
   };
-  date: string;
+  createdAt: string;
   amount: number;
 }
 
-export type { BurgerBtnProps, ProgressBarProps, Project, FocusCardsType, NewsType, Invoice };
+interface NotificationsData {
+  id: string;
+  image?: string;
+  notificationTitle: string;
+  notificationMessage: string;
+}
+
+export type { BurgerBtnProps, ProgressBarProps, FocusCardsType, Invoice, NotificationsData };

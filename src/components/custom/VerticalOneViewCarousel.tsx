@@ -18,7 +18,7 @@ import styles from "@/styles/CarouselVerticalView.module.css";
 import SkeletonImage from "../global/SkeletonImage";
 
 type PropType = {
-  slides: { src: string }[];
+  slides: string[];
   options?: EmblaOptionsType;
   plugins?: EmblaPluginType[];
   onSelect?: (index: number) => void;
@@ -59,7 +59,7 @@ const VerticalOneViewCarousel: React.FC<PropType> = (props) => {
             <div className={styles.embla__slide} key={index}>
               <div className="relative w-full h-full">
                 <SkeletonImage
-                  src={slide.src}
+                  src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${slide}`}
                   alt={`Whoweare Slide ${index + 1}`}
                   fill
                   containerClassName="w-full h-full"

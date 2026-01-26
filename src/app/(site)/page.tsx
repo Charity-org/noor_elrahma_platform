@@ -6,17 +6,35 @@ import WhoWeAre from "@/components/pages/home/WhoWeAre";
 import RecentProjects from "@/components/pages/home/RecentProjects";
 import SomeRealProjects from "@/components/pages/home/SomeRealProjects";
 
-export default function Home() {
+import { getHomeDynamicData } from "@/utils/getAllDynamicPages";
+
+import { getLocale } from "next-intl/server";
+import { HomePageType } from "@/types/hometypes";
+
+export default async function Home() {
+  const locale = await getLocale();
+  const {
+    hero,
+    how_it_works,
+    recent_projects,
+    completed_projects,
+    some_real_projects,
+    who_we_are,
+  }: HomePageType = await getHomeDynamicData({
+    page: "HOME",
+    lang: locale,
+  });
+
   return (
     <>
-      <Hero />
+      <Hero heroData={hero} />
       <main className="mt-32 space-y-32">
-        <HowItWorks />
-        <RecentProjects />
-        <CompletedProjects />
-        <SomeRealProjects />
+        <HowItWorks howItWorksData={how_it_works} />
+        <RecentProjects recentProjectsData={recent_projects} />
+        <CompletedProjects completedProjectsData={completed_projects} />
+        <SomeRealProjects someRealProjectsData={some_real_projects} />
         <AnalysisBar />
-        <WhoWeAre />
+        <WhoWeAre whoWeAreData={who_we_are} />
       </main>
     </>
   );

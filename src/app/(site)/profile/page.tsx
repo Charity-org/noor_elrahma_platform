@@ -10,6 +10,8 @@ import UserAvatar from "@/components/layout/UserAvatar";
 const Profile = () => {
   const { user } = useAuth();
 
+  console.log(user);
+
   return (
     <div className="min-h-[calc(100vh-33.4rem)] container py-6 sm:py-10 md:py-14 px-4 sm:px-6">
       <Card className="pt-0 rounded-2xl sm:rounded-3xl overflow-hidden w-full sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[60%] mx-auto shadow-lg">
