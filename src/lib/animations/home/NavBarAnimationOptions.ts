@@ -7,10 +7,10 @@ const containerVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.5,
-      delay: 0.8,
+      delay: 0.2,
       ease: "easeOut",
-      staggerChildren: 0.1,
-      delayChildren: 1.2,
+      staggerChildren: 0.05,
+      delayChildren: 0.3,
     },
   },
 };

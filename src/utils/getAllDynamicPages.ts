@@ -1,9 +1,21 @@
 import { ToastMessage } from "@/components/global/ToastMessage";
 import api from "@/lib/api";
 
-export const getHomeDynamicData = async ({ page, type = "" }: { page?: string; type?: string }) => {
+export const getHomeDynamicData = async ({
+  page,
+  type = "",
+  lang = "en",
+}: {
+  page?: string;
+  type?: string;
+  lang?: string;
+}) => {
   try {
-    const res = await api.get(`/api/pages?type=${type}&page=${page}`);
+    const res = await api.get(`/api/pages?type=${type}&page=${page}`, {
+      headers: {
+        lang,
+      },
+    });
     const data = res.data;
     return data;
   } catch (error) {

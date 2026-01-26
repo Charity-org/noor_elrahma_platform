@@ -11,15 +11,23 @@ import {
   sectionItemVariants,
 } from "@/lib/animations/home/HowItWorksAnimationOptions";
 
-import { HowItWorksStepsData } from "@/constants/layoutData";
-
 import { HowItWorksDatayType } from "@/types/hometypes";
+import { useTranslations } from "next-intl";
 
 const HowItWorks = ({
   howItWorksData: { title, image, discription },
 }: {
   howItWorksData: HowItWorksDatayType;
 }) => {
+  const t = useTranslations("how_it_works");
+
+  const steps = [
+    { title: t("step1") },
+    { title: t("step2") },
+    { title: t("step3") },
+    { title: t("step4") },
+  ];
+
   return (
     <motion.section
       initial="hidden"
@@ -57,7 +65,7 @@ const HowItWorks = ({
 
         <div className="flex flex-col gap-7 md:gap-10 md:items-center md:flex-row">
           <div className="flex flex-col gap-7">
-            {HowItWorksStepsData.map(
+            {steps.map(
               (item, index) =>
                 index < 2 && (
                   <motion.h4
@@ -75,7 +83,7 @@ const HowItWorks = ({
           </div>
 
           <div className="flex flex-col gap-7">
-            {HowItWorksStepsData.map(
+            {steps.map(
               (item, index) =>
                 index >= 2 && (
                   <motion.h4

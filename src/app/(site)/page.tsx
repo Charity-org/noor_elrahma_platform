@@ -8,9 +8,11 @@ import SomeRealProjects from "@/components/pages/home/SomeRealProjects";
 
 import { getHomeDynamicData } from "@/utils/getAllDynamicPages";
 
+import { getLocale } from "next-intl/server";
 import { HomePageType } from "@/types/hometypes";
 
 export default async function Home() {
+  const locale = await getLocale();
   const {
     hero,
     how_it_works,
@@ -20,6 +22,7 @@ export default async function Home() {
     who_we_are,
   }: HomePageType = await getHomeDynamicData({
     page: "HOME",
+    lang: locale,
   });
 
   return (

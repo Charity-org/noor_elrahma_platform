@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Check } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -8,20 +7,25 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-  DropdownMenuSub,
-  DropdownMenuSubTrigger,
-  DropdownMenuPortal,
-  DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
 import UserAvatar from "@/components/layout/UserAvatar";
 import { useAuth } from "@/providers/auth-provider";
 import handleSignOut from "@/utils/handleSignOut";
-import { userMenuOptions } from "@/constants/layoutData";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { CircleUser, HandHeart, CalendarHeart, LogOut } from "lucide-react";
 
 const UserMenu = () => {
   const router = useRouter();
   const { user } = useAuth();
+  const t = useTranslations("user_menu");
+
+  const translatedMenuOptions = [
+    { name: t("profile"), link: "/profile", icon: CircleUser },
+    { name: t("my_donations"), link: "/donations", icon: HandHeart },
+    { name: t("favourites"), link: "/favourites", icon: CalendarHeart },
+    { name: t("sign_out"), icon: LogOut },
+  ];
 
   return (
     <DropdownMenu>
@@ -39,26 +43,8 @@ const UserMenu = () => {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        {userMenuOptions.map(({ name, link, icon: Icon }) =>
-          name === "Language" ? (
-            <DropdownMenuSub key={name}>
-              <DropdownMenuSubTrigger className="flex gap-2 items-center cursor-pointer">
-                <Icon className="w-4 h-4" />
-                <span>{name}</span>
-              </DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent>
-                  <DropdownMenuItem className="cursor-pointer justify-between">
-                    <span>English</span>
-                    <Check className="w-4 h-4" />
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="cursor-pointer font-cairo">
-                    <span>Arabic</span>
-                  </DropdownMenuItem>
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
-          ) : link ? (
+        {translatedMenuOptions.map(({ name, link, icon: Icon }) =>
+          link ? (
             <Link href={link} key={name}>
               <DropdownMenuItem className="flex gap-2 items-center cursor-pointer">
                 <Icon className="w-4 h-4" />
@@ -70,7 +56,7 @@ const UserMenu = () => {
               key={name}
               className="flex gap-2 items-center cursor-pointer"
               onClick={
-                name === "Sign out"
+                name === t("sign_out")
                   ? async () => {
                       await handleSignOut();
                       router.push("/");

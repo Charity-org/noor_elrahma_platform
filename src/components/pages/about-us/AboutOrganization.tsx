@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { organizationData } from "@/constants/aboutusData";
 import { motion, useInView } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -31,6 +32,7 @@ const contentVariants = {
 const AboutOrganization = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+  const t = useTranslations("about_organization");
 
   return (
     <motion.section
@@ -40,9 +42,7 @@ const AboutOrganization = () => {
       variants={containerVariants}
     >
       <motion.div variants={contentVariants}>
-        <h2 className="text-[40px] font-bold mb-12 font-teachers text-black">
-          About our Organization
-        </h2>
+        <h2 className="text-[40px] font-bold mb-12 font-teachers text-black">{t("title")}</h2>
 
         <div className="columns-1 md:columns-2 gap-14 space-y-10">
           {organizationData.map(({ title, icon: Icon, description, list }) => (

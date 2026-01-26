@@ -12,16 +12,20 @@ import SkeletonImage from "@/components/global/SkeletonImage";
 import { containerVariants } from "@/lib/animations/home/HeroAnimationOptions";
 import { itemVariants, titleVariants } from "@/lib/animations/home/HeroAnimationOptions";
 
+import { useLocale, useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 import { HeroDataType } from "@/types/hometypes";
 import styles from "@/styles/CarouselSingleView.module.css";
 
 const Hero = ({ heroData }: { heroData: HeroDataType[] }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+  const locale = useLocale();
+  const direction = locale === "ar" ? "rtl" : "ltr";
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, direction }, [
     Autoplay({ delay: 5000, stopOnInteraction: false }),
   ]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const t = useTranslations("hero");
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -39,12 +43,13 @@ const Hero = ({ heroData }: { heroData: HeroDataType[] }) => {
     <div className={`${styles.embla} h-[calc(100vh-98px)]`}>
       <div className={`${styles.embla__viewport} h-full`} ref={emblaRef}>
         <div className={`${styles.embla__container} select-none h-full`}>
-          {heroData?.map(
+          {heroData.map(
             ({ donation, donators, image, projectDescription, projectId, projectTitle }, index) => {
               const isActive = index === activeIndex;
+
               return (
                 <div
-                  key={`${projectTitle}-${index}`}
+                  key={`${projectId}`}
                   className={`${styles.embla__slide} h-full w-full relative overflow-hidden`}
                 >
                   <motion.div
@@ -53,15 +58,17 @@ const Hero = ({ heroData }: { heroData: HeroDataType[] }) => {
                     transition={{ duration: 6, ease: "linear" }}
                     className="absolute inset-0 z-0"
                   >
-                    <SkeletonImage
-                      src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image}`}
-                      alt={projectTitle || "Project image"}
-                      fill
-                      containerClassName="absolute inset-0 -z-10 w-full h-full"
-                      className="object-cover bg-primary-hover w-full h-full"
-                      sizes="100vw"
-                      loading="eager"
-                    />
+                    {image && (
+                      <SkeletonImage
+                        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image}`}
+                        alt={projectTitle || "Project image"}
+                        fill
+                        containerClassName="absolute inset-0 -z-10 w-full h-full"
+                        className="object-cover bg-primary-hover w-full h-full"
+                        sizes="100vw"
+                        loading="eager"
+                      />
+                    )}
                     <div className="overlay"></div>
                   </motion.div>
 
@@ -91,12 +98,12 @@ const Hero = ({ heroData }: { heroData: HeroDataType[] }) => {
                     >
                       <h3 className="text-[clamp(1rem,2vw,1.5rem)] flex flex-col md:flex-row items-center md:gap-4 text-white">
                         <span className="text-third font-bold font-teachers">${donation}</span>
-                        <span>Donation</span>
+                        <span>{t("donation")}</span>
                       </h3>
 
                       <h3 className="text-[clamp(1rem,2vw,1.5rem)] flex flex-col md:flex-row items-center md:gap-4 text-white">
                         <span className="text-third font-bold font-teachers">{donators}</span>
-                        <span>Donators</span>
+                        <span>{t("donators")}</span>
                       </h3>
                     </motion.div>
 
@@ -108,10 +115,10 @@ const Hero = ({ heroData }: { heroData: HeroDataType[] }) => {
                           "text-third px-4 md:px-6 md:py-10 py-6 md:w-[15ch] bg-transparent border-third cursor-pointer font-teachers text-lg md:text-2xl hover:bg-third/10 hover:text-third",
                         )}
                       >
-                        View Project
+                        {t("view_project")}
                       </Link>
                       <Button className="bg-third px-4 md:px-6 md:py-10 py-6 md:w-[15ch] cursor-pointer hover:bg-third/80 md:text-2xl text-lg font-teachers">
-                        Donate Now
+                        {t("donate_now")}
                       </Button>
                     </motion.div>
                   </motion.div>

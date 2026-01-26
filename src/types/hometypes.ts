@@ -1,8 +1,8 @@
 interface HomePageType {
   hero: HeroDataType[];
   how_it_works: HowItWorksDatayType;
-  recent_projects: ProjectCardData[];
-  completed_projects: ProjectCardData[];
+  recent_projects: recent_completed_projects[];
+  completed_projects: recent_completed_projects[];
   some_real_projects: SomeRealProjectsData[];
   who_we_are: WhoWeAreDataType[];
 }
@@ -33,7 +33,20 @@ interface ProjectCardData {
     projectId: number;
     image: string;
     isMain: string;
-  }[];
+  };
+}
+
+interface recent_completed_projects {
+  projectId: number;
+  image: string;
+  projectName: string;
+  created_At: string;
+  country: string;
+  projectDescription: string;
+  progress: number;
+  goal: number;
+  raised: number;
+  donations: number;
 }
 
 interface SomeRealProjectsData {
@@ -93,4 +106,5 @@ export type {
   NewsType,
   AboutUsItem,
   AboutPageType,
+  recent_completed_projects,
 };

@@ -5,12 +5,14 @@ import { FocusCards } from "@/components/ui/focus-cards";
 import { OneViewCarousel } from "@/components/custom/OneViewCarousel";
 import { cards, container, title } from "@/lib/animations/home/RealProjectsAnimationOptions";
 import { SomeRealProjectsData } from "@/types/hometypes";
+import { useTranslations } from "next-intl";
 
 const SomeRealProjects = ({
   someRealProjectsData,
 }: {
   someRealProjectsData: SomeRealProjectsData[];
 }) => {
+  const t = useTranslations("projects");
   return (
     <motion.section
       initial="hidden"
@@ -20,7 +22,7 @@ const SomeRealProjects = ({
       className="container"
     >
       <motion.h2 variants={title} className="text-center main_title">
-        Witness the Impact of Our Real Projects
+        {t("real_projects_title")}
       </motion.h2>
 
       <motion.div variants={cards} className="mt-16 md:block hidden">

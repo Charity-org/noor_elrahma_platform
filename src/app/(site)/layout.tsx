@@ -10,6 +10,9 @@ import SmoothScroll from "@/components/common/SmoothScroll";
 import { Toaster } from "sonner";
 import { AuthProvider } from "@/providers/auth-provider";
 
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
+
 import "../globals.css";
 
 const inter = Inter({
@@ -32,19 +35,25 @@ export const metadata: Metadata = {
   description: "Noor Elrahmat Platform",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+  const direction = locale === "ar" ? "rtl" : "ltr";
+
   return (
-    <html lang="en">
+    <html lang={locale} dir={direction}>
       <body className={`${inter.variable} ${teachers.variable} ${cairo.variable} antialiased`}>
         <AuthProvider>
           <SmoothScroll root>
-            <NavBar />
-            {children}
-            <Footer />
+            <NextIntlClientProvider locale={locale} messages={messages}>
+              <NavBar />
+              {children}
+              <Footer />
+            </NextIntlClientProvider>
             <UpButton />
             <Toaster richColors position="top-right" />
           </SmoothScroll>
