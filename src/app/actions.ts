@@ -7,6 +7,7 @@ import profileSchema, { ProfileFormData } from "@/lib/validations/profileSchema"
 
 import signUpSchema, { SignUpFormData } from "@/lib/validations/signUpSchema";
 import { headers } from "next/headers";
+import contactSchema, { ContactFormData } from "@/lib/validations/contactSchema";
 
 type ActionResponse<T = void> = {
   success: boolean;
@@ -86,9 +87,25 @@ export async function updateProfileAction(formData: ProfileFormData): Promise<Ac
   }
 }
 
-/**
- * Standardized error handler for server actions
- */
+export async function contactUsAction(formData: ContactFormData): Promise<ActionResponse> {
+  try {
+    const { email, firstName, lastName, message, phone, subject } = contactSchema.parse(formData);
+
+    await api.post("/api/contact-us", {
+      email,
+      firstName,
+      lastName,
+      message,
+      phone,
+      subject,
+    });
+
+    return { success: true, message: "Message sent successfully!" };
+  } catch (error) {
+    return handleActionError(error, "Failed to send message");
+  }
+}
+
 function handleActionError(error: unknown, defaultMessage: string): ActionResponse {
   console.error(`[Action Error] ${defaultMessage}:`, error);
 
