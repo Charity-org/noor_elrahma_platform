@@ -1,11 +1,18 @@
+import { cn } from "@/lib/utils";
 import handelToggleFavAction from "@/utils/handelToggleFavAction";
 import { HeartPlus } from "lucide-react";
 
-const ProjectFavBtn = ({ projectId }: { projectId: string }) => {
+const ProjectFavBtn = ({ projectId, isFavorite }: { projectId: number; isFavorite: boolean }) => {
   return (
-    <div className="tooltip group/fav left-3" onClick={() => handelToggleFavAction(projectId)}>
+    <div
+      className={cn("tooltip group/fav left-3", isFavorite && "bg-primary!")}
+      onClick={() => handelToggleFavAction(projectId)}
+    >
       <HeartPlus
-        className="text-primary group-hover/fav:text-white transition-colors duration-300"
+        className={cn(
+          "group-hover/fav:text-white transition-colors duration-300",
+          isFavorite && "text-white!",
+        )}
         size={20}
       />
     </div>

@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Button } from "./button";
 import ProjectCard from "@/components/custom/ProjectCard";
-import { Project } from "@/types/layoutTypes";
+import { ProjectCardData } from "@/types/hometypes";
 
 type Tab = {
   title: string;
@@ -35,7 +35,7 @@ export const Tabs = ({
   activeTabContentClassName?: string;
   variant?: "default" | "underline" | "toggle";
   onTabChange?: (tab: Tab) => void;
-  projectData?: { recent: Project[]; completed: Project[]; activeStatus: string };
+  projectData?: { recent: ProjectCardData[]; completed: ProjectCardData[]; activeStatus: string };
   filterField?: string;
 }) => {
   const [active, setActive] = useState<Tab>(propTabs[0]);
@@ -80,7 +80,7 @@ export const Tabs = ({
 
     return activeProjects.filter(
       (project) =>
-        project[filterField as keyof Project]?.toString().toLowerCase() ===
+        project[filterField as keyof ProjectCardData]?.toString().toLowerCase() ===
         active.value.toLowerCase(),
     );
   }, [projectData, active.value, filterField]);

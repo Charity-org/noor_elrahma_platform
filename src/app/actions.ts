@@ -5,8 +5,9 @@ import axios from "axios";
 import { z } from "zod";
 import profileSchema, { ProfileFormData } from "@/lib/validations/profileSchema";
 
-import signUpSchema from "@/lib/validations/signUpSchema";
+import signUpSchema, { SignUpFormData } from "@/lib/validations/signUpSchema";
 import { cookies, headers } from "next/headers";
+import contactSchema, { ContactFormData } from "@/lib/validations/contactSchema";
 
 type ActionResponse<T = void> = {
   success: boolean;
@@ -89,7 +90,7 @@ export async function updateProfileAction(formData: ProfileFormData): Promise<Ac
   }
 }
 
-export async function toggleFavAction(projectId: string): Promise<ActionResponse> {
+export async function toggleFavAction(projectId: number): Promise<ActionResponse> {
   try {
     await api.post(
       `/api/favorites`,
@@ -104,6 +105,9 @@ export async function toggleFavAction(projectId: string): Promise<ActionResponse
     return { success: true, message: "Project added to favourites!" };
   } catch (error) {
     return handleActionError(error, "Failed to add project to favourites");
+  }
+}
+
 export async function contactUsAction(formData: ContactFormData): Promise<ActionResponse> {
   try {
     const { email, firstName, lastName, message, phone, subject } = contactSchema.parse(formData);

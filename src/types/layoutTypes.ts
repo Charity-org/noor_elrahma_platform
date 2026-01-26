@@ -8,29 +8,6 @@ interface ProgressBarProps {
   value: number;
 }
 
-interface Project {
-  id: string;
-  imageSrc: string;
-  title: string;
-  startDate: string;
-  country: string;
-  description: string;
-  progress: number;
-  goal: number;
-  raised: number;
-  donations: number;
-  actions: {
-    viewProject: {
-      title: string;
-      link: string;
-    };
-    donateNow?: {
-      title: string;
-      link: string;
-    };
-  };
-}
-
 interface FocusCardsType {
   title: string;
   src: string;
@@ -47,7 +24,6 @@ interface Invoice {
   amount: number;
 }
 
-export type { BurgerBtnProps, ProgressBarProps, Project, FocusCardsType, Invoice };
 interface NotificationsData {
   id: string;
   image?: string;
@@ -55,12 +31,4 @@ interface NotificationsData {
   notificationMessage: string;
 }
 
-export type {
-  BurgerBtnProps,
-  ProgressBarProps,
-  Project,
-  FocusCardsType,
-  NewsType,
-  Invoice,
-  NotificationsData,
-};
+export type { BurgerBtnProps, ProgressBarProps, FocusCardsType, Invoice, NotificationsData };

@@ -1,83 +1,108 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "motion/react";
-import { Tabs } from "@/components/ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 import ProjectCard from "@/components/custom/ProjectCard";
 import SearchInput from "./SearchInput";
 
-import { Project } from "@/types/layoutTypes";
-import { STATUS_TABS, COUNTRY_TABS } from "@/constants/projectFilters";
-
-type filtersType = {
-  status: string;
-  country: string;
-};
+import { ProjectCardData } from "@/types/hometypes";
 
 interface ProjectFiltersProps {
-  recentProjects: Project[];
-  completedProjects: Project[];
+  projects: ProjectCardData[];
 }
 
-const ProjectFilters = ({ recentProjects, completedProjects }: ProjectFiltersProps) => {
-  const [filters, setFilters] = useState<filtersType>({
-    status: "recent",
-    country: "gambia",
-  });
+const ProjectFilters = ({ projects }: ProjectFiltersProps) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
-  // Filter projects based on active status and country
-  const filteredProjects = useMemo(() => {
-    const activeProjects = filters.status === "recent" ? recentProjects : completedProjects;
-    return activeProjects.filter(
-      (project) => project.country.toLowerCase() === filters.country.toLowerCase(),
-    );
-  }, [filters.status, filters.country, recentProjects, completedProjects]);
+  const currentCountry = searchParams.get("country") || "all";
+  const currentType = searchParams.get("type") || "all";
 
-  // Memoize handlers to prevent unnecessary re-renders
-  const handleCountryChange = useCallback((tab: { value: string }) => {
-    setFilters((prev) => ({ ...prev, country: tab.value as "gambia" | "senegal" }));
-  }, []);
+  const handleCountryChange = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value && value !== "all") {
+      params.set("country", value);
+    } else {
+      params.delete("country");
+    }
+    router.push(`?${params.toString()}`, { scroll: false });
+  };
 
-  const handleStatusChange = useCallback((tab: { value: string }) => {
-    setFilters((prev) => ({ ...prev, status: tab.value as "recent" | "completed" }));
-  }, []);
+  const handleTypeChange = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value && value !== "all") {
+      params.set("type", value);
+    } else {
+      params.delete("type");
+    }
+    router.push(`?${params.toString()}`, { scroll: false });
+  };
 
   return (
     <div className="space-y-12">
-      <div className="flex justify-between items-center gap-2 md:gap-0">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4">
         <SearchInput />
 
-        <Tabs tabs={COUNTRY_TABS} variant="underline" onTabChange={handleCountryChange} />
+        <div className="flex gap-4 w-full md:w-auto">
+          <Select value={currentCountry} onValueChange={handleCountryChange}>
+            <SelectTrigger className="w-45">
+              <SelectValue placeholder="Select Country" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Countries</SelectItem>
+              <SelectItem value="Gambia">Gambia</SelectItem>
+              <SelectItem value="Senegal">Senegal</SelectItem>
+            </SelectContent>
+          </Select>
+
+          <Select value={currentType} onValueChange={handleTypeChange}>
+            <SelectTrigger className="w-45">
+              <SelectValue placeholder="Select Type" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Projects</SelectItem>
+              <SelectItem value="recent">Recent</SelectItem>
+              <SelectItem value="completed">Completed</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
-      {/* Status tabs below search */}
-      <div className="flex justify-start">
-        <Tabs tabs={STATUS_TABS} variant="toggle" onTabChange={handleStatusChange} />
-      </div>
-
-      {/* Project cards grid */}
       <motion.div
-        key={`${filters.status}-${filters.country}`}
+        key={`${currentType}-${currentCountry}`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
-        className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 pb-10"
+        className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-10"
       >
-        {filteredProjects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.9,
-              delay: index * 0.05,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-          >
-            <ProjectCard project={project} />
-          </motion.div>
-        ))}
+        {projects?.length > 0 ? (
+          projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.05,
+                ease: "easeOut",
+              }}
+            >
+              <ProjectCard project={project} />
+            </motion.div>
+          ))
+        ) : (
+          <div className="col-span-full text-center py-20 text-gray-500">
+            No projects found matching your criteria.
+          </div>
+        )}
       </motion.div>
     </div>
   );
