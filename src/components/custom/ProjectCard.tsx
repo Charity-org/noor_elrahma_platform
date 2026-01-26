@@ -47,7 +47,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           containerClassName="w-full h-64"
           className="object-cover bg-primary-hover w-full h-64 transition-all duration-300 ease-in-out group-hover:scale-105"
         />
-        {isAuthenticated && <ProjectFavBtn />}
+        {isAuthenticated && <ProjectFavBtn projectId={id} />}
 
         <ProjectShareBtn projectId={id} />
       </CardHeader>
