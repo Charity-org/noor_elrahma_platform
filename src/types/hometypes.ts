@@ -16,15 +16,24 @@ interface WhoWeAreDataType {
 }
 
 interface ProjectCardData {
-  projectId: number;
+  id: number;
+  name: string;
+  nameAr: string;
+  description: string;
+  descriptionAr: string;
   image: string;
-  projectName: string;
   country: string;
-  projectDescription: string;
-  progress: number;
+  startDate: string;
   goal: number;
   raised: number;
   donations: number;
+  isFavorite: boolean;
+  projectImages: {
+    id: number;
+    projectId: number;
+    image: string;
+    isMain: string;
+  }[];
 }
 
 interface SomeRealProjectsData {

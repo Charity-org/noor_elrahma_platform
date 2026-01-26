@@ -4,7 +4,7 @@ import { Share2, Check } from "lucide-react";
 import { useState, useTransition } from "react";
 import { ToastMessage } from "@/components/global/ToastMessage";
 
-const ProjectShareBtn = ({ projectId }: { projectId: string }) => {
+const ProjectShareBtn = ({ projectId }: { projectId: number }) => {
   const [copied, setCopied] = useState(false);
   const [isPending, startTransition] = useTransition();
 

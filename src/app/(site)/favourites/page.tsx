@@ -1,10 +1,11 @@
-"use client";
-
 import ProjectCard from "@/components/custom/ProjectCard";
 import SubPagesHero from "@/components/custom/SubPagesHero";
-import { recentProjects } from "@/constants/layoutData";
+import { getUserFav } from "@/utils/getUserFav";
 
-const FavouritesPage = () => {
+const FavouritesPage = async () => {
+  const favData = await getUserFav();
+  console.log(favData);
+
   return (
     <>
       <SubPagesHero bgImage="/assets/hero-1.jpg">
@@ -18,7 +19,7 @@ const FavouritesPage = () => {
       </SubPagesHero>
 
       <div className="container my-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {recentProjects.map((project) => (
+        {favData?.data?.map((project) => (
           <ProjectCard key={project.id} project={project} contaienrStyle="max-w-none!" />
         ))}
       </div>

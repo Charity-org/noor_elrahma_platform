@@ -1,9 +1,19 @@
 import SubPagesHero from "@/components/custom/SubPagesHero";
 import ProjectFilters from "@/components/pages/all-projects/ProjectFilters";
-import { recentProjects, completedProjects } from "@/constants/layoutData";
-import { Button } from "@/components/ui/button";
 
-function AllProjects() {
+import { Button } from "@/components/ui/button";
+import { ProjectCardData } from "@/types/hometypes";
+import { getAllProjects } from "@/utils/getAllProjects";
+
+interface SearchParamsProps {
+  searchParams: Promise<{ type?: string; country?: string }>;
+}
+
+async function AllProjects({ searchParams }: SearchParamsProps) {
+  const { type = "", country = "" } = await searchParams;
+  const projects = await getAllProjects({ type, country });
+  const projectsData = Object.values(projects?.data as ProjectCardData[]) || [];
+
   return (
     <>
       <SubPagesHero bgImage="/assets/real-pr-5.png">
@@ -20,7 +30,7 @@ function AllProjects() {
       </SubPagesHero>
 
       <main className="container mt-32 space-y-32">
-        <ProjectFilters recentProjects={recentProjects} completedProjects={completedProjects} />
+        <ProjectFilters projects={projectsData} />
       </main>
     </>
   );

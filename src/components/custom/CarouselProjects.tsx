@@ -35,8 +35,8 @@ const CarouselProjects: React.FC<PropType> = (props) => {
     <div className={styles.embla}>
       <div className={styles.embla__viewport} ref={emblaRef}>
         <div className={styles.embla__container}>
-          {projects.map((project) => (
-            <div className={styles.embla__slide} key={project.projectId}>
+          {projects.map((project, index) => (
+            <div className={styles.embla__slide} key={`${project.id}-${index}`}>
               <ProjectCard project={project} />
             </div>
           ))}
