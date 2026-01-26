@@ -8,7 +8,7 @@ const contactSchema = z.object({
     .min(5, "Email must be at least 5 characters long")
     .toLowerCase()
     .trim(),
-  phoneNumber: z
+  phone: z
     .string()
     .min(1, "Phone number is required")
     .regex(

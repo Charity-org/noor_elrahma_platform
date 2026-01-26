@@ -9,7 +9,7 @@ const useContactForm = () => {
       firstName: "",
       lastName: "",
       email: "",
-      phoneNumber: "",
+      phone: "",
       subject: undefined,
       message: "",
     },

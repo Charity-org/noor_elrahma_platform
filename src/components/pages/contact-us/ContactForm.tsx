@@ -5,6 +5,7 @@ import useContactForm from "@/hooks/useContactForm";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Loader2 } from "lucide-react";
 import { onContactSubmit } from "@/utils/onContactSubmit";
+import { ContactFormData } from "@/lib/validations/contactSchema";
 
 function ContactForm() {
   const {
@@ -12,11 +13,17 @@ function ContactForm() {
     handleSubmit,
     control,
     formState: { errors, isSubmitting },
+    reset,
   } = useContactForm();
+
+  const onSubmit = (data: ContactFormData) => {
+    onContactSubmit(data);
+    reset();
+  };
 
   return (
     <div className="bg-[#F8F9FA] px-10 py-10 rounded-r-md shadow-lg flex-1">
-      <form onSubmit={handleSubmit(onContactSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup>
           {/* First Name and Last Name Row */}
           <div className="flex flex-col lg:flex-row items-start justify-between gap-4">
@@ -41,10 +48,8 @@ function ContactForm() {
               {errors.email && <p className="text-destructive text-sm">{errors.email.message}</p>}
             </Field>
             <Field className="flex-1 w-full">
-              <Input {...register("phoneNumber")} placeholder="Phone Number" />
-              {errors.phoneNumber && (
-                <p className="text-destructive text-sm">{errors.phoneNumber.message}</p>
-              )}
+              <Input {...register("phone")} placeholder="Phone Number" />
+              {errors.phone && <p className="text-destructive text-sm">{errors.phone.message}</p>}
             </Field>
           </div>
 
