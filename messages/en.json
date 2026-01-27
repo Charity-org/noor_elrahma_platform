@@ -66,7 +66,8 @@
   },
   "about_us_page": {
     "hero_title": "Make a Difference, Support Those in Need.",
-    "hero_description": "We aspire to a society full of goodness"
+    "hero_description": "We aspire to a society full of goodness",
+    "alt_humanitarian_work": "Humanitarian work"
   },
   "contact_us_page": {
     "hero_title": "Stories and progress from our charitable work",
@@ -81,7 +82,8 @@
   "why_donate": {
     "title": "Why Donate With Us?",
     "reason1": "Because We Believe That Every Donation Is A Trust, And That Trust Is Built Through Actions, Not Words.",
-    "reason2": "We Promise That Every Contribution Will Have A Clear, Documented, And Transparently Shared Impact."
+    "reason2": "We Promise That Every Contribution Will Have A Clear, Documented, And Transparently Shared Impact.",
+    "alt_distribution": "Donation distribution"
   },
   "contact_form": {
     "first_name": "First Name",
@@ -133,5 +135,14 @@
     "loading": "Loading profile data...",
     "edit_profile": "Edit Profile",
     "editing": "Editing..."
+  },
+  "favourites_page": {
+    "title": "My Favourites",
+    "description": "Here are the projects you've marked as favorites. You can view their details and support them whenever you're ready."
+  },
+  "projects_by_region": {
+    "title": "Projects by Region",
+    "description": "These are the locations of the water wells that were built thanks to your generous donations, providing clean and safe water to those in need. Your kindness has brought life, hope, and relief to many families. We are deeply grateful for your support and for choosing to be a part of this lasting Project.",
+    "thank_you": "Thank you for your generosity and for making a real difference."
   }
 }

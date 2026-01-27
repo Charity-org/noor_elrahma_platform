@@ -31,7 +31,7 @@ const WhyDonateUS = () => {
           <div className="relative w-full overflow-hidden rounded-2xl shadow-lg pt-8">
             <Image
               src="/assets/about-us-3.png"
-              alt="Donation distribution"
+              alt={t("alt_distribution")} // Updated to use translation
               width={900}
               height={500}
               className="w-full h-auto object-cover"

@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function ProjectsByRegion() {
+  const t = useTranslations("projects_by_region");
+
   return (
     <section>
       <motion.div
@@ -14,19 +17,14 @@ export default function ProjectsByRegion() {
         <div className="mx-auto max-w-5xl text-center">
           {/* Title */}
           <h2 className="text-[clamp(1.5rem,3vw,3rem)] font-bold mb-4 font-teachers">
-            Projects by Region
+            {t("title")}
           </h2>
 
           {/* Description */}
           <p className="font-inter text-[clamp(0.9rem,1vw,1.1rem)]">
-            These are the locations of the water wells that were built thanks to your generous
-            donations, providing clean and safe water to those in need. Your kindness has brought
-            life, hope, and relief to many families. We are deeply grateful for your support and for
-            choosing to be a part of this lasting Project.
+            {t("description")}
             <br />
-            <span className="block mt-3">
-              Thank you for your generosity and for making a real difference.
-            </span>
+            <span className="block mt-3">{t("thank_you")}</span>
           </p>
         </div>
       </motion.div>
