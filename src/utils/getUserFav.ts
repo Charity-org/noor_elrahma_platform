@@ -1,14 +1,18 @@
 import api from "@/lib/api";
 import { cookies } from "next/headers";
-import { ProjectCardData } from "@/types/hometypes";
+import { getLocale } from "next-intl/server";
 
-const getUserFav = async (): Promise<{ data: ProjectCardData[] }> => {
+const getUserFav = async () => {
+  const lang = await getLocale();
   try {
-    return await api.get(`/api/favorites`, {
+    const res = await api.get(`/api/favorites`, {
       headers: {
         cookie: (await cookies()).toString(),
+        lang,
       },
     });
+    console.log("getUserFav response:", res.data);
+    return res.data;
   } catch (error) {
     console.error("Error fetching favorites:", error);
     throw new Error("Failed to load your favorite projects.");

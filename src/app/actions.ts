@@ -7,6 +7,8 @@ import profileSchema, { ProfileFormData } from "@/lib/validations/profileSchema"
 
 import signUpSchema, { SignUpFormData } from "@/lib/validations/signUpSchema";
 import { cookies, headers } from "next/headers";
+import { getLocale } from "next-intl/server";
+import { revalidatePath } from "next/cache";
 import contactSchema, { ContactFormData } from "@/lib/validations/contactSchema";
 
 type ActionResponse<T = void> = {
@@ -91,20 +93,25 @@ export async function updateProfileAction(formData: ProfileFormData): Promise<Ac
 }
 
 export async function toggleFavAction(projectId: number): Promise<ActionResponse> {
+  const lang = await getLocale();
   try {
-    await api.post(
+    const res = await api.post(
       `/api/favorites`,
       { projectId },
       {
         headers: {
           cookie: (await cookies()).toString(),
+          lang,
         },
       },
     );
 
-    return { success: true, message: "Project added to favourites!" };
+    revalidatePath("/favourites");
+    revalidatePath("/");
+
+    return { success: true, message: res.data.message || "Project added to favourites!" };
   } catch (error) {
-    return handleActionError(error, "Failed to add project to favourites");
+    return handleActionError(error, "Failed to update favourites");
   }
 }
 
