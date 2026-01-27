@@ -1,12 +1,20 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-const SubPagesHero = ({ children, bgImage }: { children: React.ReactNode; bgImage: string }) => {
+const SubPagesHero = ({
+  children,
+  bgImage,
+  alt = "Hero background",
+}: {
+  children: React.ReactNode;
+  bgImage: string;
+  alt?: string;
+}) => {
   return (
     <div className={cn("relative w-full h-[50vh]")} role="hero">
       <Image
         src={bgImage}
-        alt="Hero background"
+        alt={alt}
         fill
         className="object-cover object-center -z-10"
         loading="eager"

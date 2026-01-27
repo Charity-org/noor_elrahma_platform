@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { AboutUsItem } from "@/types/hometypes";
+import { useTranslations } from "next-intl";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -30,6 +31,7 @@ const contentVariants = {
 };
 
 export default function OurOrganization({ aboutusdata }: { aboutusdata: AboutUsItem[] }) {
+  const t = useTranslations("about_us_page");
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
@@ -44,7 +46,7 @@ export default function OurOrganization({ aboutusdata }: { aboutusdata: AboutUsI
         <div className="relative w-full md:w-1/2 h-[clamp(35rem,40vw,30rem)]">
           <Image
             src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${aboutusdata[0]?.image}`}
-            alt="Humanitarian work"
+            alt={t("alt_humanitarian_work")}
             width={480}
             height={480}
             className="rounded-4xl object-cover h-full w-full"
