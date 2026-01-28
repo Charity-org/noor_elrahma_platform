@@ -2,7 +2,6 @@ import SubPagesHero from "@/components/custom/SubPagesHero";
 import ProjectFilters from "@/components/pages/all-projects/ProjectFilters";
 
 import { Button } from "@/components/ui/button";
-import { ProjectCardData } from "@/types/hometypes";
 import { getAllProjects } from "@/utils/getAllProjects";
 import { getLocale, getTranslations } from "next-intl/server";
 
@@ -16,8 +15,10 @@ async function AllProjects({ searchParams }: SearchParamsProps) {
   const t = await getTranslations("projects_page");
   const tProjects = await getTranslations("projects");
 
-  const projects = await getAllProjects({ type, country, lang: locale });
-  const projectsData = Object.values(projects?.data as ProjectCardData[]) || [];
+  const { data: projectsData } = (await getAllProjects({ type, country, lang: locale })) || {
+    data: [],
+    meta: {},
+  };
 
   return (
     <>

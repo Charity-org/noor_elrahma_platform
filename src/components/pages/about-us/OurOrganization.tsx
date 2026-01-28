@@ -45,7 +45,13 @@ export default function OurOrganization({ aboutusdata }: { aboutusdata: AboutUsI
       <motion.div className="container flex flex-col md:flex-row gap-10" variants={contentVariants}>
         <div className="relative w-full md:w-1/2 h-[clamp(35rem,40vw,30rem)]">
           <Image
-            src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${aboutusdata[0]?.image}`}
+            src={
+              aboutusdata[0]?.image && aboutusdata[0]?.image.startsWith("http")
+                ? aboutusdata[0]?.image
+                : aboutusdata[0]?.image
+                  ? `${process.env.NEXT_PUBLIC_BACKEND_URL}${aboutusdata[0]?.image}`
+                  : ""
+            }
             alt={t("alt_humanitarian_work")}
             width={480}
             height={480}

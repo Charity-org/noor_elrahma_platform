@@ -59,7 +59,13 @@ const VerticalOneViewCarousel: React.FC<PropType> = (props) => {
             <div className={styles.embla__slide} key={index}>
               <div className="relative w-full h-full">
                 <SkeletonImage
-                  src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${slide}`}
+                  src={
+                    slide && slide.startsWith("http")
+                      ? slide
+                      : slide
+                        ? `${process.env.NEXT_PUBLIC_BACKEND_URL}${slide}`
+                        : ""
+                  }
                   alt={`Whoweare Slide ${index + 1}`}
                   fill
                   containerClassName="w-full h-full"

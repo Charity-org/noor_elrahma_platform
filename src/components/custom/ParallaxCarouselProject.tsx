@@ -78,7 +78,13 @@ function ParallaxCarouselProject({ projects }: PropType) {
               <div className={styles.embla__parallax}>
                 <div className={styles.embla__parallax__layer}>
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${project.src}`}
+                    src={
+                      project.src && project.src.startsWith("http")
+                        ? project.src
+                        : project.src
+                          ? `${process.env.NEXT_PUBLIC_BACKEND_URL}${project.src}`
+                          : ""
+                    }
                     alt={project.title}
                     width={310}
                     height={310}
