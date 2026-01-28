@@ -41,7 +41,13 @@ const HowItWorks = ({
         className="relative w-full lg:w-1/2 h-[clamp(20rem,80vw,32.4rem)] rounded-4xl overflow-hidden"
       >
         <SkeletonImage
-          src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image}`}
+          src={
+            image && image.startsWith("http")
+              ? image
+              : image
+                ? `${process.env.NEXT_PUBLIC_BACKEND_URL}${image}`
+                : ""
+          }
           alt="how-it-works image"
           containerClassName="w-full h-full"
           className="object-cover absolute top-0 bg-primary-hover w-full h-full transition-all duration-300 ease-in-out group-hover:scale-105"

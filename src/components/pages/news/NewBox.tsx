@@ -6,7 +6,13 @@ const NewBox = ({ author, content, description, image, title, new_link }: NewsTy
   return (
     <>
       <Image
-        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image}`}
+        src={
+          image && image.startsWith("http")
+            ? image
+            : image
+              ? `${process.env.NEXT_PUBLIC_BACKEND_URL}${image}`
+              : ""
+        }
         alt={title}
         width={300}
         height={300}

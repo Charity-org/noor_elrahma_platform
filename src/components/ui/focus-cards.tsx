@@ -26,7 +26,13 @@ export const Card = React.memo(
       )}
     >
       <SkeletonImage
-        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${card.src}`}
+        src={
+          card.src && card.src.startsWith("http")
+            ? card.src
+            : card.src
+              ? `${process.env.NEXT_PUBLIC_BACKEND_URL}${card.src}`
+              : ""
+        }
         alt={card.title}
         className="object-cover bg-primary-hover transition-all duration-300 ease-in-out relative z-10"
         fill

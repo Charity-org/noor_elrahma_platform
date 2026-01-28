@@ -60,7 +60,13 @@ const Hero = ({ heroData }: { heroData: HeroDataType[] }) => {
                   >
                     {image && (
                       <SkeletonImage
-                        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image}`}
+                        src={
+                          image && image.startsWith("http")
+                            ? image
+                            : image
+                              ? `${process.env.NEXT_PUBLIC_BACKEND_URL}${image}`
+                              : ""
+                        }
                         alt={projectTitle || "Project image"}
                         fill
                         containerClassName="absolute inset-0 -z-10 w-full h-full"
