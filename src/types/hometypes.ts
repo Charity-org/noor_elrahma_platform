@@ -28,6 +28,9 @@ interface ProjectCardData {
   raised: number;
   donations: number;
   isFavorite: boolean;
+  content?: string;
+  video_title?: string;
+  video_url?: string;
   projectImages: {
     id: number;
     projectId: number;

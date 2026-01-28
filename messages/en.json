@@ -144,5 +144,16 @@
     "title": "Projects by Region",
     "description": "These are the locations of the water wells that were built thanks to your generous donations, providing clean and safe water to those in need. Your kindness has brought life, hope, and relief to many families. We are deeply grateful for your support and for choosing to be a part of this lasting Project.",
     "thank_you": "Thank you for your generosity and for making a real difference."
+  },
+  "ProjectDetails": {
+    "About": {
+      "title": "About The Project"
+    },
+    "RealProject": {
+      "title": "Real moments from projects on the ground"
+    },
+    "Overview": {
+      "video_title": "Project Overview"
+    }
   }
 }

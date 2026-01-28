@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { ProjectCardData, recent_completed_projects } from "@/types/hometypes";
 import { useTranslations } from "next-intl";
 import { formatDate } from "@/utils/formateDate";
+import Link from "next/link";
 interface ProjectCardProps {
   project: ProjectCardData | recent_completed_projects;
   contaienrStyle?: string;
@@ -97,12 +98,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, contaienrStyle }) =>
         <Button className="w-full h-15 text-[16px] font-bold font-teachers rounded-2xl! cursor-pointer">
           {t("donate_now")}
         </Button>
-        <Button
-          variant={"outline"}
-          className="w-full h-15 text-[16px] border-primary text-primary bg-white font-bold font-teachers rounded-2xl! hover:bg-secondary-hover cursor-pointer"
-        >
-          {t("view_project")}
-        </Button>
+        <Link href={`/projects/${id}`} className="w-full">
+          <Button
+            variant={"outline"}
+            className="w-full h-15 text-[16px] border-primary text-primary bg-white font-bold font-teachers rounded-2xl! hover:bg-secondary-hover cursor-pointer"
+          >
+            {t("view_project")}
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );

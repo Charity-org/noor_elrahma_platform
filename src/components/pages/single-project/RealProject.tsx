@@ -1,16 +1,19 @@
 "use client";
 
 import ParallaxCarouselProject from "@/components/custom/ParallaxCarouselProject";
-import { someRealProjectsData } from "@/constants/layoutData";
+import { ProjectCardData } from "@/types/hometypes";
+import { useTranslations } from "next-intl";
 
-function RealProject() {
+function RealProject({ project }: { project: ProjectCardData }) {
+  const t = useTranslations("ProjectDetails.RealProject");
+
   return (
     <section className="container">
       <h3 className="font-bold font-teachers text-5xl mt-15 text-center mb-10 text-primary">
-        Real Moments from Projects on the Ground
+        {t("title")}
       </h3>
 
-      <ParallaxCarouselProject projects={someRealProjectsData} />
+      <ParallaxCarouselProject project={project} />
     </section>
   );
 }
