@@ -11,19 +11,36 @@ import styles from "@/styles/CarouselParallaxPerView.module.css";
 import { NextButton, PrevButton, usePrevNextButtons } from "../ui/EmblaCarouselArrowButtons";
 
 import { cn } from "@/lib/utils";
+import { ProjectCardData, SomeRealProjectsData } from "@/types/hometypes";
 
-type PropType = {
-  projects: {
-    title: string;
-    src: string;
-  }[];
-};
-
-function ParallaxCarouselProject({ projects }: PropType) {
+function ParallaxCarouselProject({
+  project,
+  projects,
+}: {
+  project?: ProjectCardData;
+  projects?: SomeRealProjectsData[];
+}) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     slidesToScroll: 1,
     dragFree: true,
   });
+
+  const projectImages = Array.isArray(project?.projectImages)
+    ? project.projectImages
+    : project?.projectImages
+      ? [project.projectImages]
+      : [];
+  const slides = projects
+    ? projects
+        .filter((p) => p.src)
+        .map((p, i) => ({ id: `projects-${i}`, image: p.src, alt: p.title }))
+    : projectImages
+        .filter((img) => img.image)
+        .map((img) => ({
+          id: img.id,
+          image: img.image,
+          alt: project?.name || "Project image",
+        }));
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 
@@ -73,13 +90,13 @@ function ParallaxCarouselProject({ projects }: PropType) {
     <div className={styles.embla}>
       <div className={styles.embla__viewport} ref={emblaRef}>
         <div className={styles.embla__container}>
-          {projects.map((project) => (
-            <div key={project.title} className={styles.embla__slide}>
+          {slides.map((slide) => (
+            <div key={slide.id} className={styles.embla__slide}>
               <div className={styles.embla__parallax}>
                 <div className={styles.embla__parallax__layer}>
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${project.src}`}
-                    alt={project.title}
+                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${slide.image}`}
+                    alt={slide.alt}
                     width={310}
                     height={310}
                     className={`${styles.embla__parallax__img} ${styles.embla__slide__img}`}
